@@ -2,6 +2,7 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import { currentVendor } from '@/config/brand'
 import { formatDate, formatDateTime } from '@/utils/format'
+import { useInvoicesStore } from './invoices'
 
 export interface InvoiceForm {
   vendorName: string
@@ -107,12 +108,19 @@ export const useInvoiceStore = defineStore('invoice', () => {
     // Replace with an API call once the backend is available.
     const now = new Date()
     const sequence = String(Math.floor(Math.random() * 1_000_000)).padStart(6, '0')
+    const referenceNo = `SUB-${now.getFullYear()}-${sequence}`
     submission.value = {
       invoiceNo: form.value.invoiceNo,
       invoiceDate: formatDate(form.value.invoiceDate),
       submittedOn: formatDateTime(now),
-      referenceNo: `SUB-${now.getFullYear()}-${sequence}`,
+      referenceNo,
     }
+    useInvoicesStore().addFromSubmission(
+      referenceNo,
+      form.value,
+      documents.value,
+      now.toISOString(),
+    )
   }
 
   return {

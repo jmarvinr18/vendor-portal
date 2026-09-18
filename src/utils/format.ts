@@ -48,3 +48,18 @@ export function todayIso(): string {
 export function roundMoney(value: number): number {
   return Math.round(value * 100) / 100
 }
+
+/** Formats an ISO timestamp as e.g. "May 20, 2026". */
+export function formatIsoDate(iso: string | null | undefined): string {
+  if (!iso) return '—'
+  return new Date(iso).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
+}
+
+/** Formats an ISO timestamp as e.g. "May 20, 2026 02:45 PM". */
+export function formatIsoDateTime(iso: string | null | undefined): string {
+  return iso ? formatDateTime(new Date(iso)) : '—'
+}

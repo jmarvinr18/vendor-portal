@@ -24,8 +24,29 @@ const router = createRouter({
     {
       path: '/invoice-status',
       name: 'invoice-status',
-      component: placeholder,
-      meta: { title: 'Invoice Status' },
+      component: () => import('../views/InvoiceStatusView.vue'),
+    },
+    {
+      path: '/invoice-status/:id',
+      component: () => import('../views/invoice/InvoiceDetailLayout.vue'),
+      meta: { navKey: 'invoice-status' },
+      children: [
+        {
+          path: '',
+          name: 'invoice-details',
+          component: () => import('../views/invoice/InvoiceDetailsView.vue'),
+        },
+        {
+          path: 'timeline',
+          name: 'invoice-timeline',
+          component: () => import('../views/invoice/InvoiceTimelineView.vue'),
+        },
+        {
+          path: 'comments',
+          name: 'invoice-comments',
+          component: () => import('../views/invoice/InvoiceCommentsView.vue'),
+        },
+      ],
     },
     { path: '/payments', name: 'payments', component: placeholder, meta: { title: 'Payments' } },
     { path: '/profile', name: 'profile', component: placeholder, meta: { title: 'My Profile' } },
