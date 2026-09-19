@@ -1,14 +1,41 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useCurrentInvoice } from '@/composables/useCurrentInvoice'
-import { stagesFor, statusInfo } from '@/data/invoices'
+import { STATUS_INFO, stagesFor } from '@/constants/invoice'
+import InvoiceApi from '@/services/api/invoice/invoice'
+import type { InvoiceTimeline } from '@/schema'
 import { formatIsoDateTime } from '@/utils/format'
 import StatusBadge from '@/components/StatusBadge.vue'
 
 const invoice = useCurrentInvoice()
-const stages = computed(() => (invoice.value ? stagesFor(invoice.value) : []))
-const info = computed(() => (invoice.value ? statusInfo[invoice.value.status] : undefined))
+const timeline = ref<InvoiceTimeline | null>(null)
+
+// GET /timeline is authoritative; until it arrives (or if it fails) the same view is
+// derived locally from the loaded invoice so the page never flashes empty.
+watch(
+  () => invoice.value?.id,
+  async (id, _, onCleanup) => {
+    timeline.value = null
+    if (!id) return
+    const controller = new AbortController()
+    onCleanup(() => controller.abort())
+    try {
+      timeline.value = (await InvoiceApi.timeline(id, controller.signal)).data
+    } catch {
+      // Keep the locally derived timeline.
+    }
+  },
+  { immediate: true },
+)
+
+const stages = computed(
+  () => timeline.value?.stages ?? (invoice.value ? stagesFor(invoice.value) : []),
+)
+const info = computed(
+  () =>
+    timeline.value?.statusInfo ?? (invoice.value ? STATUS_INFO[invoice.value.status] : undefined),
+)
 
 const icons = {
   done: 'bi-check-lg',

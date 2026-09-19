@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import BrandLogo from './BrandLogo.vue'
-import { brand, currentVendor } from '@/config/brand'
+import { brand } from '@/config/brand'
+import { useReferenceDataStore } from '@/stores/referenceData'
+
+const referenceData = useReferenceDataStore()
 </script>
 
 <template>
@@ -42,7 +45,7 @@ import { brand, currentVendor } from '@/config/brand'
           aria-expanded="false"
         >
           <i class="bi bi-person"></i>
-          <span class="d-none d-md-inline">{{ currentVendor.name }}</span>
+          <span class="d-none d-md-inline">{{ referenceData.vendorName }}</span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end shadow-sm">
           <li><RouterLink class="dropdown-item" to="/profile">My Profile</RouterLink></li>

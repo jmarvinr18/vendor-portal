@@ -1,32 +1,9 @@
-import { reactive, ref, watch } from 'vue'
+import { reactive, ref } from 'vue'
 import { defineStore } from 'pinia'
-import {
-  seedInvoices,
-  stageForStatus,
-  type DocumentType,
-  type InvoiceRecord,
-  type InvoiceStatus,
-} from '@/data/invoices'
-import type { InvoiceForm, SupportingDocument } from './invoice'
-
-const STORAGE_KEY = 'vendor-portal:invoices:v1'
-
-function load(): InvoiceRecord[] | null {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? (JSON.parse(raw) as InvoiceRecord[]) : null
-  } catch {
-    return null
-  }
-}
-
-function guessDocType(name: string): DocumentType {
-  const upper = name.toUpperCase()
-  if (upper.startsWith('INV')) return 'Invoice'
-  if (upper.startsWith('PO') || upper.startsWith('PR')) return 'Purchase Order'
-  if (upper.startsWith('DR')) return 'Delivery Receipt'
-  return 'Other'
-}
+import { ApiError } from '@/services/ApiService'
+import CommentApi from '@/services/api/invoice/comment'
+import InvoiceApi from '@/services/api/invoice/invoice'
+import type { Invoice, InvoiceListItem, InvoiceListQuery, InvoiceStatus } from '@/schema'
 
 export interface ListFilters {
   search: string
@@ -35,79 +12,97 @@ export interface ListFilters {
   dateTo: string
 }
 
-export const useInvoicesStore = defineStore('invoices', () => {
-  const invoices = ref<InvoiceRecord[]>(load() ?? seedInvoices())
-  // Uploaded File objects can't be persisted; they're kept for the current session only.
-  const files = new Map<string, File>()
+function isAbort(error: unknown) {
+  return error instanceof DOMException && error.name === 'AbortError'
+}
 
-  // UI state for the Invoice Status list, kept here so it survives visiting a detail page.
+/** Invoice Status list and the invoice open on the detail pages. */
+export const useInvoicesStore = defineStore('invoices', () => {
+  // ----- List -----
+  // UI state kept here so it survives visiting a detail page.
   const listState = reactive({
     filters: { search: '', status: '', dateFrom: '', dateTo: '' } as ListFilters,
     page: 1,
     pageSize: 10,
     selectedId: null as string | null,
   })
+  const items = ref<InvoiceListItem[]>([])
+  const total = ref(0)
+  const pageCount = ref(1)
+  const listLoading = ref(false)
+  const listError = ref<ApiError | null>(null)
+  let listController: AbortController | null = null
 
-  watch(invoices, (value) => localStorage.setItem(STORAGE_KEY, JSON.stringify(value)), {
-    deep: true,
-  })
-
-  function getById(id: string) {
-    return invoices.value.find((invoice) => invoice.id === id)
+  async function fetchList() {
+    // Only the latest request wins when filters change quickly.
+    listController?.abort()
+    const controller = (listController = new AbortController())
+    listLoading.value = true
+    listError.value = null
+    const query: InvoiceListQuery = {
+      ...listState.filters,
+      page: listState.page,
+      pageSize: listState.pageSize,
+    }
+    try {
+      const { data: page } = await InvoiceApi.list(query, controller.signal)
+      items.value = page.items
+      total.value = page.total
+      pageCount.value = page.pageCount
+      listState.page = page.page
+      if (!items.value.some((inv) => inv.id === listState.selectedId)) {
+        listState.selectedId = items.value[0]?.id ?? null
+      }
+    } catch (error) {
+      if (isAbort(error)) return
+      listError.value =
+        error instanceof ApiError ? error : new ApiError(0, 'Could not load invoices.')
+    } finally {
+      if (listController === controller) listLoading.value = false
+    }
   }
 
-  function addFromSubmission(
-    id: string,
-    form: InvoiceForm,
-    documents: SupportingDocument[],
-    submittedOn: string,
-  ) {
-    for (const doc of documents) if (doc.file) files.set(doc.id, doc.file)
-    invoices.value.unshift({
-      id,
-      invoiceNo: form.invoiceNo,
-      invoiceType: form.invoiceType,
-      invoiceDate: form.invoiceDate,
-      poPrNo: form.poPrNo,
-      drNo: form.drNo,
-      description: form.description,
-      vendorName: form.vendorName,
-      creditTerms: form.creditTerms,
-      dateReceived: form.dateReceived,
-      invoiceAmount: form.invoiceAmount ?? 0,
-      vatableSales: form.vatableSales ?? 0,
-      vat: form.vat ?? 0,
-      nonVat: form.nonVat ?? 0,
-      status: 'Submitted',
-      submittedOn,
-      currentStage: stageForStatus.Submitted,
-      stageTimes: [submittedOn],
-      documents: documents.map((doc) => ({
-        id: doc.id,
-        name: doc.name,
-        docType: guessDocType(doc.name),
-        uploadedOn: submittedOn,
-        size: doc.size,
-        extension: doc.extension,
-      })),
-      comments: [],
-    })
-    listState.selectedId = id
-    listState.page = 1
+  // ----- Detail -----
+  const current = ref<Invoice | null>(null)
+  const currentLoading = ref(false)
+  const currentError = ref<ApiError | null>(null)
+
+  async function fetchInvoice(id: string) {
+    if (current.value?.id !== id) current.value = null
+    currentLoading.value = true
+    currentError.value = null
+    try {
+      current.value = (await InvoiceApi.get(id)).data
+    } catch (error) {
+      currentError.value =
+        error instanceof ApiError ? error : new ApiError(0, 'Could not load the invoice.')
+    } finally {
+      currentLoading.value = false
+    }
   }
 
-  function addComment(id: string, message: string) {
-    getById(id)?.comments.push({
-      id: crypto.randomUUID(),
-      author: 'Vendor',
-      message,
-      postedOn: new Date().toISOString(),
-    })
+  async function addComment(message: string) {
+    if (!current.value) return
+    const invoice = current.value
+    const { data: comment } = await CommentApi.create(invoice.id, { message })
+    invoice.comments.push(comment)
+    invoice.commentCount += 1
+    const listed = items.value.find((inv) => inv.id === invoice.id)
+    if (listed) listed.commentCount += 1
   }
 
-  function fileFor(docId: string) {
-    return files.get(docId)
+  return {
+    listState,
+    items,
+    total,
+    pageCount,
+    listLoading,
+    listError,
+    fetchList,
+    current,
+    currentLoading,
+    currentError,
+    fetchInvoice,
+    addComment,
   }
-
-  return { invoices, listState, getById, addFromSubmission, addComment, fileFor }
 })

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { InvoiceStatus } from '@/data/invoices'
+import type { InvoiceStatus } from '@/schema'
 
 defineProps<{ status: InvoiceStatus; size?: 'lg' }>()
 

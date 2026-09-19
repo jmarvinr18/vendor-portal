@@ -1,8 +1,23 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import { useCurrentInvoice } from '@/composables/useCurrentInvoice'
+import { useInvoicesStore } from '@/stores/invoices'
 
+const route = useRoute()
+const store = useInvoicesStore()
+const { currentLoading, currentError } = storeToRefs(store)
 const invoice = useCurrentInvoice()
+
+// Reload when switching invoices, and when coming back so the status is fresh.
+watch(
+  () => route.params.id,
+  (id) => {
+    if (typeof id === 'string') store.fetchInvoice(id)
+  },
+  { immediate: true },
+)
 
 const sections = [
   { name: 'invoice-details', label: 'Details', icon: 'bi-file-earmark-text' },
@@ -19,7 +34,7 @@ const sections = [
       </RouterLink>
 
       <nav v-if="invoice" class="section-nav" aria-label="Invoice sections">
-        <span class="section-nav-invoice">{{ invoice.invoiceNo }}</span>
+        <span class="section-nav-invoice">{{ invoice.invoiceNo || 'Draft' }}</span>
         <RouterLink
           v-for="section in sections"
           :key="section.name"
@@ -33,6 +48,26 @@ const sections = [
     </div>
 
     <RouterView v-if="invoice" />
+
+    <div
+      v-else-if="currentLoading"
+      class="vp-card text-center py-5 text-body-secondary"
+      role="status"
+    >
+      <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading invoice…
+    </div>
+
+    <div v-else-if="currentError && currentError.status !== 404" class="vp-card text-center py-5">
+      <i class="bi bi-exclamation-triangle fs-1 text-danger"></i>
+      <p class="mt-3 mb-4">{{ currentError.message }}</p>
+      <button
+        type="button"
+        class="btn btn-gold"
+        @click="store.fetchInvoice(String(route.params.id))"
+      >
+        Try Again
+      </button>
+    </div>
 
     <div v-else class="vp-card text-center py-5">
       <i class="bi bi-search fs-1 text-body-secondary"></i>

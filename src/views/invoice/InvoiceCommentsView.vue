@@ -2,7 +2,8 @@
 import { computed, ref } from 'vue'
 import { useCurrentInvoice } from '@/composables/useCurrentInvoice'
 import { useInvoicesStore } from '@/stores/invoices'
-import { stagesFor } from '@/data/invoices'
+import { stagesFor } from '@/constants/invoice'
+import { errorMessage } from '@/services/ApiService'
 import { formatIsoDateTime } from '@/utils/format'
 
 const invoice = useCurrentInvoice()
@@ -10,6 +11,8 @@ const store = useInvoicesStore()
 
 const tab = ref<'comments' | 'activity'>('comments')
 const message = ref('')
+const posting = ref(false)
+const postError = ref<string | null>(null)
 const MAX_LENGTH = 1000
 
 const comments = computed(() =>
@@ -65,11 +68,19 @@ const activity = computed<ActivityEntry[]>(() => {
   return entries.sort((a, b) => b.time.localeCompare(a.time))
 })
 
-function post() {
+async function post() {
   const text = message.value.trim()
-  if (!text || !invoice.value) return
-  store.addComment(invoice.value.id, text)
-  message.value = ''
+  if (!text || !invoice.value || posting.value) return
+  posting.value = true
+  postError.value = null
+  try {
+    await store.addComment(text)
+    message.value = ''
+  } catch (error) {
+    postError.value = errorMessage(error, 'Your comment could not be posted.')
+  } finally {
+    posting.value = false
+  }
 }
 </script>
 
@@ -115,9 +126,19 @@ function post() {
         ></textarea>
         <div class="d-flex justify-content-between align-items-center px-2 pb-2">
           <span class="small text-body-secondary"> {{ message.length }}/{{ MAX_LENGTH }} </span>
-          <button type="submit" class="btn btn-post" :disabled="!message.trim()">Post</button>
+          <button type="submit" class="btn btn-post" :disabled="!message.trim() || posting">
+            <span
+              v-if="posting"
+              class="spinner-border spinner-border-sm me-1"
+              aria-hidden="true"
+            ></span>
+            Post
+          </button>
         </div>
       </form>
+      <div v-if="postError" class="alert alert-danger py-2 small" role="alert">
+        {{ postError }}
+      </div>
 
       <ul class="list-unstyled comment-list mb-4">
         <li v-for="comment in comments" :key="comment.id" class="comment">

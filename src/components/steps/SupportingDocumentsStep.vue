@@ -1,43 +1,62 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useInvoiceStore } from '@/stores/invoice'
-import { upload } from '@/config/brand'
+import { useReferenceDataStore } from '@/stores/referenceData'
 import { formatFileSize } from '@/utils/format'
 import FileTypeIcon from '@/components/FileTypeIcon.vue'
 
 const emit = defineEmits<{ next: []; back: [] }>()
 
+// Files stay in the browser until Review & Submit; nothing is uploaded from this step.
 const store = useInvoiceStore()
-const { documents } = storeToRefs(store)
+const { documents, serverErrors } = storeToRefs(store)
+const referenceData = useReferenceDataStore()
+const rules = computed(() => referenceData.uploadRules)
 
 const fileInput = ref<HTMLInputElement>()
 const dragging = ref(false)
-const uploadErrors = ref<string[]>([])
+const fileErrors = ref<string[]>([])
 const showRequiredError = ref(false)
 
-const accept = upload.acceptedExtensions.map((ext) => `.${ext}`).join(',')
-const maxSizeLabel = `${upload.maxFileSize / (1024 * 1024)}MB`
+const accept = computed(() => rules.value.acceptedExtensions.map((ext) => `.${ext}`).join(','))
+const maxSizeLabel = computed(() => `${rules.value.maxFileSize / (1024 * 1024)}MB`)
+const requiredError = computed(() =>
+  showRequiredError.value
+    ? 'Please upload at least one supporting document.'
+    : serverErrors.value.documents,
+)
 
+/** Same checks the API runs on upload, so problems show up before submitting. */
 function addFiles(files: FileList | null) {
-  if (!files) return
+  if (!files?.length) return
   const problems: string[] = []
+  const accepted: File[] = []
   for (const file of Array.from(files)) {
     const ext = file.name.split('.').pop()?.toLowerCase() ?? ''
-    if (!upload.acceptedExtensions.includes(ext)) {
+    if (!rules.value.acceptedExtensions.includes(ext)) {
       problems.push(`${file.name}: unsupported format. Use PDF, JPG or PNG.`)
-    } else if (file.size > upload.maxFileSize) {
-      problems.push(`${file.name}: exceeds the ${maxSizeLabel} limit.`)
-    } else if (documents.value.some((doc) => doc.name === file.name && doc.size === file.size)) {
-      problems.push(`${file.name}: already uploaded.`)
-    } else if (documents.value.length >= upload.maxFiles) {
-      problems.push(`${file.name}: you can upload up to ${upload.maxFiles} files.`)
+    } else if (file.size > rules.value.maxFileSize) {
+      problems.push(`${file.name}: exceeds the ${maxSizeLabel.value} limit.`)
+    } else if (file.size === 0) {
+      problems.push(`${file.name}: file is empty.`)
+    } else if (
+      [...documents.value, ...accepted].some(
+        (doc) => doc.name === file.name && doc.size === file.size,
+      )
+    ) {
+      problems.push(`${file.name}: already added.`)
+    } else if (documents.value.length + accepted.length >= rules.value.maxFiles) {
+      problems.push(`${file.name}: you can upload up to ${rules.value.maxFiles} files.`)
     } else {
-      store.addDocument(file)
+      accepted.push(file)
     }
   }
-  uploadErrors.value = problems
-  if (documents.value.length) showRequiredError.value = false
+  fileErrors.value = problems
+  if (accepted.length) {
+    store.addFiles(accepted)
+    showRequiredError.value = false
+  }
 }
 
 function onChange(event: Event) {
@@ -77,7 +96,10 @@ function next() {
           <li v-for="doc in documents" :key="doc.id" class="doc-item">
             <FileTypeIcon :extension="doc.extension" />
             <div class="flex-grow-1 min-w-0">
-              <div class="doc-name text-truncate" :title="doc.name">{{ doc.name }}</div>
+              <div class="doc-name text-truncate" :title="doc.name">
+                {{ doc.name }}
+                <span v-if="doc.fromScan" class="badge scan-badge ms-1">Scanned invoice</span>
+              </div>
               <div class="doc-meta">
                 {{ doc.extension.toUpperCase() }} <span class="mx-1">&bull;</span>
                 {{ formatFileSize(doc.size) }}
@@ -99,7 +121,7 @@ function next() {
       <div class="col-lg-6">
         <div
           class="dropzone"
-          :class="{ dragging, 'is-invalid': showRequiredError }"
+          :class="{ dragging, 'is-invalid': requiredError }"
           @dragover.prevent="dragging = true"
           @dragleave.prevent="dragging = false"
           @drop.prevent="onDrop"
@@ -117,11 +139,9 @@ function next() {
           </div>
         </div>
 
-        <div v-if="showRequiredError" class="text-danger small mt-2">
-          Please upload at least one supporting document.
-        </div>
-        <ul v-if="uploadErrors.length" class="text-danger small mt-2 mb-0 ps-3">
-          <li v-for="message in uploadErrors" :key="message">{{ message }}</li>
+        <div v-if="requiredError" class="text-danger small mt-2">{{ requiredError }}</div>
+        <ul v-if="fileErrors.length" class="text-danger small mt-2 mb-0 ps-3">
+          <li v-for="message in fileErrors" :key="message">{{ message }}</li>
         </ul>
       </div>
     </div>
@@ -158,6 +178,12 @@ function next() {
 
 .doc-name {
   font-weight: 500;
+}
+
+.scan-badge {
+  background: var(--vp-gold-soft);
+  color: var(--vp-text);
+  font-weight: 600;
 }
 
 .doc-meta {

@@ -1,21 +1,28 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useInvoiceStore, type Step } from '@/stores/invoice'
+import { useInvoiceScanStore } from '@/stores/invoiceScan'
 import { formatCurrency, formatDate } from '@/utils/format'
 import FileTypeIcon from '@/components/FileTypeIcon.vue'
 
 const emit = defineEmits<{ back: []; edit: [step: Step]; submit: [] }>()
 
 const store = useInvoiceStore()
-const { form, documents } = storeToRefs(store)
-const submitting = ref(false)
+const { form, documents, submitPhase } = storeToRefs(store)
+const scan = useInvoiceScanStore()
+const submitting = computed(() => submitPhase.value !== null)
+const submitLabel = computed(
+  () =>
+    ({
+      saving: 'Saving invoice…',
+      uploading: 'Uploading documents…',
+      submitting: 'Submitting…',
+    })[submitPhase.value ?? 'submitting'],
+)
 
-async function submit() {
-  submitting.value = true
-  // Simulated network latency; replace with the real API call.
-  await new Promise((resolve) => setTimeout(resolve, 600))
-  emit('submit')
+function submit() {
+  if (!submitting.value) emit('submit')
 }
 </script>
 
@@ -23,6 +30,13 @@ async function submit() {
   <div>
     <h2 class="page-title mb-1">Review &amp; Submit</h2>
     <p class="section-subtitle fs-6 mb-4">Please review your invoice details before submission.</p>
+    <div v-if="scan.appliedFields.length" class="vp-info mb-4">
+      <i class="bi bi-upc-scan"></i>
+      <span>
+        Some details were read from your scanned invoice. Please confirm they match the invoice
+        before submitting.
+      </span>
+    </div>
 
     <div class="vp-card">
       <section class="review-section">
@@ -112,7 +126,7 @@ async function submit() {
             aria-hidden="true"
           ></span>
           <i v-else class="bi bi-send me-2"></i>
-          {{ submitting ? 'Submitting…' : 'Submit Invoice' }}
+          {{ submitting ? submitLabel : 'Submit Invoice' }}
         </button>
       </div>
     </div>

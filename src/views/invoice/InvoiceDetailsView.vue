@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useCurrentInvoice } from '@/composables/useCurrentInvoice'
 import { useInvoiceFiles } from '@/composables/useInvoiceFiles'
 import { formatCurrency, formatDate, formatFileSize, formatIsoDate } from '@/utils/format'
 import StatusBadge from '@/components/StatusBadge.vue'
 
 const invoice = useCurrentInvoice()
-const { viewDocument, downloadDocuments } = useInvoiceFiles()
+const { busyId, error: fileError, viewDocument, downloadDocuments } = useInvoiceFiles()
+const downloadable = computed(() => invoice.value?.documents.filter((d) => d.hasFile) ?? [])
 </script>
 
 <template>
@@ -21,21 +23,21 @@ const { viewDocument, downloadDocuments } = useInvoiceFiles()
           <h2 class="section-title mb-4">Invoice Information</h2>
           <dl class="info-list">
             <dt>Invoice No.</dt>
-            <dd>{{ invoice.invoiceNo }}</dd>
+            <dd>{{ invoice.invoiceNo || '—' }}</dd>
             <dt>Invoice Date</dt>
             <dd>{{ formatDate(invoice.invoiceDate) }}</dd>
             <dt>Invoice Type</dt>
-            <dd>{{ invoice.invoiceType }}</dd>
+            <dd>{{ invoice.invoiceType || '—' }}</dd>
             <dt>Vendor</dt>
-            <dd>{{ invoice.vendorName }}</dd>
+            <dd>{{ invoice.vendorName || '—' }}</dd>
             <dt>PO/PR No.</dt>
             <dd>{{ invoice.poPrNo || '—' }}</dd>
             <dt>DR No.</dt>
             <dd>{{ invoice.drNo || '—' }}</dd>
             <dt>Description</dt>
-            <dd>{{ invoice.description }}</dd>
+            <dd>{{ invoice.description || '—' }}</dd>
             <dt>Credit Terms</dt>
-            <dd>{{ invoice.creditTerms }}</dd>
+            <dd>{{ invoice.creditTerms || '—' }}</dd>
             <dt>Date Received</dt>
             <dd>{{ formatDate(invoice.dateReceived) }}</dd>
           </dl>
@@ -65,11 +67,21 @@ const { viewDocument, downloadDocuments } = useInvoiceFiles()
         <button
           type="button"
           class="btn btn-outline-vp btn-sm"
-          :disabled="!invoice.documents.length"
+          :disabled="!downloadable.length || busyId === 'all'"
+          :title="downloadable.length ? undefined : 'No files available to download'"
           @click="downloadDocuments(invoice)"
         >
-          <i class="bi bi-download me-1"></i>Download All
+          <span
+            v-if="busyId === 'all'"
+            class="spinner-border spinner-border-sm me-1"
+            aria-hidden="true"
+          ></span>
+          <i v-else class="bi bi-download me-1"></i>Download All
         </button>
+      </div>
+
+      <div v-if="fileError" class="alert alert-danger py-2 small" role="alert">
+        {{ fileError }}
       </div>
 
       <div class="table-responsive">
@@ -91,10 +103,16 @@ const { viewDocument, downloadDocuments } = useInvoiceFiles()
                   type="button"
                   class="btn btn-link view-btn"
                   :aria-label="`View ${doc.name}`"
-                  title="View"
+                  :title="doc.hasFile ? 'View' : 'File not available'"
+                  :disabled="!doc.hasFile || busyId === doc.id"
                   @click="viewDocument(invoice, doc)"
                 >
-                  <i class="bi bi-eye"></i>
+                  <span
+                    v-if="busyId === doc.id"
+                    class="spinner-border spinner-border-sm"
+                    aria-hidden="true"
+                  ></span>
+                  <i v-else class="bi" :class="doc.hasFile ? 'bi-eye' : 'bi-eye-slash'"></i>
                 </button>
               </td>
             </tr>

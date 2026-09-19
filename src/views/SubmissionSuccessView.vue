@@ -70,7 +70,7 @@ const confetti: [number, number, 'dot' | 'diamond', number][] = [
     </div>
 
     <div class="success-actions">
-      <RouterLink to="/my-invoices" class="btn btn-gold btn-lg">
+      <RouterLink :to="{ name: 'invoice-status' }" class="btn btn-gold btn-lg">
         View My Invoices <i class="bi bi-arrow-right ms-3"></i>
       </RouterLink>
       <button type="button" class="btn btn-outline-vp btn-lg" @click="submitAnother">

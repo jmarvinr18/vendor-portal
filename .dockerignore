@@ -5,5 +5,7 @@ dist
 .claude
 *.log
 *.tsbuildinfo
+# Local env files (may hold a development vendor id); never bake them into the image.
+.env*.local
 Dockerfile
 .dockerignore
