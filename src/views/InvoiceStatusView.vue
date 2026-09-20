@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import { computed, reactive, watchEffect } from 'vue'
+import { computed, onMounted, reactive } from 'vue'
 import { RouterLink } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useInvoicesStore } from '@/stores/invoices'
-import { invoiceStatuses, statusInfo } from '@/data/invoices'
+import { useReferenceDataStore } from '@/stores/referenceData'
+import { STATUS_INFO } from '@/constants/invoice'
 import { formatCurrency, formatDate, formatIsoDateTime } from '@/utils/format'
 import { useInvoiceFiles } from '@/composables/useInvoiceFiles'
 import StatusBadge from '@/components/StatusBadge.vue'
 import StatusTimelineMini from '@/components/StatusTimelineMini.vue'
 
 const store = useInvoicesStore()
-const { invoices, listState } = storeToRefs(store)
+const { items, total, pageCount, listState, listLoading, listError } = storeToRefs(store)
+const referenceData = useReferenceDataStore()
 const { downloadSummary } = useInvoiceFiles()
 
 const pageSizes = [5, 10, 20, 50]
@@ -24,6 +26,7 @@ function applyFilters() {
   }
   listState.value.filters = { ...draft }
   listState.value.page = 1
+  store.fetchList()
 }
 
 function resetFilters() {
@@ -31,64 +34,35 @@ function resetFilters() {
   applyFilters()
 }
 
-const filtered = computed(() => {
-  const { search, status, dateFrom, dateTo } = listState.value.filters
-  const term = search.trim().toLowerCase()
-  return invoices.value
-    .filter((inv) => {
-      if (status && inv.status !== status) return false
-      if (dateFrom && inv.invoiceDate < dateFrom) return false
-      if (dateTo && inv.invoiceDate > dateTo) return false
-      if (!term) return true
-      return [inv.invoiceNo, inv.poPrNo, inv.description].some((v) =>
-        v.toLowerCase().includes(term),
-      )
-    })
-    .sort(
-      (a, b) =>
-        b.invoiceDate.localeCompare(a.invoiceDate) ||
-        (b.submittedOn ?? '').localeCompare(a.submittedOn ?? ''),
-    )
-})
+function goTo(page: number) {
+  const target = Math.min(Math.max(page, 1), pageCount.value)
+  if (target === listState.value.page) return
+  listState.value.page = target
+  store.fetchList()
+}
 
-const pageCount = computed(() =>
-  Math.max(1, Math.ceil(filtered.value.length / listState.value.pageSize)),
-)
-const pageItems = computed(() => {
-  const start = (listState.value.page - 1) * listState.value.pageSize
-  return filtered.value.slice(start, start + listState.value.pageSize)
-})
+function changePageSize() {
+  listState.value.page = 1
+  store.fetchList()
+}
+
 const rangeLabel = computed(() => {
-  const total = filtered.value.length
-  if (!total) return 'No invoices found'
+  if (!total.value) return 'No invoices found'
   const start = (listState.value.page - 1) * listState.value.pageSize + 1
-  const end = start + pageItems.value.length - 1
-  return `Showing ${start} to ${end} of ${total} invoices`
+  const end = start + items.value.length - 1
+  return `Showing ${start} to ${end} of ${total.value} invoices`
 })
 
 // Up to five page buttons centred on the current page.
 const pageNumbers = computed(() => {
-  const total = pageCount.value
-  const current = listState.value.page
-  const start = Math.max(1, Math.min(current - 2, total - 4))
-  return Array.from({ length: Math.min(5, total) }, (_, i) => start + i)
+  const count = pageCount.value
+  const start = Math.max(1, Math.min(listState.value.page - 2, count - 4))
+  return Array.from({ length: Math.min(5, count) }, (_, i) => start + i)
 })
 
-function goTo(page: number) {
-  listState.value.page = Math.min(Math.max(page, 1), pageCount.value)
-}
+const selected = computed(() => items.value.find((inv) => inv.id === listState.value.selectedId))
 
-watchEffect(() => {
-  if (listState.value.page > pageCount.value) listState.value.page = pageCount.value
-  // Keep a visible invoice selected for the overview panel.
-  if (!pageItems.value.some((inv) => inv.id === listState.value.selectedId)) {
-    listState.value.selectedId = pageItems.value[0]?.id ?? null
-  }
-})
-
-const selected = computed(() =>
-  listState.value.selectedId ? store.getById(listState.value.selectedId) : undefined,
-)
+onMounted(() => store.fetchList())
 </script>
 
 <template>
@@ -115,7 +89,7 @@ const selected = computed(() =>
           <label for="statusFilter" class="form-label">Status</label>
           <select id="statusFilter" v-model="draft.status" class="form-select">
             <option value="">All Statuses</option>
-            <option v-for="status in invoiceStatuses" :key="status">{{ status }}</option>
+            <option v-for="status in referenceData.statuses" :key="status">{{ status }}</option>
           </select>
         </div>
         <div class="col-sm-4 col-lg-2">
@@ -141,8 +115,18 @@ const selected = computed(() =>
 
     <div class="row g-4">
       <div class="col-xl-7">
-        <div class="vp-card p-0 h-100 d-flex flex-column">
-          <div class="table-responsive flex-grow-1">
+        <div class="vp-card p-0 h-100 d-flex flex-column position-relative">
+          <div v-if="listError" class="alert alert-danger d-flex align-items-center gap-2 m-3 mb-0">
+            <i class="bi bi-exclamation-triangle"></i>
+            <span class="flex-grow-1">{{ listError.message }}</span>
+            <button type="button" class="btn btn-sm btn-outline-danger" @click="store.fetchList()">
+              Retry
+            </button>
+          </div>
+          <div v-if="listLoading" class="list-loading" role="status">
+            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading…
+          </div>
+          <div class="table-responsive flex-grow-1" :aria-busy="listLoading">
             <table class="table invoice-table mb-0">
               <thead>
                 <tr>
@@ -156,7 +140,7 @@ const selected = computed(() =>
               </thead>
               <tbody>
                 <tr
-                  v-for="inv in pageItems"
+                  v-for="inv in items"
                   :key="inv.id"
                   :class="{ selected: inv.id === listState.selectedId }"
                   :aria-selected="inv.id === listState.selectedId"
@@ -169,18 +153,18 @@ const selected = computed(() =>
                       :to="{ name: 'invoice-details', params: { id: inv.id } }"
                       class="invoice-link"
                       @click.stop
-                      >{{ inv.invoiceNo }}</RouterLink
+                      >{{ inv.invoiceNo || '(no invoice no.)' }}</RouterLink
                     >
                   </td>
                   <td class="text-nowrap">{{ formatDate(inv.invoiceDate) }}</td>
                   <td class="text-nowrap">{{ inv.poPrNo || '—' }}</td>
-                  <td class="description-cell" :title="inv.description">
-                    <span>{{ inv.description }}</span>
+                  <td class="description-cell" :title="inv.description ?? undefined">
+                    <span>{{ inv.description || '—' }}</span>
                   </td>
                   <td class="text-end text-nowrap">{{ formatCurrency(inv.invoiceAmount) }}</td>
                   <td><StatusBadge :status="inv.status" /></td>
                 </tr>
-                <tr v-if="!pageItems.length">
+                <tr v-if="!items.length && !listLoading && !listError">
                   <td colspan="6" class="text-center text-body-secondary py-5">
                     No invoices match your filters.
                   </td>
@@ -242,7 +226,7 @@ const selected = computed(() =>
                 v-model.number="listState.pageSize"
                 class="form-select form-select-sm page-size"
                 aria-label="Invoices per page"
-                @change="listState.page = 1"
+                @change="changePageSize"
               >
                 <option v-for="size in pageSizes" :key="size" :value="size">
                   {{ size }} / page
@@ -268,15 +252,15 @@ const selected = computed(() =>
 
           <dl class="overview-grid">
             <dt>Invoice No.</dt>
-            <dd>{{ selected.invoiceNo }}</dd>
+            <dd>{{ selected.invoiceNo || '—' }}</dd>
             <dt>Invoice Amount</dt>
             <dd class="text-end">{{ formatCurrency(selected.invoiceAmount) }}</dd>
             <dt>Invoice Date</dt>
             <dd>{{ formatDate(selected.invoiceDate) }}</dd>
             <dt>Credit Terms</dt>
-            <dd class="text-end">{{ selected.creditTerms }}</dd>
+            <dd class="text-end">{{ selected.creditTerms || '—' }}</dd>
             <dt>Vendor</dt>
-            <dd>{{ selected.vendorName }}</dd>
+            <dd>{{ selected.vendorName || '—' }}</dd>
             <dt>Date Received</dt>
             <dd class="text-end">{{ formatDate(selected.dateReceived) }}</dd>
             <dt>PO/PR No.</dt>
@@ -284,7 +268,7 @@ const selected = computed(() =>
             <dt>Submitted On</dt>
             <dd class="text-end">{{ formatIsoDateTime(selected.submittedOn) }}</dd>
             <dt>Description</dt>
-            <dd class="span-3">{{ selected.description }}</dd>
+            <dd class="span-3">{{ selected.description || '—' }}</dd>
           </dl>
 
           <hr />
@@ -293,15 +277,23 @@ const selected = computed(() =>
             <h3 class="fs-6 fw-bold mb-0">Current Status</h3>
             <StatusBadge :status="selected.status" />
           </div>
-          <p class="small text-body-secondary mb-4">{{ statusInfo[selected.status].message }}</p>
+          <p class="small text-body-secondary mb-4">{{ STATUS_INFO[selected.status].message }}</p>
 
           <h3 class="fs-6 fw-bold mb-3">Status Timeline</h3>
           <StatusTimelineMini :invoice="selected" />
 
           <div class="d-flex flex-wrap gap-2 mt-4 pt-3 border-top">
             <RouterLink
-              :to="{ name: 'invoice-details', params: { id: selected.id } }"
+              v-if="selected.status === 'Draft'"
+              :to="{ name: 'submit-invoice', query: { draft: selected.id } }"
               class="btn btn-gold btn-sm"
+            >
+              Continue Draft
+            </RouterLink>
+            <RouterLink
+              :to="{ name: 'invoice-details', params: { id: selected.id } }"
+              class="btn btn-sm"
+              :class="selected.status === 'Draft' ? 'btn-outline-vp' : 'btn-gold'"
             >
               View Details
             </RouterLink>
@@ -316,14 +308,14 @@ const selected = computed(() =>
               class="btn btn-outline-vp btn-sm"
             >
               Comments
-              <span v-if="selected.comments.length" class="badge text-bg-light ms-1">{{
-                selected.comments.length
+              <span v-if="selected.commentCount" class="badge text-bg-light ms-1">{{
+                selected.commentCount
               }}</span>
             </RouterLink>
           </div>
         </aside>
         <div v-else class="vp-card h-100 d-grid place-items-center text-body-secondary text-center">
-          Select an invoice to see its overview.
+          {{ listLoading ? 'Loading…' : 'Select an invoice to see its overview.' }}
         </div>
       </div>
     </div>
@@ -333,6 +325,18 @@ const selected = computed(() =>
 <style scoped>
 .search-box {
   position: relative;
+}
+
+.list-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--vp-muted);
 }
 
 .search-box .form-control {

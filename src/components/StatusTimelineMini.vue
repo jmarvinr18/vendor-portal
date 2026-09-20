@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { stagesFor, type InvoiceRecord } from '@/data/invoices'
+import { stagesFor } from '@/constants/invoice'
+import type { InvoiceListItem } from '@/schema'
 import { formatIsoDate } from '@/utils/format'
 
-const props = defineProps<{ invoice: InvoiceRecord }>()
+const props = defineProps<{ invoice: InvoiceListItem }>()
 const stages = computed(() => stagesFor(props.invoice))
 
 const icons = {
