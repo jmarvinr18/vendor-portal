@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHC Copilot Dashboard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="header-text">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 1.5v3"/><path d="M12 19.5v3"/><path d="M1.5 12h3"/><path d="M19.5 12h3"/><path d="M4.5 4.5l2.1 2.1"/><path d="M17.4 17.4l2.1 2.1"/><path d="M19.5 4.5l-2.1 2.1"/><path d="M6.6 17.4l-2.1 2.1"/></g></svg>
+    </span>
+    <span class="header-title-group">
+      <h1>GitHub Copilot Adoption Dashboard</h1>
+      <p class="subtitle">Asia — DJ + Jen</p>
+    </span>
+  </div>
+  <span class="badge" id="snapshotBadge">Report snapshot</span>
+</header>
+
+<section class="filters shadow-sm rounded-3">
+  <label>
+    Manager
+    <select id="managerFilter"><option value="">All Managers</option></select>
+  </label>
+  <label>
+    Market
+    <select id="marketFilter"><option value="">All Markets</option></select>
+  </label>
+  <label>
+    Month
+    <select id="monthFilter"><option value="">All Months</option></select>
+  </label>  
+  <label>
+    Year
+    <select id="yearFilter"><option value="">All Years</option></select>
+  </label>
+  <span class="filter-count" id="filterCount"></span>
+  <button id="resetFilters" type="button">Reset</button>
+</section>
+
+<section class="hero-row">
+  <div class="hero-card">
+    <div class="hero-ring-wrap">
+      <div class="hero-ring" id="heroRing"><div class="hero-ring-hole"><span id="heroRatePct">0%</span></div></div>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-kicker">Adoption Rate</span>
+      <p class="hero-desc">Share of licensed users who are active, across the current filter selection.</p>
+      <div class="hero-mini-stats">
+        <div><span class="hero-mini-value" id="heroActiveCount">0</span><span class="hero-mini-label">Active</span></div>
+        <div><span class="hero-mini-value" id="heroLicensedCount">0</span><span class="hero-mini-label">Licensed</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="kpi-stack">
+    <div class="kpi-card accent-navy">
+      <span class="kpi-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6.5 7 .9-5.2 4.8L18 21l-6-3.6L6 21l1.2-6.8L2 9.4l7-.9L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="kpi-value" id="kpiLicensed">0</span>
+      <span class="kpi-label">Licensed Users</span>
+    </div>
+    <div class="kpi-card accent-teal">
+      <span class="kpi-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="kpi-value" id="kpiTokens">0</span>
+      <span class="kpi-label">Tokens Utilized</span>
+    </div>
+  </div>
+</section>
+
+<p class="note-banner">
+  <span class="note-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </span>
+  <strong>Time Saved</strong> — not available yet; no source data currently tracks this metric.
+</p>
+
+<section class="charts-bento">
+  <div class="chart-card accent-navy">
+    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Adoption Rate by Market</h2>
+    <p class="chart-subtitle">Active users as a share of licensed users</p>
+    <div class="bar-chart" id="marketRateChart"></div>
+    <p class="chart-legend-note"><span class="avg-swatch"></span>Line marks overall average adoption rate</p>
+  </div>
+  <div class="chart-card chart-card-featured accent-risk">
+    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="currentColor"/></svg></span>Adoption Risk — Lowest Manager Rates</h2>
+    <p class="chart-subtitle">Managers with 3+ licensed users, below-average rate flagged</p>
+    <div class="bar-chart" id="riskChart"></div>
+    <p class="chart-legend-note"><span class="avg-swatch"></span>Line marks overall average adoption rate</p>
+  </div>
+  <div class="chart-card accent-teal">
+    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5v9M9.3 9.6a2.6 2.6 0 0 1 2.7-1.6c1.5 0 2.6.8 2.6 2s-1 1.7-2.6 2c-1.6.3-2.6.9-2.6 2s1.1 2 2.6 2a2.7 2.7 0 0 0 2.7-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Tokens Utilized by Manager (Top 10)</h2>
+    <p class="chart-subtitle">Total token usage across all models</p>
+    <div class="bar-chart" id="managerChart"></div>
+  </div>
+  <div class="chart-card accent-navy">
+    <h2>Usage Rate by Department</h2>
+    <p class="chart-subtitle">Active users as a share of licensed users</p>
+    <div class="bar-chart" id="departmentRateChart"></div>
+  </div>
+  <div class="chart-card accent-teal">
+    <h2>Usage Rate by Title</h2>
+    <p class="chart-subtitle">Active users as a share of licensed users</p>
+    <div class="bar-chart" id="titleRateChart"></div>
+  </div>
+</section>
+
+<section class="table-section">
+  <div class="table-header">
+    <h2>Employees</h2>
+    <div class="table-controls">
+      <label>
+        Sort by
+        <select id="employeeSort">
+          <option value="tokens-desc">Highest token usage</option>
+          <option value="tokens-asc">Lowest token usage</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+        </select>
+      </label>
+      <span id="rowCount" class="row-count"></span>
+    </div>
+  </div>
+  <div class="table-wrapper table-responsive">
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th data-sort="name">Name</th>
+          <th data-sort="manager">Manager</th>
+          <th data-sort="market">Market</th>
+          <th data-sort="active">Status</th>
+          <th data-sort="tokens">Tokens</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</section>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
