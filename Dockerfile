@@ -6,12 +6,16 @@ WORKDIR /app
 
 COPY .npmrc .npmrc
 COPY package.json ./
+
 RUN npm install
 
 COPY . .
 # Same-origin by default; nginx proxies /api to the API container.
 ARG VITE_APP_API_URL=/api/v1
+ARG VITE_VENDOR_ID=4c602bb5-ad8d-401e-a97d-52b7d488d844
 ENV VITE_APP_API_URL=${VITE_APP_API_URL}
+ENV VITE_VENDOR_ID=${VITE_VENDOR_ID}
+
 RUN npm run build
 
 # ---------- Runtime stage ----------

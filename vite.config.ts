@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
       // The app calls /api/v1 on its own origin; the dev server forwards it to the Flask API.
       proxy: {
         '/api': {
-          target: env.API_PROXY_TARGET || 'http://localhost:8000',
+          target: env.VITE_API_PROXY_TARGET || 'http://localhost:8000',
           changeOrigin: true,
         },
       },
