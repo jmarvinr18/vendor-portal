@@ -72,7 +72,26 @@ export function errorMessage(error: unknown, fallback = 'Something went wrong. P
 }
 
 const DEFAULT_TIMEOUT_MS = 15_000
+const DEFAULT_API_BASE = '/api/v1'
 const VALIDATION_LOCATIONS = ['json', 'query', 'form', 'files', 'headers', 'cookies', 'path']
+
+/**
+ * The base every API resource resolves against.
+ *
+ * `VITE_APP_API_URL` is normally a path ('/api/v1'), so it resolves against the page's own
+ * origin: the browser makes a same-origin request that the Vite dev proxy (and nginx in the
+ * Docker image) forwards to the Flask API, so no CORS preflight is ever involved. Pointing
+ * this at the proxy *target* instead (http://localhost:8000) is what makes the browser call
+ * the API cross-origin and get blocked by CORS.
+ *
+ * An absolute URL is still honoured for deployments that genuinely serve the API from another
+ * origin — that API has to send the CORS headers itself.
+ */
+function resolveBaseUrl(): URL {
+  const configured = import.meta.env.VITE_APP_API_URL?.trim() || DEFAULT_API_BASE
+  // Trailing slash so relative resources resolve under the base path.
+  return new URL(configured.replace(/\/*$/, '/'), window.location.origin)
+}
 
 /**
  * flask-smorest errors look like { code, status, message?, errors? } where `errors` is either
@@ -123,7 +142,7 @@ class ApiService {
    */
   public static vueInstance: App
 
-  private static baseURL = new URL(`/api/v1/`, import.meta.env.VITE_API_PROXY_TARGET)
+  private static baseURL = resolveBaseUrl()
   private static headers = new Headers({ Accept: 'application/json' })
 
   /**
@@ -131,11 +150,7 @@ class ApiService {
    */
   public static init(app: App<Element>) {
     ApiService.vueInstance = app
-    const base = `${import.meta.env.VITE_API_PROXY_TARGET?.trim()}/api/v1/`
-
-    console.log("BASE_URL", ApiService.baseURL)
-    // Trailing slash so relative resources resolve under the base path.
-    ApiService.baseURL = new URL(base.replace(/\/*$/, '/'), import.meta.env.VITE_API_PROXY_TARGET)
+    ApiService.baseURL = resolveBaseUrl()
 
     // Placeholder for real authentication: the API identifies the vendor by this header.
     // Development only — anything in a VITE_ variable is visible in the browser bundle.
