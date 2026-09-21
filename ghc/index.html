@@ -3,147 +3,293 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GHC Copilot Dashboard</title>
+<title>GHC Copilot Adoption Dashboard</title>
+<script>
+  // Set the theme before first paint so there is no flash of the wrong mode.
+  (function () {
+    try {
+      var saved = localStorage.getItem("ghc-theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) { /* storage blocked — fall back to system */ }
+  })();
+</script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="page">
-<header>
-  <div class="header-text">
-    <span class="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 1.5v3"/><path d="M12 19.5v3"/><path d="M1.5 12h3"/><path d="M19.5 12h3"/><path d="M4.5 4.5l2.1 2.1"/><path d="M17.4 17.4l2.1 2.1"/><path d="M19.5 4.5l-2.1 2.1"/><path d="M6.6 17.4l-2.1 2.1"/></g></svg>
-    </span>
-    <span class="header-title-group">
-      <h1>GitHub Copilot Adoption Dashboard</h1>
-      <p class="subtitle">Asia — DJ + Jen</p>
-    </span>
-  </div>
-  <span class="badge" id="snapshotBadge">Report snapshot</span>
-</header>
 
-<section class="filters shadow-sm rounded-3">
-  <label>
-    Manager
-    <select id="managerFilter"><option value="">All Managers</option></select>
-  </label>
-  <label>
-    Market
-    <select id="marketFilter"><option value="">All Markets</option></select>
-  </label>
-  <label>
-    Month
-    <select id="monthFilter"><option value="">All Months</option></select>
-  </label>  
-  <label>
-    Year
-    <select id="yearFilter"><option value="">All Years</option></select>
-  </label>
-  <span class="filter-count" id="filterCount"></span>
-  <button id="resetFilters" type="button">Reset</button>
-</section>
+<div class="scrim" id="scrim"></div>
 
-<section class="hero-row">
-  <div class="hero-card">
-    <div class="hero-ring-wrap">
-      <div class="hero-ring" id="heroRing"><div class="hero-ring-hole"><span id="heroRatePct">0%</span></div></div>
+<div class="app-shell">
+
+  <!-- ============================================================ sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 1.8v2.6"/><path d="M12 19.6v2.6"/><path d="M1.8 12h2.6"/><path d="M19.6 12h2.6"/><path d="M4.8 4.8l1.8 1.8"/><path d="M17.4 17.4l1.8 1.8"/><path d="M19.2 4.8l-1.8 1.8"/><path d="M6.6 17.4l-1.8 1.8"/></g></svg>
+      </span>
+      <span class="brand-name">Copilot Insights</span>
     </div>
-    <div class="hero-stat">
-      <span class="hero-kicker">Adoption Rate</span>
-      <p class="hero-desc">Share of licensed users who are active, across the current filter selection.</p>
-      <div class="hero-mini-stats">
-        <div><span class="hero-mini-value" id="heroActiveCount">0</span><span class="hero-mini-label">Active</span></div>
-        <div><span class="hero-mini-value" id="heroLicensedCount">0</span><span class="hero-mini-label">Licensed</span></div>
+
+    <p class="nav-section">Overview</p>
+    <nav>
+      <button type="button" class="side-nav-link is-active" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="8" rx="1.6"/><rect x="14" y="3" width="7" height="5" rx="1.6"/><rect x="14" y="11" width="7" height="10" rx="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6"/></svg>
+        Dashboard
+      </button>
+    </nav>
+
+    <p class="nav-section" style="margin-top:22px">Filters</p>
+    <div class="side-filter">
+      <label for="managerFilter">Manager</label>
+      <select id="managerFilter"><option value="">All managers</option></select>
+    </div>
+    <div class="side-filter">
+      <label for="marketFilter">Market</label>
+      <select id="marketFilter"><option value="">All markets</option></select>
+    </div>
+    <button type="button" class="side-reset" id="resetFilters">Reset filters</button>
+
+    <div class="side-foot">
+      <strong id="sideFootCount">500 licensed</strong><br>
+      GitHub Copilot — Asia<br>
+      DJ + Jen
+    </div>
+  </aside>
+
+  <!-- =============================================================== main -->
+  <div class="main">
+
+    <header class="topbar">
+      <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2" stroke-linecap="round"/></svg>
+        <label class="sr-only" for="searchInput">Search employees</label>
+        <input id="searchInput" type="search" placeholder="Search name, login, title or department…" autocomplete="off">
       </div>
-    </div>
-  </div>
-  <div class="kpi-stack">
-    <div class="kpi-card accent-navy">
-      <span class="kpi-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2l3 6.5 7 .9-5.2 4.8L18 21l-6-3.6L6 21l1.2-6.8L2 9.4l7-.9L12 2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="kpi-value" id="kpiLicensed">0</span>
-      <span class="kpi-label">Licensed Users</span>
-    </div>
-    <div class="kpi-card accent-teal">
-      <span class="kpi-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </span>
-      <span class="kpi-value" id="kpiTokens">0</span>
-      <span class="kpi-label">Tokens Utilized</span>
-    </div>
-  </div>
-</section>
 
-<p class="note-banner">
-  <span class="note-icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-  </span>
-  <strong>Time Saved</strong> — not available yet; no source data currently tracks this metric.
-</p>
+      <div class="topbar-right">
+        <span class="snapshot-badge" id="snapshotBadge">Report snapshot</span>
+        <div class="theme-toggle" role="group" aria-label="Color theme">
+          <button type="button" data-theme-choice="light" aria-pressed="false" title="Light" aria-label="Light theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" data-theme-choice="dark" aria-pressed="false" title="Dark" aria-label="Dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" data-theme-choice="system" aria-pressed="true" title="System" aria-label="System theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <span class="avatar" title="DJ + Jen">DJ</span>
+      </div>
+    </header>
 
-<section class="charts-bento">
-  <div class="chart-card accent-navy">
-    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20V13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>Adoption Rate by Market</h2>
-    <p class="chart-subtitle">Active users as a share of licensed users</p>
-    <div class="bar-chart" id="marketRateChart"></div>
-    <p class="chart-legend-note"><span class="avg-swatch"></span>Line marks overall average adoption rate</p>
-  </div>
-  <div class="chart-card chart-card-featured accent-risk">
-    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l9 16H3l9-16z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="16.2" r="0.9" fill="currentColor"/></svg></span>Adoption Risk — Lowest Manager Rates</h2>
-    <p class="chart-subtitle">Managers with 3+ licensed users, below-average rate flagged</p>
-    <div class="bar-chart" id="riskChart"></div>
-    <p class="chart-legend-note"><span class="avg-swatch"></span>Line marks overall average adoption rate</p>
-  </div>
-  <div class="chart-card accent-teal">
-    <h2><span class="chart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5v9M9.3 9.6a2.6 2.6 0 0 1 2.7-1.6c1.5 0 2.6.8 2.6 2s-1 1.7-2.6 2c-1.6.3-2.6.9-2.6 2s1.1 2 2.6 2a2.7 2.7 0 0 0 2.7-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>Tokens Utilized by Manager (Top 10)</h2>
-    <p class="chart-subtitle">Total token usage across all models</p>
-    <div class="bar-chart" id="managerChart"></div>
-  </div>
-  <div class="chart-card accent-navy">
-    <h2>Usage Rate by Department</h2>
-    <p class="chart-subtitle">Active users as a share of licensed users</p>
-    <div class="bar-chart" id="departmentRateChart"></div>
-  </div>
-  <div class="chart-card accent-teal">
-    <h2>Usage Rate by Title</h2>
-    <p class="chart-subtitle">Active users as a share of licensed users</p>
-    <div class="bar-chart" id="titleRateChart"></div>
-  </div>
-</section>
+    <main class="content">
 
-<section class="table-section">
-  <div class="table-header">
-    <h2>Employees</h2>
-    <div class="table-controls">
-      <label>
-        Sort by
-        <select id="employeeSort">
-          <option value="tokens-desc">Highest token usage</option>
-          <option value="tokens-asc">Lowest token usage</option>
-          <option value="name-asc">Name A–Z</option>
-          <option value="name-desc">Name Z–A</option>
-        </select>
-      </label>
-      <span id="rowCount" class="row-count"></span>
-    </div>
+      <div class="page-head">
+        <div>
+          <h1>GitHub Copilot Adoption</h1>
+          <p id="pageSubtitle">Licence utilisation across Asia markets</p>
+        </div>
+        <div class="active-filters" id="activeFilters"></div>
+      </div>
+
+      <!-- KPI row -->
+      <section class="kpi-row" id="kpiRow" aria-label="Key metrics"></section>
+
+      <p class="note-strip" id="noteStrip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.5 2" stroke-linecap="round"/></svg>
+        <span id="noteText"></span>
+      </p>
+
+      <!-- Hero adoption + monthly trend -->
+      <section class="grid grid-hero">
+        <div class="panel hero-panel">
+          <div class="panel-head" style="width:100%">
+            <div>
+              <h2>Adoption Rate Overall</h2>
+              <p class="panel-sub" style="margin-bottom:0">Active users as a share of licensed</p>
+            </div>
+          </div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" id="heroRing" role="img" aria-labelledby="heroRingLabel"></svg>
+            <div class="ring-center">
+              <span class="hero-figure" id="heroRate">0%</span>
+              <span class="hero-figure-label">adoption</span>
+            </div>
+          </div>
+          <span class="sr-only" id="heroRingLabel"></span>
+          <div class="hero-split">
+            <div>
+              <span class="n" id="heroActive">0</span>
+              <span class="l"><i class="swatch active"></i>Active</span>
+            </div>
+            <div>
+              <span class="n" id="heroLicensed">0</span>
+              <span class="l"><i class="swatch licensed"></i>Licensed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" data-chart-card="trend">
+          <div class="panel-head">
+            <div>
+              <h2>Licensed vs Active by Month</h2>
+              <p class="panel-sub" id="trendSub">Month-on-month utilisation of the licence pool</p>
+            </div>
+            <div class="view-toggle" role="group" aria-label="Trend view">
+              <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+              <button type="button" data-view="table" aria-pressed="false">Table</button>
+            </div>
+          </div>
+          <div class="legend">
+            <span class="legend-item"><i class="swatch licensed"></i>Licensed</span>
+            <span class="legend-item"><i class="swatch active"></i>Active</span>
+          </div>
+          <div id="trendChart"></div>
+          <div id="trendTable" hidden></div>
+        </div>
+      </section>
+
+      <!-- Token usage breakdowns -->
+      <section class="grid grid-3">
+        <div class="panel" data-chart-card="market">
+          <div class="panel-head">
+            <div><h2>Tokens by Market</h2></div>
+            <div class="view-toggle" role="group" aria-label="Market view">
+              <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+              <button type="button" data-view="table" aria-pressed="false">Table</button>
+            </div>
+          </div>
+          <p class="panel-sub" id="marketSub">Total tokens utilised</p>
+          <div id="marketChart"></div>
+          <div id="marketTable" hidden></div>
+        </div>
+
+        <div class="panel" data-chart-card="manager">
+          <div class="panel-head">
+            <div><h2>Tokens by Manager</h2></div>
+            <div class="view-toggle" role="group" aria-label="Manager view">
+              <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+              <button type="button" data-view="table" aria-pressed="false">Table</button>
+            </div>
+          </div>
+          <p class="panel-sub" id="managerSub">Total tokens utilised</p>
+          <div id="managerChart"></div>
+          <div id="managerTable" hidden></div>
+        </div>
+
+        <div class="panel" data-chart-card="department">
+          <div class="panel-head">
+            <div><h2>Tokens by Department</h2></div>
+            <div class="view-toggle" role="group" aria-label="Department view">
+              <button type="button" data-view="chart" aria-pressed="true">Chart</button>
+              <button type="button" data-view="table" aria-pressed="false">Table</button>
+            </div>
+          </div>
+          <p class="panel-sub" id="departmentSub">Total tokens utilised</p>
+          <div id="departmentChart"></div>
+          <div id="departmentTable" hidden></div>
+        </div>
+      </section>
+
+      <!-- Employees + side rankings -->
+      <section class="grid grid-2">
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <h2>Employees</h2>
+              <p class="panel-sub" style="margin-bottom:0" id="employeeSub">Licence holders in the current selection</p>
+            </div>
+          </div>
+
+          <div class="panel-toolbar">
+            <div class="toolbar-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.2-3.2" stroke-linecap="round"/></svg>
+              <label class="sr-only" for="tableSearch">Find in table</label>
+              <input id="tableSearch" type="search" placeholder="Find in table…" autocomplete="off">
+            </div>
+            <label class="toolbar-field">
+              <span>Status</span>
+              <select id="statusFilter">
+                <option value="">All</option>
+                <option value="active">Active only</option>
+                <option value="idle">Idle only</option>
+              </select>
+            </label>
+            <label class="toolbar-field">
+              <span>Sort</span>
+              <select id="employeeSort">
+                <option value="tokens-desc">Tokens (high → low)</option>
+                <option value="tokens-asc">Tokens (low → high)</option>
+                <option value="name-asc">Name (A → Z)</option>
+                <option value="name-desc">Name (Z → A)</option>
+                <option value="manager-asc">Manager (A → Z)</option>
+                <option value="manager-desc">Manager (Z → A)</option>
+                <option value="marketTag-asc">Market (A → Z)</option>
+                <option value="marketTag-desc">Market (Z → A)</option>
+                <option value="active-desc">Status (active first)</option>
+                <option value="active-asc">Status (idle first)</option>
+              </select>
+            </label>
+            <button type="button" class="toolbar-clear" id="clearTableFilters" hidden>Clear</button>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="employeeTable">
+              <thead>
+                <tr>
+                  <th data-sort="name">Employee</th>
+                  <th data-sort="manager">Manager</th>
+                  <th data-sort="marketTag">Market</th>
+                  <th data-sort="active">Status</th>
+                  <th data-sort="tokens" style="text-align:right">Tokens</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="table-foot">
+            <span class="row-count" id="rowCount"></span>
+            <div class="pager" id="pager"></div>
+          </div>
+        </div>
+
+        <div style="display:grid; gap:16px; align-content:start; min-width:0">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Adoption Risk</h2>
+                <p class="panel-sub" style="margin-bottom:0">Lowest team adoption (3+ licences)</p>
+              </div>
+            </div>
+            <div class="rank-list" id="riskList" style="margin-top:8px"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Top Users</h2>
+                <p class="panel-sub" style="margin-bottom:0">Highest token consumption</p>
+              </div>
+            </div>
+            <div class="rank-list" id="topUsers" style="margin-top:8px"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
   </div>
-  <div class="table-wrapper table-responsive">
-    <table id="employeeTable">
-      <thead>
-        <tr>
-          <th data-sort="name">Name</th>
-          <th data-sort="manager">Manager</th>
-          <th data-sort="market">Market</th>
-          <th data-sort="active">Status</th>
-          <th data-sort="tokens">Tokens</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-</section>
 </div>
+
+<div class="chart-tooltip" id="tooltip" role="status" aria-live="polite"></div>
 
 <script src="data.js"></script>
 <script src="app.js"></script>
