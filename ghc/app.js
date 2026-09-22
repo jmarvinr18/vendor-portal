@@ -113,6 +113,12 @@
   const locIn = (e, month) => Number((e.monthlyLinesOfCode || {})[month] || 0);
   const weekTokens = (e, id) => Number((e.weeklyTokens || {})[id] || 0);
 
+  const isoDate = (d) => d.toISOString().slice(0, 10);
+  const monthEnd = (m) => isoDate(new Date(Date.UTC(Number(YEAR), MONTHS.indexOf(m) + 1, 0)));
+  // A seat counts for a period if it was assigned before the period ended.
+  // Data without seat dates treats everyone as licensed throughout.
+  const licensedBy = (e, end) => !e.licensedOn || e.licensedOn <= end;
+
   /* ------------------------------------------------------ period (time) */
 
   // ISO weeks in the data with the span each covers. A week is filed under the
@@ -144,16 +150,16 @@
       const span = mon(start) + " " + start.getUTCDate() + "–" +
         (end.getUTCMonth() === start.getUTCMonth() ? "" : mon(end) + " ") + end.getUTCDate();
       const partial = reported < 7;
-      return { id, month: MONTHS[monthIdx], partial, short: "W" + w,
+      return { id, month: MONTHS[monthIdx], partial, short: "W" + w, end: isoDate(end),
                label: "W" + w + " · " + span + (partial ? " (partial)" : "") };
     });
   })();
 
   function monthPeriod(m) {
-    return { kind: "month", key: m, month: m, short: m.slice(0, 3), name: m, label: m + " " + YEAR, partial: false };
+    return { kind: "month", key: m, month: m, short: m.slice(0, 3), name: m, label: m + " " + YEAR, partial: false, end: monthEnd(m) };
   }
   function weekPeriod(w) {
-    return { kind: "week", key: w.id, month: w.month, short: w.short, name: w.short, label: w.label, partial: w.partial };
+    return { kind: "week", key: w.id, month: w.month, short: w.short, name: w.short, label: w.label, partial: w.partial, end: w.end };
   }
   function currentPeriod() {
     if (state.week) return weekPeriod(WEEKS.find((w) => w.id === state.week));
@@ -342,9 +348,10 @@
   function renderHero(rows, period) {
     const focus = focusPeriod(period);
     const before = comparablePrev(focus);
-    const licensed = rows.length;
-    const active = rows.filter((e) => tokensIn(e, focus) > 0).length;
-    const tokens = rows.reduce((s, e) => s + tokensIn(e, focus), 0);
+    const pool = rows.filter((e) => licensedBy(e, focus.end));
+    const licensed = pool.length;
+    const active = pool.filter((e) => tokensIn(e, focus) > 0).length;
+    const tokens = pool.reduce((s, e) => s + tokensIn(e, focus), 0);
     const rate = licensed ? (active / licensed) * 100 : 0;
     const when = focus.kind === "week" ? focus.short : focus.name;
 
@@ -354,6 +361,7 @@
     $("heroActive").textContent = fmt(active);
     $("heroActiveLabel").textContent = "Active in " + focus.short;
     $("heroLicensed").textContent = fmt(licensed);
+    $("heroLicensedLabel").textContent = "Licensed in " + focus.short;
     $("heroTokens").textContent = fmtCompact(tokens);
     $("heroTokensLabel").textContent = "Tokens in " + focus.short;
     $("heroRingLabel").textContent = "Adoption rate in " + focus.label + ": " + Math.round(rate) +
@@ -363,9 +371,10 @@
     // Change in the rate is in percentage points, not percent.
     const chip = $("heroDelta");
     clear(chip);
-    chip.hidden = !(before && licensed);
+    chip.hidden = !(before && licensed && rows.some((e) => licensedBy(e, before.end)));
     if (!chip.hidden) {
-      const prevRate = (rows.filter((e) => tokensIn(e, before) > 0).length / licensed) * 100;
+      const prevPool = rows.filter((e) => licensedBy(e, before.end));
+      const prevRate = prevPool.length ? (prevPool.filter((e) => tokensIn(e, before) > 0).length / prevPool.length) * 100 : 0;
       const change = rate - prevRate;
       const dir = change > 0.05 ? "up" : change < -0.05 ? "down" : "flat";
       chip.className = "delta " + dir;
@@ -474,7 +483,7 @@
     const licensedCount = rows.length;
     const series = REPORTED.map((month) => ({
       month,
-      licensed: licensedCount,
+      licensed: rows.filter((e) => licensedBy(e, monthEnd(month))).length,
       active: rows.filter((e) => isActiveIn(e, month)).length,
       tokens: rows.reduce((s, e) => s + monthTokens(e, month), 0),
       loc: rows.reduce((s, e) => s + locIn(e, month), 0),
@@ -501,7 +510,7 @@
 
     const capMax = niceCeil(Math.max(...series.map((p) => p.loc), 1) * 1.08);
     const capY = (v) => cap.top + cap.height - (v / capMax) * cap.height;
-    const barMax = niceMax(licensedCount);
+    const barMax = niceMax(Math.max(...series.map((p) => p.licensed), 1));
     const barY = (v) => bar.top + bar.height - (v / barMax) * bar.height;
     const barBase = bar.top + bar.height;
 
@@ -969,7 +978,7 @@
     const period = currentPeriod();
     // Token views read e.tokens / e.active, so a selected period is projected onto
     // those two fields. Capacity and the monthly trend keep the unprojected rows.
-    const rows = period.kind === "ytd" ? base : base.map((e) => {
+    const rows = period.kind === "ytd" ? base : base.filter((e) => licensedBy(e, period.end)).map((e) => {
       const tokens = tokensIn(e, period);
       return Object.assign({}, e, { tokens, active: tokens > 0 });
     });

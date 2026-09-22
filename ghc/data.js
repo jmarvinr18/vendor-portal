@@ -1,4 +1,5 @@
 // Auto-generated from gh-for-reporting.xlsx - do not edit by hand.
+// licensedOn = date the Copilot seat was assigned (GitHub seat created_at). DUMMY VALUES until the seat export is connected.
 // weeklyTokens = ISO weeks (Mon-Sun). DUMMY VALUES: a split of monthlyTokens until a daily usage export is connected.
 // linesOfCode / monthlyLinesOfCode = lines committed in Bitbucket (Capacity Created).
 // DUMMY VALUES derived from token usage until the Bitbucket export is connected.
@@ -13,6 +14,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-22",
     "active": true,
     "tokens": 15586,
     "monthlyTokens": {
@@ -97,6 +99,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-01-08",
     "active": true,
     "tokens": 12697,
     "monthlyTokens": {
@@ -181,6 +184,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -265,6 +269,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-16",
     "active": true,
     "tokens": 10166,
     "monthlyTokens": {
@@ -349,6 +354,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-06",
     "active": true,
     "tokens": 7785,
     "monthlyTokens": {
@@ -433,6 +439,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 20897,
     "monthlyTokens": {
@@ -517,6 +524,7 @@ const EMPLOYEES = [
     "title": "Underwriting Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-01-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -601,6 +609,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-22",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -685,6 +694,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-08",
     "active": true,
     "tokens": 8345,
     "monthlyTokens": {
@@ -769,6 +779,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-03-10",
     "active": true,
     "tokens": 8091,
     "monthlyTokens": {
@@ -853,6 +864,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-23",
     "active": true,
     "tokens": 61728,
     "monthlyTokens": {
@@ -937,6 +949,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-17",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -1021,6 +1034,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-08",
     "active": true,
     "tokens": 26739,
     "monthlyTokens": {
@@ -1105,6 +1119,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-09-15",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -1189,6 +1204,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-02-18",
     "active": true,
     "tokens": 6798,
     "monthlyTokens": {
@@ -1273,6 +1289,7 @@ const EMPLOYEES = [
     "title": "Automation Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-03-23",
     "active": true,
     "tokens": 19655,
     "monthlyTokens": {
@@ -1357,6 +1374,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-02",
     "active": true,
     "tokens": 1642,
     "monthlyTokens": {
@@ -1441,6 +1459,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-04-25",
     "active": true,
     "tokens": 15245,
     "monthlyTokens": {
@@ -1525,6 +1544,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-04",
     "active": true,
     "tokens": 4790,
     "monthlyTokens": {
@@ -1609,6 +1629,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 18307,
     "monthlyTokens": {
@@ -1693,6 +1714,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-11",
     "active": true,
     "tokens": 40077,
     "monthlyTokens": {
@@ -1777,6 +1799,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 8561,
     "monthlyTokens": {
@@ -1861,6 +1884,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-16",
     "active": true,
     "tokens": 9704,
     "monthlyTokens": {
@@ -1945,6 +1969,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-03-22",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -2029,6 +2054,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-12-04",
     "active": true,
     "tokens": 62033,
     "monthlyTokens": {
@@ -2113,6 +2139,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-13",
     "active": true,
     "tokens": 4563,
     "monthlyTokens": {
@@ -2197,6 +2224,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-20",
     "active": true,
     "tokens": 37752,
     "monthlyTokens": {
@@ -2281,6 +2309,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-22",
     "active": true,
     "tokens": 2273,
     "monthlyTokens": {
@@ -2365,6 +2394,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-04",
     "active": true,
     "tokens": 22452,
     "monthlyTokens": {
@@ -2449,6 +2479,7 @@ const EMPLOYEES = [
     "title": "Operations Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-10",
     "active": true,
     "tokens": 12804,
     "monthlyTokens": {
@@ -2533,6 +2564,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-29",
     "active": true,
     "tokens": 1455,
     "monthlyTokens": {
@@ -2617,6 +2649,7 @@ const EMPLOYEES = [
     "title": "Operations Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-03-02",
     "active": true,
     "tokens": 10496,
     "monthlyTokens": {
@@ -2701,6 +2734,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-26",
     "active": true,
     "tokens": 48502,
     "monthlyTokens": {
@@ -2785,6 +2819,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-03",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -2869,6 +2904,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-07",
     "active": true,
     "tokens": 32520,
     "monthlyTokens": {
@@ -2953,6 +2989,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-03-27",
     "active": true,
     "tokens": 17926,
     "monthlyTokens": {
@@ -3037,6 +3074,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-07-10",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -3121,6 +3159,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-09-26",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -3205,6 +3244,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-01",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -3289,6 +3329,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 18517,
     "monthlyTokens": {
@@ -3373,6 +3414,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-23",
     "active": true,
     "tokens": 1433,
     "monthlyTokens": {
@@ -3457,6 +3499,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-04-17",
     "active": true,
     "tokens": 3420,
     "monthlyTokens": {
@@ -3541,6 +3584,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-28",
     "active": true,
     "tokens": 28745,
     "monthlyTokens": {
@@ -3625,6 +3669,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-02",
     "active": true,
     "tokens": 11239,
     "monthlyTokens": {
@@ -3709,6 +3754,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-03-15",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -3793,6 +3839,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-09",
     "active": true,
     "tokens": 56784,
     "monthlyTokens": {
@@ -3877,6 +3924,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 9980,
     "monthlyTokens": {
@@ -3961,6 +4009,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-11",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -4045,6 +4094,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-06-27",
     "active": true,
     "tokens": 6020,
     "monthlyTokens": {
@@ -4129,6 +4179,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 46238,
     "monthlyTokens": {
@@ -4213,6 +4264,7 @@ const EMPLOYEES = [
     "title": "Automation Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 20527,
     "monthlyTokens": {
@@ -4297,6 +4349,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-23",
     "active": true,
     "tokens": 20342,
     "monthlyTokens": {
@@ -4381,6 +4434,7 @@ const EMPLOYEES = [
     "title": "Operations Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-01",
     "active": true,
     "tokens": 18605,
     "monthlyTokens": {
@@ -4465,6 +4519,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-28",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -4549,6 +4604,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-11",
     "active": true,
     "tokens": 2668,
     "monthlyTokens": {
@@ -4633,6 +4689,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-14",
     "active": true,
     "tokens": 3713,
     "monthlyTokens": {
@@ -4717,6 +4774,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-24",
     "active": true,
     "tokens": 2839,
     "monthlyTokens": {
@@ -4801,6 +4859,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-16",
     "active": true,
     "tokens": 8589,
     "monthlyTokens": {
@@ -4885,6 +4944,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-27",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -4969,6 +5029,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-25",
     "active": true,
     "tokens": 48707,
     "monthlyTokens": {
@@ -5053,6 +5114,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-03-23",
     "active": true,
     "tokens": 4149,
     "monthlyTokens": {
@@ -5137,6 +5199,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-02-01",
     "active": true,
     "tokens": 6427,
     "monthlyTokens": {
@@ -5221,6 +5284,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-10",
     "active": true,
     "tokens": 22020,
     "monthlyTokens": {
@@ -5305,6 +5369,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-02-20",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -5389,6 +5454,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-11",
     "active": true,
     "tokens": 47609,
     "monthlyTokens": {
@@ -5473,6 +5539,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-01-01",
     "active": true,
     "tokens": 37622,
     "monthlyTokens": {
@@ -5557,6 +5624,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-05-23",
     "active": true,
     "tokens": 2471,
     "monthlyTokens": {
@@ -5641,6 +5709,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 15226,
     "monthlyTokens": {
@@ -5725,6 +5794,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-30",
     "active": true,
     "tokens": 12101,
     "monthlyTokens": {
@@ -5809,6 +5879,7 @@ const EMPLOYEES = [
     "title": "Digital Strategist",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-13",
     "active": true,
     "tokens": 55668,
     "monthlyTokens": {
@@ -5893,6 +5964,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-03",
     "active": true,
     "tokens": 8777,
     "monthlyTokens": {
@@ -5977,6 +6049,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-11-26",
     "active": true,
     "tokens": 76758,
     "monthlyTokens": {
@@ -6061,6 +6134,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-05-29",
     "active": true,
     "tokens": 3540,
     "monthlyTokens": {
@@ -6145,6 +6219,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-01-07",
     "active": true,
     "tokens": 69712,
     "monthlyTokens": {
@@ -6229,6 +6304,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-26",
     "active": true,
     "tokens": 48762,
     "monthlyTokens": {
@@ -6313,6 +6389,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-16",
     "active": true,
     "tokens": 3249,
     "monthlyTokens": {
@@ -6397,6 +6474,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-10",
     "active": true,
     "tokens": 19506,
     "monthlyTokens": {
@@ -6481,6 +6559,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-21",
     "active": true,
     "tokens": 50670,
     "monthlyTokens": {
@@ -6565,6 +6644,7 @@ const EMPLOYEES = [
     "title": "Business Intelligence Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-18",
     "active": true,
     "tokens": 39654,
     "monthlyTokens": {
@@ -6649,6 +6729,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-06-29",
     "active": true,
     "tokens": 2698,
     "monthlyTokens": {
@@ -6733,6 +6814,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-09",
     "active": true,
     "tokens": 6701,
     "monthlyTokens": {
@@ -6817,6 +6899,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-07-08",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -6901,6 +6984,7 @@ const EMPLOYEES = [
     "title": "Actuary",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-13",
     "active": true,
     "tokens": 18037,
     "monthlyTokens": {
@@ -6985,6 +7069,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-03-03",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -7069,6 +7154,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-25",
     "active": true,
     "tokens": 9947,
     "monthlyTokens": {
@@ -7153,6 +7239,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-05",
     "active": true,
     "tokens": 114130,
     "monthlyTokens": {
@@ -7237,6 +7324,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-13",
     "active": true,
     "tokens": 108303,
     "monthlyTokens": {
@@ -7321,6 +7409,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-03",
     "active": true,
     "tokens": 11579,
     "monthlyTokens": {
@@ -7405,6 +7494,7 @@ const EMPLOYEES = [
     "title": "Actuary",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-14",
     "active": true,
     "tokens": 56914,
     "monthlyTokens": {
@@ -7489,6 +7579,7 @@ const EMPLOYEES = [
     "title": "Actuary",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-19",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -7573,6 +7664,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 97669,
     "monthlyTokens": {
@@ -7657,6 +7749,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-06",
     "active": true,
     "tokens": 12336,
     "monthlyTokens": {
@@ -7741,6 +7834,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-03",
     "active": true,
     "tokens": 38789,
     "monthlyTokens": {
@@ -7825,6 +7919,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-08-27",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -7909,6 +8004,7 @@ const EMPLOYEES = [
     "title": "Operations Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-08",
     "active": true,
     "tokens": 26476,
     "monthlyTokens": {
@@ -7993,6 +8089,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-08",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -8077,6 +8174,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-28",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -8161,6 +8259,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-04-24",
     "active": true,
     "tokens": 5868,
     "monthlyTokens": {
@@ -8245,6 +8344,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-06-26",
     "active": true,
     "tokens": 2179,
     "monthlyTokens": {
@@ -8329,6 +8429,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-04-28",
     "active": true,
     "tokens": 18195,
     "monthlyTokens": {
@@ -8413,6 +8514,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-22",
     "active": true,
     "tokens": 5487,
     "monthlyTokens": {
@@ -8497,6 +8599,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-22",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -8581,6 +8684,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-06-12",
     "active": true,
     "tokens": 790,
     "monthlyTokens": {
@@ -8665,6 +8769,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-17",
     "active": true,
     "tokens": 5341,
     "monthlyTokens": {
@@ -8749,6 +8854,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-11-25",
     "active": true,
     "tokens": 19259,
     "monthlyTokens": {
@@ -8833,6 +8939,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-04-08",
     "active": true,
     "tokens": 4531,
     "monthlyTokens": {
@@ -8917,6 +9024,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 27152,
     "monthlyTokens": {
@@ -9001,6 +9109,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-01-01",
     "active": true,
     "tokens": 67736,
     "monthlyTokens": {
@@ -9085,6 +9194,7 @@ const EMPLOYEES = [
     "title": "Automation Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-02-25",
     "active": true,
     "tokens": 32963,
     "monthlyTokens": {
@@ -9169,6 +9279,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 7426,
     "monthlyTokens": {
@@ -9253,6 +9364,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-04",
     "active": true,
     "tokens": 72840,
     "monthlyTokens": {
@@ -9337,6 +9449,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-03-24",
     "active": true,
     "tokens": 8297,
     "monthlyTokens": {
@@ -9421,6 +9534,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-06-06",
     "active": true,
     "tokens": 6626,
     "monthlyTokens": {
@@ -9505,6 +9619,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-17",
     "active": true,
     "tokens": 52570,
     "monthlyTokens": {
@@ -9589,6 +9704,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-06-08",
     "active": true,
     "tokens": 2768,
     "monthlyTokens": {
@@ -9673,6 +9789,7 @@ const EMPLOYEES = [
     "title": "Actuarial Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-02",
     "active": true,
     "tokens": 16328,
     "monthlyTokens": {
@@ -9757,6 +9874,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-09-26",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -9841,6 +9959,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-03-09",
     "active": true,
     "tokens": 5493,
     "monthlyTokens": {
@@ -9925,6 +10044,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-18",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -10009,6 +10129,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-16",
     "active": true,
     "tokens": 2692,
     "monthlyTokens": {
@@ -10093,6 +10214,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-03-28",
     "active": true,
     "tokens": 5727,
     "monthlyTokens": {
@@ -10177,6 +10299,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 6730,
     "monthlyTokens": {
@@ -10261,6 +10384,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-13",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -10345,6 +10469,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-20",
     "active": true,
     "tokens": 470,
     "monthlyTokens": {
@@ -10429,6 +10554,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-02",
     "active": true,
     "tokens": 14101,
     "monthlyTokens": {
@@ -10513,6 +10639,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-06-21",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -10597,6 +10724,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 28751,
     "monthlyTokens": {
@@ -10681,6 +10809,7 @@ const EMPLOYEES = [
     "title": "UX Designer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-12",
     "active": true,
     "tokens": 63907,
     "monthlyTokens": {
@@ -10765,6 +10894,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-06-07",
     "active": true,
     "tokens": 1192,
     "monthlyTokens": {
@@ -10849,6 +10979,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-19",
     "active": true,
     "tokens": 25959,
     "monthlyTokens": {
@@ -10933,6 +11064,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-29",
     "active": true,
     "tokens": 1351,
     "monthlyTokens": {
@@ -11017,6 +11149,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-06-07",
     "active": true,
     "tokens": 2663,
     "monthlyTokens": {
@@ -11101,6 +11234,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-28",
     "active": true,
     "tokens": 12622,
     "monthlyTokens": {
@@ -11185,6 +11319,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-22",
     "active": true,
     "tokens": 2767,
     "monthlyTokens": {
@@ -11269,6 +11404,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-09",
     "active": true,
     "tokens": 24396,
     "monthlyTokens": {
@@ -11353,6 +11489,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-17",
     "active": true,
     "tokens": 20127,
     "monthlyTokens": {
@@ -11437,6 +11574,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -11521,6 +11659,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-14",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -11605,6 +11744,7 @@ const EMPLOYEES = [
     "title": "Actuarial Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-06",
     "active": true,
     "tokens": 5180,
     "monthlyTokens": {
@@ -11689,6 +11829,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-05",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -11773,6 +11914,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-07",
     "active": true,
     "tokens": 11190,
     "monthlyTokens": {
@@ -11857,6 +11999,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-09",
     "active": true,
     "tokens": 6559,
     "monthlyTokens": {
@@ -11941,6 +12084,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 31307,
     "monthlyTokens": {
@@ -12025,6 +12169,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-07",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -12109,6 +12254,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-12",
     "active": true,
     "tokens": 25024,
     "monthlyTokens": {
@@ -12193,6 +12339,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-29",
     "active": true,
     "tokens": 25885,
     "monthlyTokens": {
@@ -12277,6 +12424,7 @@ const EMPLOYEES = [
     "title": "Data Scientist",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-31",
     "active": true,
     "tokens": 67339,
     "monthlyTokens": {
@@ -12361,6 +12509,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 16249,
     "monthlyTokens": {
@@ -12445,6 +12594,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-01",
     "active": true,
     "tokens": 42326,
     "monthlyTokens": {
@@ -12529,6 +12679,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-01",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -12613,6 +12764,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-25",
     "active": true,
     "tokens": 10427,
     "monthlyTokens": {
@@ -12697,6 +12849,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-17",
     "active": true,
     "tokens": 3108,
     "monthlyTokens": {
@@ -12781,6 +12934,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-03",
     "active": true,
     "tokens": 23389,
     "monthlyTokens": {
@@ -12865,6 +13019,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-11",
     "active": true,
     "tokens": 60655,
     "monthlyTokens": {
@@ -12949,6 +13104,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-18",
     "active": true,
     "tokens": 5373,
     "monthlyTokens": {
@@ -13033,6 +13189,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-31",
     "active": true,
     "tokens": 31078,
     "monthlyTokens": {
@@ -13117,6 +13274,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-24",
     "active": true,
     "tokens": 20801,
     "monthlyTokens": {
@@ -13201,6 +13359,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-03-26",
     "active": true,
     "tokens": 37974,
     "monthlyTokens": {
@@ -13285,6 +13444,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-08",
     "active": true,
     "tokens": 13708,
     "monthlyTokens": {
@@ -13369,6 +13529,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -13453,6 +13614,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-27",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -13537,6 +13699,7 @@ const EMPLOYEES = [
     "title": "Digital Product Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-20",
     "active": true,
     "tokens": 26665,
     "monthlyTokens": {
@@ -13621,6 +13784,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-17",
     "active": true,
     "tokens": 12584,
     "monthlyTokens": {
@@ -13705,6 +13869,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-02-22",
     "active": true,
     "tokens": 6824,
     "monthlyTokens": {
@@ -13789,6 +13954,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-07",
     "active": true,
     "tokens": 7864,
     "monthlyTokens": {
@@ -13873,6 +14039,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-02-11",
     "active": true,
     "tokens": 3330,
     "monthlyTokens": {
@@ -13957,6 +14124,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -14041,6 +14209,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 28046,
     "monthlyTokens": {
@@ -14125,6 +14294,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-29",
     "active": true,
     "tokens": 31614,
     "monthlyTokens": {
@@ -14209,6 +14379,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-28",
     "active": true,
     "tokens": 19390,
     "monthlyTokens": {
@@ -14293,6 +14464,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-05-18",
     "active": true,
     "tokens": 15182,
     "monthlyTokens": {
@@ -14377,6 +14549,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-05-23",
     "active": true,
     "tokens": 12150,
     "monthlyTokens": {
@@ -14461,6 +14634,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-12",
     "active": true,
     "tokens": 15778,
     "monthlyTokens": {
@@ -14545,6 +14719,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-05",
     "active": true,
     "tokens": 9252,
     "monthlyTokens": {
@@ -14629,6 +14804,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-12-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -14713,6 +14889,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 4082,
     "monthlyTokens": {
@@ -14797,6 +14974,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-31",
     "active": true,
     "tokens": 14727,
     "monthlyTokens": {
@@ -14881,6 +15059,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-05",
     "active": true,
     "tokens": 1488,
     "monthlyTokens": {
@@ -14965,6 +15144,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-12",
     "active": true,
     "tokens": 7131,
     "monthlyTokens": {
@@ -15049,6 +15229,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-09-17",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -15133,6 +15314,7 @@ const EMPLOYEES = [
     "title": "Analytics Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-21",
     "active": true,
     "tokens": 60727,
     "monthlyTokens": {
@@ -15217,6 +15399,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-03",
     "active": true,
     "tokens": 133821,
     "monthlyTokens": {
@@ -15301,6 +15484,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 19143,
     "monthlyTokens": {
@@ -15385,6 +15569,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-12",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -15469,6 +15654,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-07",
     "active": true,
     "tokens": 8446,
     "monthlyTokens": {
@@ -15553,6 +15739,7 @@ const EMPLOYEES = [
     "title": "Data Scientist",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-19",
     "active": true,
     "tokens": 22846,
     "monthlyTokens": {
@@ -15637,6 +15824,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-03-17",
     "active": true,
     "tokens": 37036,
     "monthlyTokens": {
@@ -15721,6 +15909,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-19",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -15805,6 +15994,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-30",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -15889,6 +16079,7 @@ const EMPLOYEES = [
     "title": "UX Designer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-06-28",
     "active": true,
     "tokens": 4112,
     "monthlyTokens": {
@@ -15973,6 +16164,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-17",
     "active": true,
     "tokens": 7730,
     "monthlyTokens": {
@@ -16057,6 +16249,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 6629,
     "monthlyTokens": {
@@ -16141,6 +16334,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-05-13",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -16225,6 +16419,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-25",
     "active": true,
     "tokens": 19718,
     "monthlyTokens": {
@@ -16309,6 +16504,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-05-17",
     "active": true,
     "tokens": 2744,
     "monthlyTokens": {
@@ -16393,6 +16589,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-12",
     "active": true,
     "tokens": 4318,
     "monthlyTokens": {
@@ -16477,6 +16674,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-03-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -16561,6 +16759,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-25",
     "active": true,
     "tokens": 8752,
     "monthlyTokens": {
@@ -16645,6 +16844,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-24",
     "active": true,
     "tokens": 7811,
     "monthlyTokens": {
@@ -16729,6 +16929,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-04-01",
     "active": true,
     "tokens": 5961,
     "monthlyTokens": {
@@ -16813,6 +17014,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-26",
     "active": true,
     "tokens": 2949,
     "monthlyTokens": {
@@ -16897,6 +17099,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-24",
     "active": true,
     "tokens": 70429,
     "monthlyTokens": {
@@ -16981,6 +17184,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-03",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -17065,6 +17269,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-15",
     "active": true,
     "tokens": 6248,
     "monthlyTokens": {
@@ -17149,6 +17354,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-31",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -17233,6 +17439,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-03-08",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -17317,6 +17524,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-21",
     "active": true,
     "tokens": 5565,
     "monthlyTokens": {
@@ -17401,6 +17609,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-19",
     "active": true,
     "tokens": 14891,
     "monthlyTokens": {
@@ -17485,6 +17694,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-21",
     "active": true,
     "tokens": 29277,
     "monthlyTokens": {
@@ -17569,6 +17779,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-24",
     "active": true,
     "tokens": 13980,
     "monthlyTokens": {
@@ -17653,6 +17864,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -17737,6 +17949,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-02-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -17821,6 +18034,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-10",
     "active": true,
     "tokens": 31047,
     "monthlyTokens": {
@@ -17905,6 +18119,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-05",
     "active": true,
     "tokens": 111646,
     "monthlyTokens": {
@@ -17989,6 +18204,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-10",
     "active": true,
     "tokens": 8092,
     "monthlyTokens": {
@@ -18073,6 +18289,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-05",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -18157,6 +18374,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-10",
     "active": true,
     "tokens": 46941,
     "monthlyTokens": {
@@ -18241,6 +18459,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-03-14",
     "active": true,
     "tokens": 23886,
     "monthlyTokens": {
@@ -18325,6 +18544,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-03-17",
     "active": true,
     "tokens": 25869,
     "monthlyTokens": {
@@ -18409,6 +18629,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-06",
     "active": true,
     "tokens": 966,
     "monthlyTokens": {
@@ -18493,6 +18714,7 @@ const EMPLOYEES = [
     "title": "Process Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-13",
     "active": true,
     "tokens": 26019,
     "monthlyTokens": {
@@ -18577,6 +18799,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 1521,
     "monthlyTokens": {
@@ -18661,6 +18884,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-05-11",
     "active": true,
     "tokens": 1632,
     "monthlyTokens": {
@@ -18745,6 +18969,7 @@ const EMPLOYEES = [
     "title": "Underwriting Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-22",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -18829,6 +19054,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-03",
     "active": true,
     "tokens": 4700,
     "monthlyTokens": {
@@ -18913,6 +19139,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-07",
     "active": true,
     "tokens": 5795,
     "monthlyTokens": {
@@ -18997,6 +19224,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 132336,
     "monthlyTokens": {
@@ -19081,6 +19309,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-16",
     "active": true,
     "tokens": 5784,
     "monthlyTokens": {
@@ -19165,6 +19394,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-12-28",
     "active": true,
     "tokens": 2856,
     "monthlyTokens": {
@@ -19249,6 +19479,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-28",
     "active": true,
     "tokens": 7807,
     "monthlyTokens": {
@@ -19333,6 +19564,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-06-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -19417,6 +19649,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-26",
     "active": true,
     "tokens": 34945,
     "monthlyTokens": {
@@ -19501,6 +19734,7 @@ const EMPLOYEES = [
     "title": "Operations Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-31",
     "active": true,
     "tokens": 10736,
     "monthlyTokens": {
@@ -19585,6 +19819,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-06-05",
     "active": true,
     "tokens": 7649,
     "monthlyTokens": {
@@ -19669,6 +19904,7 @@ const EMPLOYEES = [
     "title": "Operations Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-09",
     "active": true,
     "tokens": 23562,
     "monthlyTokens": {
@@ -19753,6 +19989,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-21",
     "active": true,
     "tokens": 8538,
     "monthlyTokens": {
@@ -19837,6 +20074,7 @@ const EMPLOYEES = [
     "title": "Digital Product Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-20",
     "active": true,
     "tokens": 17505,
     "monthlyTokens": {
@@ -19921,6 +20159,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-26",
     "active": true,
     "tokens": 7644,
     "monthlyTokens": {
@@ -20005,6 +20244,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-01-01",
     "active": true,
     "tokens": 10487,
     "monthlyTokens": {
@@ -20089,6 +20329,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-01-16",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -20173,6 +20414,7 @@ const EMPLOYEES = [
     "title": "Underwriting Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-01-24",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -20257,6 +20499,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-13",
     "active": true,
     "tokens": 28851,
     "monthlyTokens": {
@@ -20341,6 +20584,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-19",
     "active": true,
     "tokens": 12578,
     "monthlyTokens": {
@@ -20425,6 +20669,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 43091,
     "monthlyTokens": {
@@ -20509,6 +20754,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-12",
     "active": true,
     "tokens": 4523,
     "monthlyTokens": {
@@ -20593,6 +20839,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-08-05",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -20677,6 +20924,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-08-01",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -20761,6 +21009,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-06-29",
     "active": true,
     "tokens": 8135,
     "monthlyTokens": {
@@ -20845,6 +21094,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-30",
     "active": true,
     "tokens": 12868,
     "monthlyTokens": {
@@ -20929,6 +21179,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-04-10",
     "active": true,
     "tokens": 2773,
     "monthlyTokens": {
@@ -21013,6 +21264,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-01-19",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -21097,6 +21349,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-16",
     "active": true,
     "tokens": 101868,
     "monthlyTokens": {
@@ -21181,6 +21434,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-06-08",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -21265,6 +21519,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-30",
     "active": true,
     "tokens": 52472,
     "monthlyTokens": {
@@ -21349,6 +21604,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-09",
     "active": true,
     "tokens": 7292,
     "monthlyTokens": {
@@ -21433,6 +21689,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-05",
     "active": true,
     "tokens": 7458,
     "monthlyTokens": {
@@ -21517,6 +21774,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 94818,
     "monthlyTokens": {
@@ -21601,6 +21859,7 @@ const EMPLOYEES = [
     "title": "Actuarial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-11",
     "active": true,
     "tokens": 11447,
     "monthlyTokens": {
@@ -21685,6 +21944,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-06",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -21769,6 +22029,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 19313,
     "monthlyTokens": {
@@ -21853,6 +22114,7 @@ const EMPLOYEES = [
     "title": "Business Intelligence Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-28",
     "active": true,
     "tokens": 95024,
     "monthlyTokens": {
@@ -21937,6 +22199,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-02",
     "active": true,
     "tokens": 21966,
     "monthlyTokens": {
@@ -22021,6 +22284,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-03",
     "active": true,
     "tokens": 8296,
     "monthlyTokens": {
@@ -22105,6 +22369,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -22189,6 +22454,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-06",
     "active": true,
     "tokens": 133436,
     "monthlyTokens": {
@@ -22273,6 +22539,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-07",
     "active": true,
     "tokens": 5577,
     "monthlyTokens": {
@@ -22357,6 +22624,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-08",
     "active": true,
     "tokens": 50918,
     "monthlyTokens": {
@@ -22441,6 +22709,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-03-25",
     "active": true,
     "tokens": 15737,
     "monthlyTokens": {
@@ -22525,6 +22794,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-08",
     "active": true,
     "tokens": 5913,
     "monthlyTokens": {
@@ -22609,6 +22879,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-20",
     "active": true,
     "tokens": 86897,
     "monthlyTokens": {
@@ -22693,6 +22964,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-02-04",
     "active": true,
     "tokens": 16662,
     "monthlyTokens": {
@@ -22777,6 +23049,7 @@ const EMPLOYEES = [
     "title": "Data Scientist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-14",
     "active": true,
     "tokens": 110577,
     "monthlyTokens": {
@@ -22861,6 +23134,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-03-18",
     "active": true,
     "tokens": 7829,
     "monthlyTokens": {
@@ -22945,6 +23219,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-05-16",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -23029,6 +23304,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-01-05",
     "active": true,
     "tokens": 28618,
     "monthlyTokens": {
@@ -23113,6 +23389,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-29",
     "active": true,
     "tokens": 6819,
     "monthlyTokens": {
@@ -23197,6 +23474,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-30",
     "active": true,
     "tokens": 1302,
     "monthlyTokens": {
@@ -23281,6 +23559,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-02",
     "active": true,
     "tokens": 116239,
     "monthlyTokens": {
@@ -23365,6 +23644,7 @@ const EMPLOYEES = [
     "title": "Business Intelligence Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-22",
     "active": true,
     "tokens": 48667,
     "monthlyTokens": {
@@ -23449,6 +23729,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-20",
     "active": true,
     "tokens": 11392,
     "monthlyTokens": {
@@ -23533,6 +23814,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 5815,
     "monthlyTokens": {
@@ -23617,6 +23899,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-02-01",
     "active": true,
     "tokens": 20479,
     "monthlyTokens": {
@@ -23701,6 +23984,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-29",
     "active": true,
     "tokens": 9219,
     "monthlyTokens": {
@@ -23785,6 +24069,7 @@ const EMPLOYEES = [
     "title": "Business Intelligence Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-06",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -23869,6 +24154,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-04-21",
     "active": true,
     "tokens": 13172,
     "monthlyTokens": {
@@ -23953,6 +24239,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-05",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -24037,6 +24324,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-21",
     "active": true,
     "tokens": 4749,
     "monthlyTokens": {
@@ -24121,6 +24409,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-28",
     "active": true,
     "tokens": 4139,
     "monthlyTokens": {
@@ -24205,6 +24494,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-27",
     "active": true,
     "tokens": 92894,
     "monthlyTokens": {
@@ -24289,6 +24579,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 2616,
     "monthlyTokens": {
@@ -24373,6 +24664,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-27",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -24457,6 +24749,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-28",
     "active": true,
     "tokens": 11417,
     "monthlyTokens": {
@@ -24541,6 +24834,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 26346,
     "monthlyTokens": {
@@ -24625,6 +24919,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-01-07",
     "active": true,
     "tokens": 18058,
     "monthlyTokens": {
@@ -24709,6 +25004,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-03",
     "active": true,
     "tokens": 20275,
     "monthlyTokens": {
@@ -24793,6 +25089,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-16",
     "active": true,
     "tokens": 4005,
     "monthlyTokens": {
@@ -24877,6 +25174,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-16",
     "active": true,
     "tokens": 58113,
     "monthlyTokens": {
@@ -24961,6 +25259,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-04-18",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -25045,6 +25344,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-22",
     "active": true,
     "tokens": 46764,
     "monthlyTokens": {
@@ -25129,6 +25429,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-20",
     "active": true,
     "tokens": 14114,
     "monthlyTokens": {
@@ -25213,6 +25514,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-03-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -25297,6 +25599,7 @@ const EMPLOYEES = [
     "title": "Digital Product Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-16",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -25381,6 +25684,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-05-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -25465,6 +25769,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-03",
     "active": true,
     "tokens": 38099,
     "monthlyTokens": {
@@ -25549,6 +25854,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-16",
     "active": true,
     "tokens": 36181,
     "monthlyTokens": {
@@ -25633,6 +25939,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-02",
     "active": true,
     "tokens": 38606,
     "monthlyTokens": {
@@ -25717,6 +26024,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-27",
     "active": true,
     "tokens": 16755,
     "monthlyTokens": {
@@ -25801,6 +26109,7 @@ const EMPLOYEES = [
     "title": "Digital Strategist",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-19",
     "active": true,
     "tokens": 12918,
     "monthlyTokens": {
@@ -25885,6 +26194,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-26",
     "active": true,
     "tokens": 55812,
     "monthlyTokens": {
@@ -25969,6 +26279,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-06-13",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26053,6 +26364,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-13",
     "active": true,
     "tokens": 36080,
     "monthlyTokens": {
@@ -26137,6 +26449,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-12",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26221,6 +26534,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-30",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26305,6 +26619,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 52606,
     "monthlyTokens": {
@@ -26389,6 +26704,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 36989,
     "monthlyTokens": {
@@ -26473,6 +26789,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-21",
     "active": true,
     "tokens": 7146,
     "monthlyTokens": {
@@ -26557,6 +26874,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-04",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26641,6 +26959,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-08-12",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26725,6 +27044,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-04",
     "active": true,
     "tokens": 48911,
     "monthlyTokens": {
@@ -26809,6 +27129,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-14",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -26893,6 +27214,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-05",
     "active": true,
     "tokens": 18890,
     "monthlyTokens": {
@@ -26977,6 +27299,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-08",
     "active": true,
     "tokens": 4777,
     "monthlyTokens": {
@@ -27061,6 +27384,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-14",
     "active": true,
     "tokens": 3559,
     "monthlyTokens": {
@@ -27145,6 +27469,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-21",
     "active": true,
     "tokens": 2751,
     "monthlyTokens": {
@@ -27229,6 +27554,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-21",
     "active": true,
     "tokens": 3644,
     "monthlyTokens": {
@@ -27313,6 +27639,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-29",
     "active": true,
     "tokens": 63094,
     "monthlyTokens": {
@@ -27397,6 +27724,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-25",
     "active": true,
     "tokens": 6125,
     "monthlyTokens": {
@@ -27481,6 +27809,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 7273,
     "monthlyTokens": {
@@ -27565,6 +27894,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-03",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -27649,6 +27979,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-10",
     "active": true,
     "tokens": 33883,
     "monthlyTokens": {
@@ -27733,6 +28064,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-27",
     "active": true,
     "tokens": 18540,
     "monthlyTokens": {
@@ -27817,6 +28149,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -27901,6 +28234,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -27985,6 +28319,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-27",
     "active": true,
     "tokens": 5546,
     "monthlyTokens": {
@@ -28069,6 +28404,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-19",
     "active": true,
     "tokens": 6385,
     "monthlyTokens": {
@@ -28153,6 +28489,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-01-02",
     "active": true,
     "tokens": 14623,
     "monthlyTokens": {
@@ -28237,6 +28574,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-31",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -28321,6 +28659,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-03-28",
     "active": true,
     "tokens": 3945,
     "monthlyTokens": {
@@ -28405,6 +28744,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-26",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -28489,6 +28829,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-06-25",
     "active": true,
     "tokens": 12288,
     "monthlyTokens": {
@@ -28573,6 +28914,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-04",
     "active": true,
     "tokens": 8808,
     "monthlyTokens": {
@@ -28657,6 +28999,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-14",
     "active": true,
     "tokens": 49739,
     "monthlyTokens": {
@@ -28741,6 +29084,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -28825,6 +29169,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-25",
     "active": true,
     "tokens": 8407,
     "monthlyTokens": {
@@ -28909,6 +29254,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-06",
     "active": true,
     "tokens": 28055,
     "monthlyTokens": {
@@ -28993,6 +29339,7 @@ const EMPLOYEES = [
     "title": "Actuarial Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-05",
     "active": true,
     "tokens": 5603,
     "monthlyTokens": {
@@ -29077,6 +29424,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-05-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -29161,6 +29509,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-01",
     "active": true,
     "tokens": 3312,
     "monthlyTokens": {
@@ -29245,6 +29594,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-12",
     "active": true,
     "tokens": 972,
     "monthlyTokens": {
@@ -29329,6 +29679,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-06-27",
     "active": true,
     "tokens": 7476,
     "monthlyTokens": {
@@ -29413,6 +29764,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-06-15",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -29497,6 +29849,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-15",
     "active": true,
     "tokens": 20225,
     "monthlyTokens": {
@@ -29581,6 +29934,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2026-06-10",
     "active": true,
     "tokens": 4297,
     "monthlyTokens": {
@@ -29665,6 +30019,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-27",
     "active": true,
     "tokens": 4651,
     "monthlyTokens": {
@@ -29749,6 +30104,7 @@ const EMPLOYEES = [
     "title": "Digital Strategist",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-12",
     "active": true,
     "tokens": 46453,
     "monthlyTokens": {
@@ -29833,6 +30189,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-07",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -29917,6 +30274,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-20",
     "active": true,
     "tokens": 117907,
     "monthlyTokens": {
@@ -30001,6 +30359,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-10",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -30085,6 +30444,7 @@ const EMPLOYEES = [
     "title": "Actuarial Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-27",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -30169,6 +30529,7 @@ const EMPLOYEES = [
     "title": "Actuary",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-06-09",
     "active": true,
     "tokens": 1989,
     "monthlyTokens": {
@@ -30253,6 +30614,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-04-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -30337,6 +30699,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-12",
     "active": true,
     "tokens": 26957,
     "monthlyTokens": {
@@ -30421,6 +30784,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-21",
     "active": true,
     "tokens": 10846,
     "monthlyTokens": {
@@ -30505,6 +30869,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-08",
     "active": true,
     "tokens": 16262,
     "monthlyTokens": {
@@ -30589,6 +30954,7 @@ const EMPLOYEES = [
     "title": "Senior Actuarial Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 14319,
     "monthlyTokens": {
@@ -30673,6 +31039,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-11-10",
     "active": true,
     "tokens": 11847,
     "monthlyTokens": {
@@ -30757,6 +31124,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-01",
     "active": true,
     "tokens": 4479,
     "monthlyTokens": {
@@ -30841,6 +31209,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-02",
     "active": true,
     "tokens": 2233,
     "monthlyTokens": {
@@ -30925,6 +31294,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-30",
     "active": true,
     "tokens": 3959,
     "monthlyTokens": {
@@ -31009,6 +31379,7 @@ const EMPLOYEES = [
     "title": "Analytics Manager",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-11-05",
     "active": true,
     "tokens": 22953,
     "monthlyTokens": {
@@ -31093,6 +31464,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-01",
     "active": true,
     "tokens": 21963,
     "monthlyTokens": {
@@ -31177,6 +31549,7 @@ const EMPLOYEES = [
     "title": "Underwriting Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-03-01",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -31261,6 +31634,7 @@ const EMPLOYEES = [
     "title": "Data Scientist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-19",
     "active": true,
     "tokens": 38926,
     "monthlyTokens": {
@@ -31345,6 +31719,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-03-31",
     "active": true,
     "tokens": 1267,
     "monthlyTokens": {
@@ -31429,6 +31804,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-06-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -31513,6 +31889,7 @@ const EMPLOYEES = [
     "title": "Operations Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 19364,
     "monthlyTokens": {
@@ -31597,6 +31974,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-11",
     "active": true,
     "tokens": 24477,
     "monthlyTokens": {
@@ -31681,6 +32059,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-06",
     "active": true,
     "tokens": 10776,
     "monthlyTokens": {
@@ -31765,6 +32144,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-15",
     "active": true,
     "tokens": 8512,
     "monthlyTokens": {
@@ -31849,6 +32229,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-03-24",
     "active": true,
     "tokens": 3913,
     "monthlyTokens": {
@@ -31933,6 +32314,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-03",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -32017,6 +32399,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-24",
     "active": true,
     "tokens": 1447,
     "monthlyTokens": {
@@ -32101,6 +32484,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-09-02",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -32185,6 +32569,7 @@ const EMPLOYEES = [
     "title": "Application Developer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-26",
     "active": true,
     "tokens": 18441,
     "monthlyTokens": {
@@ -32269,6 +32654,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-05-02",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -32353,6 +32739,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-19",
     "active": true,
     "tokens": 16409,
     "monthlyTokens": {
@@ -32437,6 +32824,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-01-14",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -32521,6 +32909,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-02-01",
     "active": true,
     "tokens": 28937,
     "monthlyTokens": {
@@ -32605,6 +32994,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-21",
     "active": true,
     "tokens": 3184,
     "monthlyTokens": {
@@ -32689,6 +33079,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-06",
     "active": true,
     "tokens": 99299,
     "monthlyTokens": {
@@ -32773,6 +33164,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-14",
     "active": true,
     "tokens": 3713,
     "monthlyTokens": {
@@ -32857,6 +33249,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-04-08",
     "active": true,
     "tokens": 1564,
     "monthlyTokens": {
@@ -32941,6 +33334,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-18",
     "active": true,
     "tokens": 12666,
     "monthlyTokens": {
@@ -33025,6 +33419,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-08",
     "active": true,
     "tokens": 13244,
     "monthlyTokens": {
@@ -33109,6 +33504,7 @@ const EMPLOYEES = [
     "title": "Actuarial Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 24992,
     "monthlyTokens": {
@@ -33193,6 +33589,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-11-29",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -33277,6 +33674,7 @@ const EMPLOYEES = [
     "title": "Actuarial Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-24",
     "active": true,
     "tokens": 19164,
     "monthlyTokens": {
@@ -33361,6 +33759,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-04-25",
     "active": true,
     "tokens": 2364,
     "monthlyTokens": {
@@ -33445,6 +33844,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-21",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -33529,6 +33929,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-26",
     "active": true,
     "tokens": 38915,
     "monthlyTokens": {
@@ -33613,6 +34014,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-02",
     "active": true,
     "tokens": 7299,
     "monthlyTokens": {
@@ -33697,6 +34099,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-06-17",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -33781,6 +34184,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-18",
     "active": true,
     "tokens": 36559,
     "monthlyTokens": {
@@ -33865,6 +34269,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-06",
     "active": true,
     "tokens": 37928,
     "monthlyTokens": {
@@ -33949,6 +34354,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-13",
     "active": true,
     "tokens": 22003,
     "monthlyTokens": {
@@ -34033,6 +34439,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-02-13",
     "active": true,
     "tokens": 7691,
     "monthlyTokens": {
@@ -34117,6 +34524,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-27",
     "active": true,
     "tokens": 53055,
     "monthlyTokens": {
@@ -34201,6 +34609,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-05-01",
     "active": true,
     "tokens": 5754,
     "monthlyTokens": {
@@ -34285,6 +34694,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-18",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -34369,6 +34779,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-20",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -34453,6 +34864,7 @@ const EMPLOYEES = [
     "title": "Underwriting Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-10",
     "active": true,
     "tokens": 9953,
     "monthlyTokens": {
@@ -34537,6 +34949,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -34621,6 +35034,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-08",
     "active": true,
     "tokens": 12552,
     "monthlyTokens": {
@@ -34705,6 +35119,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 24232,
     "monthlyTokens": {
@@ -34789,6 +35204,7 @@ const EMPLOYEES = [
     "title": "HR Manager",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-04",
     "active": true,
     "tokens": 6915,
     "monthlyTokens": {
@@ -34873,6 +35289,7 @@ const EMPLOYEES = [
     "title": "Operations Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-13",
     "active": true,
     "tokens": 8428,
     "monthlyTokens": {
@@ -34957,6 +35374,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-10-04",
     "active": true,
     "tokens": 15308,
     "monthlyTokens": {
@@ -35041,6 +35459,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-22",
     "active": true,
     "tokens": 11101,
     "monthlyTokens": {
@@ -35125,6 +35544,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-24",
     "active": true,
     "tokens": 10091,
     "monthlyTokens": {
@@ -35209,6 +35629,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-30",
     "active": true,
     "tokens": 51518,
     "monthlyTokens": {
@@ -35293,6 +35714,7 @@ const EMPLOYEES = [
     "title": "Brand Associate",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-16",
     "active": true,
     "tokens": 17885,
     "monthlyTokens": {
@@ -35377,6 +35799,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-01-25",
     "active": true,
     "tokens": 13638,
     "monthlyTokens": {
@@ -35461,6 +35884,7 @@ const EMPLOYEES = [
     "title": "Operations Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-28",
     "active": true,
     "tokens": 52196,
     "monthlyTokens": {
@@ -35545,6 +35969,7 @@ const EMPLOYEES = [
     "title": "Automation Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-09",
     "active": true,
     "tokens": 51143,
     "monthlyTokens": {
@@ -35629,6 +36054,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-12-15",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -35713,6 +36139,7 @@ const EMPLOYEES = [
     "title": "HR Business Partner",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2026-04-21",
     "active": true,
     "tokens": 5112,
     "monthlyTokens": {
@@ -35797,6 +36224,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-12-23",
     "active": true,
     "tokens": 45966,
     "monthlyTokens": {
@@ -35881,6 +36309,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-05-24",
     "active": true,
     "tokens": 1286,
     "monthlyTokens": {
@@ -35965,6 +36394,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-11",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -36049,6 +36479,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-15",
     "active": true,
     "tokens": 13984,
     "monthlyTokens": {
@@ -36133,6 +36564,7 @@ const EMPLOYEES = [
     "title": "Actuarial Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-28",
     "active": true,
     "tokens": 14095,
     "monthlyTokens": {
@@ -36217,6 +36649,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-26",
     "active": true,
     "tokens": 7064,
     "monthlyTokens": {
@@ -36301,6 +36734,7 @@ const EMPLOYEES = [
     "title": "Treasury Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-12-23",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -36385,6 +36819,7 @@ const EMPLOYEES = [
     "title": "Data Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-07",
     "active": true,
     "tokens": 103611,
     "monthlyTokens": {
@@ -36469,6 +36904,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -36553,6 +36989,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-15",
     "active": true,
     "tokens": 10374,
     "monthlyTokens": {
@@ -36637,6 +37074,7 @@ const EMPLOYEES = [
     "title": "Marketing Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-16",
     "active": true,
     "tokens": 22359,
     "monthlyTokens": {
@@ -36721,6 +37159,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-01",
     "active": true,
     "tokens": 18109,
     "monthlyTokens": {
@@ -36805,6 +37244,7 @@ const EMPLOYEES = [
     "title": "Operations Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-18",
     "active": true,
     "tokens": 16169,
     "monthlyTokens": {
@@ -36889,6 +37329,7 @@ const EMPLOYEES = [
     "title": "Risk Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-18",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -36973,6 +37414,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-12-22",
     "active": true,
     "tokens": 17809,
     "monthlyTokens": {
@@ -37057,6 +37499,7 @@ const EMPLOYEES = [
     "title": "Systems Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-02-26",
     "active": true,
     "tokens": 17644,
     "monthlyTokens": {
@@ -37141,6 +37584,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 9349,
     "monthlyTokens": {
@@ -37225,6 +37669,7 @@ const EMPLOYEES = [
     "title": "Customer Experience Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-22",
     "active": true,
     "tokens": 5436,
     "monthlyTokens": {
@@ -37309,6 +37754,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-25",
     "active": true,
     "tokens": 49947,
     "monthlyTokens": {
@@ -37393,6 +37839,7 @@ const EMPLOYEES = [
     "title": "Software Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2026-03-04",
     "active": true,
     "tokens": 23203,
     "monthlyTokens": {
@@ -37477,6 +37924,7 @@ const EMPLOYEES = [
     "title": "Operations Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-12",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -37561,6 +38009,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-09-20",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -37645,6 +38094,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2026-07-26",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -37729,6 +38179,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-29",
     "active": true,
     "tokens": 7116,
     "monthlyTokens": {
@@ -37813,6 +38264,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-06",
     "active": true,
     "tokens": 37165,
     "monthlyTokens": {
@@ -37897,6 +38349,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-01-03",
     "active": true,
     "tokens": 30273,
     "monthlyTokens": {
@@ -37981,6 +38434,7 @@ const EMPLOYEES = [
     "title": "Financial Controller",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-12-29",
     "active": true,
     "tokens": 12572,
     "monthlyTokens": {
@@ -38065,6 +38519,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 29974,
     "monthlyTokens": {
@@ -38149,6 +38604,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-02-09",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -38233,6 +38689,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-20",
     "active": true,
     "tokens": 48997,
     "monthlyTokens": {
@@ -38317,6 +38774,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-28",
     "active": true,
     "tokens": 137357,
     "monthlyTokens": {
@@ -38401,6 +38859,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-11-30",
     "active": true,
     "tokens": 1814,
     "monthlyTokens": {
@@ -38485,6 +38944,7 @@ const EMPLOYEES = [
     "title": "Customer Service Representative",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-11",
     "active": true,
     "tokens": 2463,
     "monthlyTokens": {
@@ -38569,6 +39029,7 @@ const EMPLOYEES = [
     "title": "Innovation Analyst",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-25",
     "active": true,
     "tokens": 13938,
     "monthlyTokens": {
@@ -38653,6 +39114,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2025-10-24",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -38737,6 +39199,7 @@ const EMPLOYEES = [
     "title": "Business Intelligence Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-30",
     "active": true,
     "tokens": 41447,
     "monthlyTokens": {
@@ -38821,6 +39284,7 @@ const EMPLOYEES = [
     "title": "HR Associate",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-10-01",
     "active": true,
     "tokens": 11504,
     "monthlyTokens": {
@@ -38905,6 +39369,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-09",
     "active": true,
     "tokens": 2489,
     "monthlyTokens": {
@@ -38989,6 +39454,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-11-05",
     "active": true,
     "tokens": 20760,
     "monthlyTokens": {
@@ -39073,6 +39539,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-28",
     "active": true,
     "tokens": 36913,
     "monthlyTokens": {
@@ -39157,6 +39624,7 @@ const EMPLOYEES = [
     "title": "Senior Software Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-13",
     "active": true,
     "tokens": 20579,
     "monthlyTokens": {
@@ -39241,6 +39709,7 @@ const EMPLOYEES = [
     "title": "Accountant",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-20",
     "active": true,
     "tokens": 12522,
     "monthlyTokens": {
@@ -39325,6 +39794,7 @@ const EMPLOYEES = [
     "title": "Senior Underwriter",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-02-10",
     "active": true,
     "tokens": 5496,
     "monthlyTokens": {
@@ -39409,6 +39879,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-12",
     "active": true,
     "tokens": 28089,
     "monthlyTokens": {
@@ -39493,6 +39964,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-18",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -39577,6 +40049,7 @@ const EMPLOYEES = [
     "title": "Financial Analyst",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2025-11-15",
     "active": true,
     "tokens": 20483,
     "monthlyTokens": {
@@ -39661,6 +40134,7 @@ const EMPLOYEES = [
     "title": "Risk Manager",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-31",
     "active": true,
     "tokens": 3562,
     "monthlyTokens": {
@@ -39745,6 +40219,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-09",
     "active": true,
     "tokens": 24743,
     "monthlyTokens": {
@@ -39829,6 +40304,7 @@ const EMPLOYEES = [
     "title": "QA Engineer",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-17",
     "active": true,
     "tokens": 99924,
     "monthlyTokens": {
@@ -39913,6 +40389,7 @@ const EMPLOYEES = [
     "title": "Underwriter",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-16",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -39997,6 +40474,7 @@ const EMPLOYEES = [
     "title": "Talent Acquisition Specialist",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-10-09",
     "active": true,
     "tokens": 2658,
     "monthlyTokens": {
@@ -40081,6 +40559,7 @@ const EMPLOYEES = [
     "title": "Solutions Architect",
     "market": "Sun Life Hong Kong",
     "marketTag": "Hong Kong",
+    "licensedOn": "2026-04-13",
     "active": true,
     "tokens": 33616,
     "monthlyTokens": {
@@ -40165,6 +40644,7 @@ const EMPLOYEES = [
     "title": "Claims Analyst",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-28",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -40249,6 +40729,7 @@ const EMPLOYEES = [
     "title": "Marketing Manager",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-12-15",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -40333,6 +40814,7 @@ const EMPLOYEES = [
     "title": "Digital Marketing Analyst",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-01",
     "active": true,
     "tokens": 3438,
     "monthlyTokens": {
@@ -40417,6 +40899,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-24",
     "active": true,
     "tokens": 13877,
     "monthlyTokens": {
@@ -40501,6 +40984,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Singapore",
     "marketTag": "Singapore",
+    "licensedOn": "2025-10-13",
     "active": true,
     "tokens": 16979,
     "monthlyTokens": {
@@ -40585,6 +41069,7 @@ const EMPLOYEES = [
     "title": "Business Analyst",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-12-07",
     "active": true,
     "tokens": 18399,
     "monthlyTokens": {
@@ -40669,6 +41154,7 @@ const EMPLOYEES = [
     "title": "Audit Associate",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-04",
     "active": true,
     "tokens": 5582,
     "monthlyTokens": {
@@ -40753,6 +41239,7 @@ const EMPLOYEES = [
     "title": "DevOps Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-10-18",
     "active": true,
     "tokens": 65813,
     "monthlyTokens": {
@@ -40837,6 +41324,7 @@ const EMPLOYEES = [
     "title": "Claims Processor",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-11-23",
     "active": true,
     "tokens": 8571,
     "monthlyTokens": {
@@ -40921,6 +41409,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Malaysia",
     "marketTag": "Malaysia",
+    "licensedOn": "2025-10-23",
     "active": true,
     "tokens": 7483,
     "monthlyTokens": {
@@ -41005,6 +41494,7 @@ const EMPLOYEES = [
     "title": "Underwriting Associate",
     "market": "Sun Life Vietnam",
     "marketTag": "Vietnam",
+    "licensedOn": "2025-11-25",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -41089,6 +41579,7 @@ const EMPLOYEES = [
     "title": "Claims Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-16",
     "active": true,
     "tokens": 8769,
     "monthlyTokens": {
@@ -41173,6 +41664,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-11-18",
     "active": true,
     "tokens": 9380,
     "monthlyTokens": {
@@ -41257,6 +41749,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-31",
     "active": true,
     "tokens": 5276,
     "monthlyTokens": {
@@ -41341,6 +41834,7 @@ const EMPLOYEES = [
     "title": "Reporting Analyst",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2025-10-25",
     "active": true,
     "tokens": 45339,
     "monthlyTokens": {
@@ -41425,6 +41919,7 @@ const EMPLOYEES = [
     "title": "Compliance Officer",
     "market": "Sun Life Everbright",
     "marketTag": "China",
+    "licensedOn": "2026-05-02",
     "active": true,
     "tokens": 2024,
     "monthlyTokens": {
@@ -41509,6 +42004,7 @@ const EMPLOYEES = [
     "title": "Data Engineer",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-21",
     "active": true,
     "tokens": 26126,
     "monthlyTokens": {
@@ -41593,6 +42089,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-11-24",
     "active": true,
     "tokens": 2707,
     "monthlyTokens": {
@@ -41677,6 +42174,7 @@ const EMPLOYEES = [
     "title": "Finance Manager",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2025-12-20",
     "active": true,
     "tokens": 23383,
     "monthlyTokens": {
@@ -41761,6 +42259,7 @@ const EMPLOYEES = [
     "title": "Claims Associate",
     "market": "Sun Life Asia Service Centre - India",
     "marketTag": "India",
+    "licensedOn": "2026-03-31",
     "active": false,
     "tokens": 0,
     "monthlyTokens": {
@@ -41845,6 +42344,7 @@ const EMPLOYEES = [
     "title": "Technical Lead",
     "market": "Sun Life Philippines",
     "marketTag": "Philippines",
+    "licensedOn": "2025-12-02",
     "active": true,
     "tokens": 13194,
     "monthlyTokens": {
@@ -41929,6 +42429,7 @@ const EMPLOYEES = [
     "title": "Customer Service Team Lead",
     "market": "Sun Life Indonesia",
     "marketTag": "Indonesia",
+    "licensedOn": "2026-06-17",
     "active": true,
     "tokens": 943,
     "monthlyTokens": {
