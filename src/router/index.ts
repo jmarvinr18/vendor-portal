@@ -63,6 +63,11 @@ const router = createRouter({
       meta: { title: 'Notifications' },
     },
     { path: '/help', name: 'help', component: placeholder, meta: { title: 'Help & Support' } },
+    {
+      path: '/ai-assistant/:sessionId?',
+      name: 'ai-assistant',
+      component: () => import('../views/AiAssistantView.vue'),
+    },
     { path: '/logout', name: 'logout', component: placeholder, meta: { title: 'Logout' } },
     { path: '/:pathMatch(.*)*', redirect: '/submit-invoice' },
   ],

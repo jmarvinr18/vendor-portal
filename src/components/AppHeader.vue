@@ -30,6 +30,17 @@ const referenceData = useReferenceDataStore()
     </div>
 
     <div class="header-actions">
+      <RouterLink
+        :to="{ name: 'ai-assistant' }"
+        class="btn ai-button"
+        active-class="active"
+        aria-label="AI Assistant"
+        title="AI Assistant"
+      >
+        <i class="bi bi-stars"></i>
+        <span class="d-none d-md-inline">AI Assistant</span>
+      </RouterLink>
+
       <RouterLink to="/notifications" class="notif-btn" aria-label="Notifications (3 unread)">
         <i class="bi bi-bell"></i>
         <span class="notif-badge">3</span>
@@ -110,6 +121,34 @@ const referenceData = useReferenceDataStore()
   height: 32px;
   align-self: center;
   opacity: 0.15;
+}
+
+.ai-button {
+  --bs-btn-padding-x: 0.875rem;
+  --bs-btn-padding-y: 0.375rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-font-size: 0.875rem;
+  --bs-btn-color: var(--vp-text);
+  --bs-btn-bg: var(--vp-gold-soft);
+  --bs-btn-border-color: #ecd49c;
+  --bs-btn-hover-color: var(--vp-text);
+  --bs-btn-hover-bg: #fbe6b8;
+  --bs-btn-hover-border-color: var(--vp-gold);
+  --bs-btn-active-bg: var(--vp-gold);
+  --bs-btn-active-border-color: var(--vp-gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+}
+
+.ai-button.active {
+  background: var(--vp-gold);
+  border-color: var(--vp-gold);
+}
+
+.ai-button .bi {
+  font-size: 1rem;
 }
 
 .notif-btn {
