@@ -117,7 +117,7 @@
         <div class="panel hero-panel">
           <div class="panel-head" style="width:100%">
             <div>
-              <h2>Adoption Rate Overall</h2>
+              <h2>Adoption Rate</h2>
               <p class="panel-sub" style="margin-bottom:0">Active users as a share of licensed</p>
             </div>
           </div>
@@ -161,6 +161,59 @@
         </div>
       </section>
 
+      <!-- Hero adoption + monthly trend -->
+      <section class="grid grid-hero">
+        <div class="panel hero-panel">
+          <div class="panel-head" style="width:100%">
+            <div>
+              <h2>Adoption Rate</h2>
+              <p class="panel-sub" style="margin-bottom:0">Active users as a share of licensed</p>
+            </div>
+          </div>
+          <div class="ring-wrap">
+            <svg viewBox="0 0 120 120" id="heroRing" role="img" aria-labelledby="heroRingLabel"></svg>
+            <div class="ring-center">
+              <span class="hero-figure" id="heroRate">0%</span>
+              <span class="hero-figure-label">adoption</span>
+            </div>
+          </div>
+          <span class="sr-only" id="heroRingLabel"></span>
+          <div class="hero-split">
+            <div>
+              <span class="n" id="heroActive">0</span>
+              <span class="l"><i class="swatch active"></i>Active</span>
+            </div>
+            <div>
+              <span class="n" id="heroLicensed">0</span>
+              <span class="l"><i class="swatch licensed"></i>Licensed</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; gap:16px; align-content:start; min-width:0">
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Adoption Risk</h2>
+                <p class="panel-sub" style="margin-bottom:0">Lowest team adoption (3+ licences)</p>
+              </div>
+            </div>
+            <div class="rank-list" id="riskList" style="margin-top:8px"></div>
+          </div>
+
+          <!-- <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Top Users</h2>
+                <p class="panel-sub" style="margin-bottom:0">Highest token consumption</p>
+              </div>
+            </div>
+            <div class="rank-list" id="topUsers" style="margin-top:8px"></div>
+          </div> -->
+        </div>
+      </section>
+
+      
       <!-- Token usage breakdowns -->
       <section class="grid grid-3">
         <div class="panel" data-chart-card="market">
@@ -266,15 +319,6 @@
         </div>
 
         <div style="display:grid; gap:16px; align-content:start; min-width:0">
-          <div class="panel">
-            <div class="panel-head">
-              <div>
-                <h2>Adoption Risk</h2>
-                <p class="panel-sub" style="margin-bottom:0">Lowest team adoption (3+ licences)</p>
-              </div>
-            </div>
-            <div class="rank-list" id="riskList" style="margin-top:8px"></div>
-          </div>
 
           <div class="panel">
             <div class="panel-head">

@@ -733,6 +733,22 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   border-bottom: 1px solid var(--grid);
   color: var(--text-2);
 }
+#marketTable,
+#managerTable,
+#departmentTable {
+  flex: 0 0 260px;
+  height: 260px;
+  min-height: 0;
+  overflow: auto;
+}
+#marketTable .data-table th,
+#managerTable .data-table th,
+#departmentTable .data-table th {
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+  z-index: 1;
+}
 .data-table tbody tr:hover td { background: var(--surface-2); }
 .data-table td.num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); }
 .data-table .person { display: flex; align-items: center; gap: 10px; }
