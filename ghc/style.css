@@ -15,6 +15,7 @@
   --series-active: #E5A51A;
   --series-licensed-wash: rgba(23, 143, 98, 0.12);
   --series-active-wash: rgba(229, 165, 26, 0.14);
+  --series-capacity: #4F5BD5;
 
   /* Surfaces */
   --page-bg: #F4F7F8;
@@ -55,6 +56,7 @@
     --series-active: #BE8A14;
     --series-licensed-wash: rgba(47, 165, 116, 0.18);
     --series-active-wash: rgba(190, 138, 20, 0.2);
+    --series-capacity: #6470DC;
 
     --page-bg: #0C1D24;
     --surface: #132730;
@@ -86,6 +88,7 @@
   --series-active: #BE8A14;
   --series-licensed-wash: rgba(47, 165, 116, 0.18);
   --series-active-wash: rgba(190, 138, 20, 0.2);
+  --series-capacity: #6470DC;
 
   --page-bg: #0C1D24;
   --surface: #132730;
@@ -498,6 +501,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 /* --------------------------------------------------------- hero ring */
 
 .hero-panel { display: flex; flex-direction: column; align-items: center; text-align: center; }
+/* Headers match every other panel (left-aligned); only the figure and stats centre. */
+.hero-panel .panel-head { text-align: left; align-self: stretch; }
 .ring-wrap { position: relative; width: 190px; height: 190px; margin: 6px 0 4px; }
 .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .ring-center {
@@ -523,7 +528,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   padding-top: 16px;
   border-top: 1px solid var(--border);
 }
-.hero-split div { flex: 1; }
+.hero-split > div { flex: 1; min-width: 0; }
+.hero-panel > .delta { margin-top: 10px; background: var(--surface-2); }
 .hero-split .n {
   font-size: 1.15rem; font-weight: 700; display: block; line-height: 1.2;
 }
@@ -534,6 +540,44 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .swatch { width: 9px; height: 9px; border-radius: 3px; flex-shrink: 0; display: inline-block; }
 .swatch.licensed { background: var(--series-licensed); }
 .swatch.active { background: var(--series-active); }
+.line-key {
+  width: 16px; height: 3px;
+  border-radius: 2px;
+  background: var(--series-capacity);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ------------------------------------------------- capacity panel */
+
+.capacity-panel { justify-content: space-between; }
+.capacity-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 22px 0 18px;
+}
+.capacity-hero .delta { margin-top: 8px; background: var(--surface-2); }
+.capacity-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  border-top: 1px solid var(--border);
+}
+.capacity-stats > div {
+  padding: 14px 6px;
+  border-bottom: 1px solid var(--grid);
+}
+.capacity-stats > div:nth-child(odd) { border-right: 1px solid var(--grid); }
+.capacity-stats .n { display: block; font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+.capacity-stats .l { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+.capacity-note {
+  margin: 14px 0 0;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
 
 /* ------------------------------------------------------- bar charts */
 
@@ -544,6 +588,26 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   display: flex;
   flex-direction: column;
 }
+
+/* Table twins scroll inside their card instead of bleeding past it: wide tables
+   scroll sideways, long ones (the 50-row manager list) scroll down under a
+   sticky header. */
+.panel[data-chart-card] > div[id$="Table"] {
+  min-width: 0;
+  max-height: 400px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.panel[data-chart-card] > div[id$="Table"] .data-table { min-width: max-content; }
+.panel[data-chart-card] > div[id$="Table"] thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface);
+  padding-top: 4px;
+}
+.panel[data-chart-card] > div[id$="Table"] td { white-space: nowrap; }
 
 .bar-list { display: flex; flex-direction: column; gap: 13px; }
 .bar-row {
@@ -608,8 +672,15 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   font-family: inherit;
   font-variant-numeric: tabular-nums;
 }
+.chart-facet-text {
+  fill: var(--text-2);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: inherit;
+}
 .chart-hit { fill: transparent; cursor: pointer; }
 .chart-band-hl { fill: var(--surface-2); opacity: 0; pointer-events: none; }
+.chart-band-selected { fill: var(--grid); pointer-events: none; }
 
 .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
 .legend-item {
@@ -766,8 +837,16 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 .data-table .person > div { min-width: 0; }
 .data-table .person-name,
 .data-table .person-meta { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#employeeTable td { white-space: nowrap; }
-#employeeTable td:first-child { max-width: 230px; }
+/* Fixed columns: the table can never outgrow its panel, whatever names land on the
+   page, so Tokens is never pushed out of view. Below min-width it scrolls instead. */
+#employeeTable { table-layout: fixed; min-width: 540px; }
+#employeeTable th, #employeeTable td { padding-left: 10px; padding-right: 10px; }
+#employeeTable th:nth-child(1) { width: 32%; }
+#employeeTable th:nth-child(2) { width: 20%; }
+#employeeTable th:nth-child(3) { width: 15%; }
+#employeeTable th:nth-child(4) { width: 17%; }
+#employeeTable th:nth-child(5) { width: 16%; }
+#employeeTable td { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 .pill {
   display: inline-flex; align-items: center; gap: 6px;
@@ -883,6 +962,12 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
 
 /* ------------------------------------------------------ responsive */
 
+/* Below this the side-by-side Employees panel is too narrow for its table, so it
+   takes the full row and Top Users drops beneath it. */
+@media (max-width: 1360px) {
+  .grid-2 { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media (max-width: 1280px) {
   .kpi-row { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -892,7 +977,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -0.015em; }
   .grid-hero, .grid-2 { grid-template-columns: minmax(0, 1fr); }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .sidebar {
     position: fixed;
     left: 0; top: 0; bottom: 0;

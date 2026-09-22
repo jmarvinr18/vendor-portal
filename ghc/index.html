@@ -44,6 +44,14 @@
 
     <p class="nav-section" style="margin-top:22px">Filters</p>
     <div class="side-filter">
+      <label for="monthFilter">Month</label>
+      <select id="monthFilter"><option value="">All months</option></select>
+    </div>
+    <div class="side-filter">
+      <label for="weekFilter">Week</label>
+      <select id="weekFilter"><option value="">All weeks</option></select>
+    </div>
+    <div class="side-filter">
       <label for="managerFilter">Manager</label>
       <select id="managerFilter"><option value="">All managers</option></select>
     </div>
@@ -114,38 +122,32 @@
 
       <!-- Hero adoption + monthly trend -->
       <section class="grid grid-hero">
-        <div class="panel hero-panel">
+        <div class="panel hero-panel capacity-panel">
           <div class="panel-head" style="width:100%">
             <div>
-              <h2>Adoption Rate</h2>
-              <p class="panel-sub" style="margin-bottom:0">Active users as a share of licensed</p>
+              <h2>Capacity Created</h2>
+              <p class="panel-sub" style="margin-bottom:0" id="capacitySub">Lines of code committed in Bitbucket</p>
             </div>
           </div>
-          <div class="ring-wrap">
-            <svg viewBox="0 0 120 120" id="heroRing" role="img" aria-labelledby="heroRingLabel"></svg>
-            <div class="ring-center">
-              <span class="hero-figure" id="heroRate">0%</span>
-              <span class="hero-figure-label">adoption</span>
-            </div>
+          <div class="capacity-hero">
+            <span class="hero-figure" id="capacityFigure">0</span>
+            <span class="hero-figure-label">lines committed</span>
+            <span class="delta" id="capacityDelta"></span>
           </div>
-          <span class="sr-only" id="heroRingLabel"></span>
-          <div class="hero-split">
-            <div>
-              <span class="n" id="heroActive">0</span>
-              <span class="l"><i class="swatch active"></i>Active</span>
-            </div>
-            <div>
-              <span class="n" id="heroLicensed">0</span>
-              <span class="l"><i class="swatch licensed"></i>Licensed</span>
-            </div>
+          <div class="capacity-stats">
+            <div><span class="n" id="capacityMonth">0</span><span class="l" id="capacityMonthLabel">this month</span></div>
+            <div><span class="n" id="capacityPerUser">0</span><span class="l">per active user</span></div>
+            <div><span class="n" id="capacityPerToken">0</span><span class="l">per 1K tokens</span></div>
+            <div><span class="n" id="capacityContributors">0</span><span class="l">contributors</span></div>
           </div>
+          <p class="capacity-note">Proxy measure: commit volume approximates capacity, not business value.</p>
         </div>
 
         <div class="panel" data-chart-card="trend">
           <div class="panel-head">
             <div>
-              <h2>Licensed vs Active by Month</h2>
-              <p class="panel-sub" id="trendSub">Month-on-month utilisation of the licence pool</p>
+              <h2>Licensed, Active &amp; Capacity by Month</h2>
+              <p class="panel-sub" id="trendSub">Month-on-month utilisation and lines committed</p>
             </div>
             <div class="view-toggle" role="group" aria-label="Trend view">
               <button type="button" data-view="chart" aria-pressed="true">Chart</button>
@@ -155,6 +157,7 @@
           <div class="legend">
             <span class="legend-item"><i class="swatch licensed"></i>Licensed</span>
             <span class="legend-item"><i class="swatch active"></i>Active</span>
+            <span class="legend-item"><i class="line-key"></i>Capacity created</span>
           </div>
           <div id="trendChart"></div>
           <div id="trendTable" hidden></div>
@@ -167,25 +170,30 @@
           <div class="panel-head" style="width:100%">
             <div>
               <h2>Adoption Rate</h2>
-              <p class="panel-sub" style="margin-bottom:0">Active users as a share of licensed</p>
+              <p class="panel-sub" style="margin-bottom:0" id="heroSub">Users with token usage in the latest month</p>
             </div>
           </div>
           <div class="ring-wrap">
             <svg viewBox="0 0 120 120" id="heroRing" role="img" aria-labelledby="heroRingLabel"></svg>
             <div class="ring-center">
               <span class="hero-figure" id="heroRate">0%</span>
-              <span class="hero-figure-label">adoption</span>
+              <span class="hero-figure-label" id="heroRateLabel">adoption</span>
             </div>
           </div>
+          <span class="delta" id="heroDelta" hidden></span>
           <span class="sr-only" id="heroRingLabel"></span>
           <div class="hero-split">
             <div>
               <span class="n" id="heroActive">0</span>
-              <span class="l"><i class="swatch active"></i>Active</span>
+              <span class="l"><i class="swatch active"></i><span id="heroActiveLabel">Active</span></span>
             </div>
             <div>
               <span class="n" id="heroLicensed">0</span>
               <span class="l"><i class="swatch licensed"></i>Licensed</span>
+            </div>
+            <div>
+              <span class="n" id="heroTokens">0</span>
+              <span class="l" id="heroTokensLabel">Tokens</span>
             </div>
           </div>
         </div>
@@ -195,7 +203,7 @@
             <div class="panel-head">
               <div>
                 <h2>Adoption Risk</h2>
-                <p class="panel-sub" style="margin-bottom:0">Lowest team adoption (3+ licences)</p>
+                <p class="panel-sub" style="margin-bottom:0" id="riskSub">Lowest team adoption (3+ licences)</p>
               </div>
             </div>
             <div class="rank-list" id="riskList" style="margin-top:8px"></div>
@@ -324,7 +332,7 @@
             <div class="panel-head">
               <div>
                 <h2>Top Users</h2>
-                <p class="panel-sub" style="margin-bottom:0">Highest token consumption</p>
+                <p class="panel-sub" style="margin-bottom:0" id="topUsersSub">Highest token consumption</p>
               </div>
             </div>
             <div class="rank-list" id="topUsers" style="margin-top:8px"></div>
