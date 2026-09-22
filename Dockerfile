@@ -1,12 +1,12 @@
 # syntax=docker/dockerfile:1
 
 # ---------- Build stage ----------
-# FROM quay.prod-openshift-na.hybrid.sunlifecorp.com/asiaekscp/node:22.17.0-alpine3.21 AS build
-FROM node:22-alpine AS build
+FROM quay.prod-openshift-na.hybrid.sunlifecorp.com/asiaekscp/node:22.17.0-alpine3.21 AS build
+# FROM node:22-alpine AS build
 
 WORKDIR /app
 
-# COPY .npmrc .npmrc
+COPY .npmrc .npmrc
 COPY package.json ./
 
 RUN npm install

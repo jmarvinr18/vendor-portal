@@ -200,15 +200,15 @@
     const prev = REPORTED.length > 1 ? REPORTED[REPORTED.length - 2] : null;
 
     const curActive = cur ? rows.filter((e) => isActiveIn(e, cur)).length : 0;
-    const prevActive = prev ? rows.filter((e) => isActiveIn(e, prev)).length : 0;
+    const prevActive = prev ? rows.filter((e) => isActiveIn(e, prev)).length : 0; 
     const curTokens = cur ? rows.reduce((s, e) => s + monthTokens(e, cur), 0) : 0;
     const prevTokens = prev ? rows.reduce((s, e) => s + monthTokens(e, prev), 0) : 0;
 
     const pctChange = (a, b) => (b ? ((a - b) / b) * 100 : 0);
 
     const tiles = [
-      { cls: "t1", label: "Licensed users", value: fmt(licensed), note: "in current selection" },
-      { cls: "t2", label: "Active users", value: fmt(active), delta: pctChange(curActive, prevActive), deltaLabel: prev ? "vs " + prev : "" },
+      { cls: "t1", label: "Capacity Created", value: 0, delta: pctChange(curActive, prevActive), deltaLabel: prev ? "vs " + prev : "" },
+      { cls: "t2", label: "Active users / Licensed", value: `${fmt(active)} / ${fmt(licensed)}`, note: "in current selection" },
       { cls: "t3", label: "Tokens utilised", value: fmtCompact(tokens), delta: pctChange(curTokens, prevTokens), deltaLabel: prev ? "vs " + prev : "" },
       { cls: "t4", label: "Avg tokens / active user", value: fmtCompact(avgPerActive), note: "across " + YEAR },
       { cls: "t5", label: "Idle licences", value: fmt(inactive), note: inactive ? "reclaim candidates" : "none idle" },
@@ -252,7 +252,7 @@
     $("heroActive").textContent = fmt(active);
     $("heroLicensed").textContent = fmt(licensed);
     $("heroRingLabel").textContent =
-      "Adoption rate " + Math.round(rate) + " percent: " + active + " active of " + licensed + " licensed users.";
+      "Adoption rate asdfsd" + Math.round(rate) + " percent: " + active + " active of " + licensed + " licensed users.";
 
     const host = $("heroRing");
     clear(host);
@@ -498,7 +498,7 @@
     const table = el("table", "data-table mini-table");
     const thead = el("thead");
     const hrow = el("tr");
-    ["Name", unitLabel, "Share", "Users", "Avg / user"].forEach((label, i) => {
+    ["Name", unitLabel, "Users", "Avg / user"].forEach((label, i) => {
       const th = el("th", null, label);
       if (i > 0) th.style.textAlign = "right";
       hrow.appendChild(th);
@@ -512,7 +512,6 @@
       tr.appendChild(el("td", null, row.label));
       const cells = [
         fmt(row.value),
-        (total ? ((row.value / total) * 100).toFixed(1) : "0") + "%",
         fmt(row.users),
         fmt(row.users ? row.value / row.users : 0),
       ];
