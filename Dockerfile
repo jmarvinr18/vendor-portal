@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 # Same-origin by default; nginx proxies /api to the API container.
 ARG VITE_APP_API_URL=/api/v1
-ARG VITE_VENDOR_ID=4c602bb5-ad8d-401e-a97d-52b7d488d844
+ARG VITE_VENDOR_ID=d2ad572f-1bfa-427c-aa64-6b6e92eb9fc7
 ENV VITE_APP_API_URL=${VITE_APP_API_URL}
 ENV VITE_VENDOR_ID=${VITE_VENDOR_ID}
 ENV VITE_AI_MOCK=true

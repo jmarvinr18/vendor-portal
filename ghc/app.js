@@ -19,6 +19,8 @@
     sortKey: "tokens",
     sortAsc: false,
     page: 1,
+    month: "",
+    week: "",
   };
 
   /* ------------------------------------------------------------ helpers */
@@ -70,6 +72,23 @@
     return step * pow;
   }
 
+  // Finer steps than niceMax, whose 1/2/5/10 jumps would leave the capacity plot half empty.
+  function niceCeil(value) {
+    if (value <= 0) return 10;
+    const pow = Math.pow(10, Math.floor(Math.log10(value)));
+    const steps = [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10];
+    return steps.find((s) => s >= value / pow) * pow;
+  }
+
+  function arrowIcon(dir) {
+    const icon = svg("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "3" });
+    icon.appendChild(svg("path", {
+      d: dir === "down" ? "M6 9l6 6 6-6" : dir === "up" ? "M6 15l6-6 6 6" : "M5 12h14",
+      "stroke-linecap": "round", "stroke-linejoin": "round",
+    }));
+    return icon;
+  }
+
   /* ------------------------------------------- reporting window (data) */
 
   // Months after the last one carrying any usage are "not yet reported" —
@@ -91,6 +110,79 @@
 
   const monthTokens = (e, month) => Number(e.monthlyTokens[month] || 0);
   const isActiveIn = (e, month) => monthTokens(e, month) > 0;
+  const locIn = (e, month) => Number((e.monthlyLinesOfCode || {})[month] || 0);
+  const weekTokens = (e, id) => Number((e.weeklyTokens || {})[id] || 0);
+
+  /* ------------------------------------------------------ period (time) */
+
+  // ISO weeks in the data with the span each covers. A week is filed under the
+  // month holding most of its reported days, and flagged partial when fewer than
+  // 7 of its days fall inside the reporting window.
+  const WEEKS = (function () {
+    const ids = Object.keys((EMPLOYEES[0] && EMPLOYEES[0].weeklyTokens) || {});
+    const firstDay = new Date(Date.UTC(Number(YEAR), 0, 1));
+    const lastDay = new Date(Date.UTC(Number(YEAR), lastReported + 1, 0));
+    const mon = (d) => MONTHS[d.getUTCMonth()].slice(0, 3);
+    return ids.map((id) => {
+      const [y, w] = id.split("-W").map(Number);
+      const jan4 = new Date(Date.UTC(y, 0, 4));
+      const start = new Date(jan4);
+      start.setUTCDate(jan4.getUTCDate() - ((jan4.getUTCDay() || 7) - 1) + (w - 1) * 7);
+      const end = new Date(start);
+      end.setUTCDate(start.getUTCDate() + 6);
+
+      const perMonth = {};
+      let reported = 0;
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(start);
+        d.setUTCDate(start.getUTCDate() + i);
+        if (d < firstDay || d > lastDay) continue;
+        reported += 1;
+        perMonth[d.getUTCMonth()] = (perMonth[d.getUTCMonth()] || 0) + 1;
+      }
+      const monthIdx = Number(Object.keys(perMonth).sort((a, b) => perMonth[b] - perMonth[a])[0]);
+      const span = mon(start) + " " + start.getUTCDate() + "–" +
+        (end.getUTCMonth() === start.getUTCMonth() ? "" : mon(end) + " ") + end.getUTCDate();
+      const partial = reported < 7;
+      return { id, month: MONTHS[monthIdx], partial, short: "W" + w,
+               label: "W" + w + " · " + span + (partial ? " (partial)" : "") };
+    });
+  })();
+
+  function monthPeriod(m) {
+    return { kind: "month", key: m, month: m, short: m.slice(0, 3), name: m, label: m + " " + YEAR, partial: false };
+  }
+  function weekPeriod(w) {
+    return { kind: "week", key: w.id, month: w.month, short: w.short, name: w.short, label: w.label, partial: w.partial };
+  }
+  function currentPeriod() {
+    if (state.week) return weekPeriod(WEEKS.find((w) => w.id === state.week));
+    if (state.month) return monthPeriod(state.month);
+    return { kind: "ytd", label: REPORTED[0] + "–" + REPORTED[REPORTED.length - 1] + " " + YEAR };
+  }
+  // What adoption and the period deltas measure: the selected period, or with
+  // none selected, the latest reported month.
+  function focusPeriod(period) {
+    return period.kind === "ytd" ? monthPeriod(REPORTED[REPORTED.length - 1]) : period;
+  }
+  function prevOf(p) {
+    if (p.kind === "month") {
+      const i = REPORTED.indexOf(p.key);
+      return i > 0 ? monthPeriod(REPORTED[i - 1]) : null;
+    }
+    const i = WEEKS.findIndex((w) => w.id === p.key);
+    return i > 0 ? weekPeriod(WEEKS[i - 1]) : null;
+  }
+  // A partial week against a full one would read as a collapse, so no delta then.
+  function comparablePrev(p) {
+    const prev = prevOf(p);
+    return prev && !p.partial && !prev.partial ? prev : null;
+  }
+  function tokensIn(e, p) {
+    if (p.kind === "week") return weekTokens(e, p.key);
+    if (p.kind === "month") return monthTokens(e, p.key);
+    return Number(e.tokens || 0);
+  }
 
   function getFiltered() {
     const q = state.search.toLowerCase();
@@ -186,7 +278,7 @@
 
   /* --------------------------------------------------------- KPI tiles */
 
-  function renderKpis(rows) {
+  function renderKpis(rows, period) {
     const host = $("kpiRow");
     clear(host);
 
@@ -198,20 +290,26 @@
 
     const cur = REPORTED[REPORTED.length - 1];
     const prev = REPORTED.length > 1 ? REPORTED[REPORTED.length - 2] : null;
+    const totalLoc = rows.reduce((s, e) => s + Number(e.linesOfCode || 0), 0);
+    const curLoc = cur ? rows.reduce((s, e) => s + locIn(e, cur), 0) : 0;
+    const prevLoc = prev ? rows.reduce((s, e) => s + locIn(e, prev), 0) : 0;
 
-    const curActive = cur ? rows.filter((e) => isActiveIn(e, cur)).length : 0;
-    const prevActive = prev ? rows.filter((e) => isActiveIn(e, prev)).length : 0; 
-    const curTokens = cur ? rows.reduce((s, e) => s + monthTokens(e, cur), 0) : 0;
-    const prevTokens = prev ? rows.reduce((s, e) => s + monthTokens(e, prev), 0) : 0;
+    const focus = focusPeriod(period);
+    const before = comparablePrev(focus);
+    const tokensFor = (p) => rows.reduce((s, e) => s + tokensIn(e, p), 0);
 
     const pctChange = (a, b) => (b ? ((a - b) / b) * 100 : 0);
+    const scoped = period.kind !== "ytd";
+    const inPeriod = "in " + (scoped ? period.short : "");
 
     const tiles = [
-      { cls: "t1", label: "Capacity Created", value: 0, delta: pctChange(curActive, prevActive), deltaLabel: prev ? "vs " + prev : "" },
-      { cls: "t2", label: "Active users / Licensed", value: `${fmt(active)} / ${fmt(licensed)}`, note: "in current selection" },
-      { cls: "t3", label: "Tokens utilised", value: fmtCompact(tokens), delta: pctChange(curTokens, prevTokens), deltaLabel: prev ? "vs " + prev : "" },
-      { cls: "t4", label: "Avg tokens / active user", value: fmtCompact(avgPerActive), note: "across " + YEAR },
-      { cls: "t5", label: "Idle licences", value: fmt(inactive), note: inactive ? "reclaim candidates" : "none idle" },
+      { cls: "t1", label: "Capacity Created", value: fmtCompact(totalLoc), delta: pctChange(curLoc, prevLoc), deltaLabel: prev ? "vs " + prev : "" },
+      { cls: "t2", label: "Active users / Licensed", value: `${fmt(active)} / ${fmt(licensed)}`, note: scoped ? "active " + inPeriod : "in current selection" },
+      before
+        ? { cls: "t3", label: "Tokens utilised", value: fmtCompact(tokens), delta: pctChange(tokensFor(focus), tokensFor(before)), deltaLabel: "vs " + before.name }
+        : { cls: "t3", label: "Tokens utilised", value: fmtCompact(tokens), note: focus.partial ? "partial week" : inPeriod },
+      { cls: "t4", label: "Avg tokens / active user", value: fmtCompact(avgPerActive), note: scoped ? inPeriod : "across " + YEAR },
+      { cls: "t5", label: "Idle licences", value: fmt(inactive), note: scoped ? "no usage " + inPeriod : (inactive ? "reclaim candidates" : "none idle") },
     ];
 
     for (const tile of tiles) {
@@ -223,13 +321,7 @@
       if (typeof tile.delta === "number" && tile.deltaLabel) {
         const dir = tile.delta > 0.5 ? "up" : tile.delta < -0.5 ? "down" : "flat";
         const chip = el("span", "delta " + dir);
-        const arrow = svg("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", "stroke-width": "3" });
-        const path = svg("path", {
-          d: dir === "down" ? "M6 9l6 6 6-6" : dir === "up" ? "M6 15l6-6 6 6" : "M5 12h14",
-          "stroke-linecap": "round", "stroke-linejoin": "round",
-        });
-        arrow.appendChild(path);
-        chip.appendChild(arrow);
+        chip.appendChild(arrowIcon(dir));
         chip.appendChild(document.createTextNode(Math.abs(tile.delta).toFixed(1) + "%"));
         foot.appendChild(chip);
         foot.appendChild(el("span", "kpi-note", tile.deltaLabel));
@@ -243,16 +335,43 @@
 
   /* ---------------------------------------------------------- hero ring */
 
-  function renderHero(rows) {
+  // Adoption is measured on the latest reported month (the current month once it
+  // has data), so it reflects who is using the tool now, not anyone this year.
+  // Adoption = users with token usage in the selected period, or the latest
+  // reported month when none is selected, so it reflects who is using it now.
+  function renderHero(rows, period) {
+    const focus = focusPeriod(period);
+    const before = comparablePrev(focus);
     const licensed = rows.length;
-    const active = rows.filter((e) => e.active).length;
+    const active = rows.filter((e) => tokensIn(e, focus) > 0).length;
+    const tokens = rows.reduce((s, e) => s + tokensIn(e, focus), 0);
     const rate = licensed ? (active / licensed) * 100 : 0;
+    const when = focus.kind === "week" ? focus.short : focus.name;
 
+    $("heroSub").textContent = "Users with token usage in " + focus.label;
     $("heroRate").textContent = Math.round(rate) + "%";
+    $("heroRateLabel").textContent = "in " + when;
     $("heroActive").textContent = fmt(active);
+    $("heroActiveLabel").textContent = "Active in " + focus.short;
     $("heroLicensed").textContent = fmt(licensed);
-    $("heroRingLabel").textContent =
-      "Adoption rate asdfsd" + Math.round(rate) + " percent: " + active + " active of " + licensed + " licensed users.";
+    $("heroTokens").textContent = fmtCompact(tokens);
+    $("heroTokensLabel").textContent = "Tokens in " + focus.short;
+    $("heroRingLabel").textContent = "Adoption rate in " + focus.label + ": " + Math.round(rate) +
+      " percent. " + active + " of " + licensed + " licensed users had token usage, " +
+      fmt(tokens) + " tokens in total.";
+
+    // Change in the rate is in percentage points, not percent.
+    const chip = $("heroDelta");
+    clear(chip);
+    chip.hidden = !(before && licensed);
+    if (!chip.hidden) {
+      const prevRate = (rows.filter((e) => tokensIn(e, before) > 0).length / licensed) * 100;
+      const change = rate - prevRate;
+      const dir = change > 0.05 ? "up" : change < -0.05 ? "down" : "flat";
+      chip.className = "delta " + dir;
+      chip.appendChild(arrowIcon(dir));
+      chip.appendChild(document.createTextNode(Math.abs(change).toFixed(1) + " pp vs " + before.name));
+    }
 
     const host = $("heroRing");
     clear(host);
@@ -285,7 +404,70 @@
       " L" + (x + w) + " " + (y + h) + " Z";
   }
 
-  function renderTrend(rows) {
+  // Monotone cubic (Fritsch-Carlson): smooth, but never overshoots a data point.
+  function monotonePath(pts) {
+    const n = pts.length;
+    if (n < 2) return n ? "M" + pts[0][0] + " " + pts[0][1] : "";
+    const dx = [], slope = [];
+    for (let i = 0; i < n - 1; i++) {
+      dx[i] = pts[i + 1][0] - pts[i][0];
+      slope[i] = (pts[i + 1][1] - pts[i][1]) / dx[i];
+    }
+    const t = [slope[0]];
+    for (let i = 1; i < n - 1; i++) t[i] = slope[i - 1] * slope[i] <= 0 ? 0 : (slope[i - 1] + slope[i]) / 2;
+    t[n - 1] = slope[n - 2];
+    for (let i = 0; i < n - 1; i++) {
+      if (slope[i] === 0) { t[i] = 0; t[i + 1] = 0; continue; }
+      const a = t[i] / slope[i], b = t[i + 1] / slope[i], s = a * a + b * b;
+      if (s > 9) { const k = 3 / Math.sqrt(s); t[i] = k * a * slope[i]; t[i + 1] = k * b * slope[i]; }
+    }
+    let d = "M" + pts[0][0] + " " + pts[0][1];
+    for (let i = 0; i < n - 1; i++) {
+      const h = dx[i] / 3;
+      d += " C" + (pts[i][0] + h) + " " + (pts[i][1] + t[i] * h) + " " +
+        (pts[i + 1][0] - h) + " " + (pts[i + 1][1] - t[i + 1] * h) + " " +
+        pts[i + 1][0] + " " + pts[i + 1][1];
+    }
+    return d;
+  }
+
+  /* ---------------------------------------------------- capacity panel */
+
+  function renderCapacity(rows) {
+    const total = rows.reduce((s, e) => s + Number(e.linesOfCode || 0), 0);
+    const active = rows.filter((e) => e.active).length;
+    const tokens = rows.reduce((s, e) => s + Number(e.tokens || 0), 0);
+    const contributors = rows.filter((e) => Number(e.linesOfCode || 0) > 0).length;
+
+    const cur = REPORTED[REPORTED.length - 1];
+    const prev = REPORTED.length > 1 ? REPORTED[REPORTED.length - 2] : null;
+    const curLoc = rows.reduce((s, e) => s + locIn(e, cur), 0);
+    const prevLoc = prev ? rows.reduce((s, e) => s + locIn(e, prev), 0) : 0;
+
+    $("capacitySub").textContent =
+      "Lines committed in Bitbucket · " + REPORTED[0].slice(0, 3) + "–" + cur.slice(0, 3) + " " + YEAR;
+    $("capacityFigure").textContent = fmtCompact(total);
+    $("capacityMonth").textContent = fmtCompact(curLoc);
+    $("capacityMonthLabel").textContent = "in " + cur;
+    $("capacityPerUser").textContent = active ? fmtCompact(total / active) : "—";
+    $("capacityPerToken").textContent = tokens ? fmt(total / (tokens / 1000)) : "—";
+    $("capacityContributors").textContent = fmt(contributors);
+
+    const chip = $("capacityDelta");
+    clear(chip);
+    chip.hidden = !(prev && prevLoc);
+    if (!chip.hidden) {
+      const change = ((curLoc - prevLoc) / prevLoc) * 100;
+      const dir = change > 0.5 ? "up" : change < -0.5 ? "down" : "flat";
+      chip.className = "delta " + dir;
+      chip.appendChild(arrowIcon(dir));
+      chip.appendChild(document.createTextNode(Math.abs(change).toFixed(1) + "% vs " + prev));
+    }
+  }
+
+  /* ------------------------- capacity line + licensed/active columns */
+
+  function renderTrend(rows, period) {
     const host = $("trendChart");
     clear(host);
 
@@ -295,89 +477,135 @@
       licensed: licensedCount,
       active: rows.filter((e) => isActiveIn(e, month)).length,
       tokens: rows.reduce((s, e) => s + monthTokens(e, month), 0),
+      loc: rows.reduce((s, e) => s + locIn(e, month), 0),
     }));
 
-    $("trendSub").textContent =
-      "Month-on-month utilisation · " + REPORTED[0] + "–" + REPORTED[REPORTED.length - 1] + " " + YEAR;
+    $("trendSub").textContent = "Month-on-month utilisation and lines committed · " +
+      REPORTED[0] + "–" + REPORTED[REPORTED.length - 1] + " " + YEAR;
+    renderTrendTable(series);
 
     if (!series.length || !licensedCount) {
       host.appendChild(el("p", "empty-state", "No employees match the current filters."));
-      renderTrendTable(series);
       return;
     }
 
-    const W = 760, H = 250;
-    const m = { top: 22, right: 10, bottom: 34, left: 46 };
-    const plotW = W - m.left - m.right;
-    const plotH = H - m.top - m.bottom;
-    const top = niceMax(licensedCount);
-    const yOf = (v) => m.top + plotH - (v / top) * plotH;
-
-    const root = svg("svg", {
-      viewBox: "0 0 " + W + " " + H, class: "chart-svg",
-      preserveAspectRatio: "xMidYMid meet", role: "img",
-      "aria-label": "Licensed versus active users per month",
-    });
-
-    // gridlines + y ticks
-    for (let i = 0; i <= 4; i++) {
-      const value = (top / 4) * i;
-      const y = yOf(value);
-      root.appendChild(svg("line", { x1: m.left, y1: y, x2: W - m.right, y2: y, class: "chart-grid-line" }));
-      const tick = svg("text", { x: m.left - 9, y: y + 4, "text-anchor": "end", class: "chart-axis-text" });
-      tick.textContent = fmtCompact(value);
-      root.appendChild(tick);
-    }
-
+    // Two small multiples on one shared month axis. Lines committed and user counts
+    // are different scales, so each plot keeps its own y-axis: a dual-axis overlay
+    // would imply a correlation that the arbitrary scale alignment cannot support.
+    const W = 760, H = 392, left = 52, right = 10;
+    const plotW = W - left - right;
+    const cap = { top: 32, height: 112 };
+    const bar = { top: 192, height: 164 };
     const band = plotW / series.length;
-    const barW = Math.min(24, Math.max(8, band / 2 - 5));
+    const cx = (i) => left + band * i + band / 2;
+
+    const capMax = niceCeil(Math.max(...series.map((p) => p.loc), 1) * 1.08);
+    const capY = (v) => cap.top + cap.height - (v / capMax) * cap.height;
+    const barMax = niceMax(licensedCount);
+    const barY = (v) => bar.top + bar.height - (v / barMax) * bar.height;
+    const barBase = bar.top + bar.height;
+
     const colLicensed = token("--series-licensed");
     const colActive = token("--series-active");
+    const colCapacity = token("--series-capacity");
+    const colSurface = token("--surface");
 
-    series.forEach((point, i) => {
-      const bandX = m.left + band * i;
-      const pairW = barW * 2 + 2; // 2px surface gap between the pair
-      const x0 = bandX + (band - pairW) / 2;
+    const root = svg("svg", {
+      viewBox: "0 0 " + W + " " + H, class: "chart-svg", role: "img",
+      "aria-label": "Lines committed per month, and licensed versus active users per month",
+    });
+    const addText = (x, y, text, cls, anchor) => {
+      const node = svg("text", { x, y, "text-anchor": anchor || "middle", class: cls });
+      node.textContent = text;
+      root.appendChild(node);
+    };
+    const gridline = (y, tick) => {
+      root.appendChild(svg("line", { x1: left, y1: y, x2: W - right, y2: y, class: "chart-grid-line" }));
+      addText(left - 9, y + 4, tick, "chart-axis-text", "end");
+    };
 
-      const highlight = svg("rect", {
-        x: bandX + 2, y: m.top, width: band - 4, height: plotH, rx: 6, class: "chart-band-hl",
+    const spanTop = cap.top - 8;
+    const selected = period.kind === "ytd" ? -1 : series.findIndex((p) => p.month === period.month);
+    if (selected >= 0) {
+      root.appendChild(svg("rect", {
+        x: left + band * selected + 2, y: spanTop, width: band - 4, height: barBase - spanTop,
+        rx: 6, class: "chart-band-selected",
+      }));
+    }
+    const highlights = series.map((p, i) => {
+      const rect = svg("rect", {
+        x: left + band * i + 2, y: spanTop, width: band - 4, height: barBase - spanTop,
+        rx: 6, class: "chart-band-hl",
       });
-      root.appendChild(highlight);
+      root.appendChild(rect);
+      return rect;
+    });
 
-      const hLic = plotH - (yOf(point.licensed) - m.top);
-      const hAct = plotH - (yOf(point.active) - m.top);
-      root.appendChild(svg("path", { d: barPath(x0, yOf(point.licensed), barW, hLic, 4), fill: colLicensed }));
-      root.appendChild(svg("path", { d: barPath(x0 + barW + 2, yOf(point.active), barW, hAct, 4), fill: colActive }));
+    addText(left, cap.top - 16, "Capacity created · lines committed", "chart-facet-text", "start");
+    addText(left, bar.top - 16, "Licensed vs active users", "chart-facet-text", "start");
+    for (let i = 0; i <= 2; i++) gridline(capY((capMax / 2) * i), fmtCompact((capMax / 2) * i));
+    for (let i = 0; i <= 4; i++) gridline(barY((barMax / 4) * i), fmtCompact((barMax / 4) * i));
 
-      // Direct labels on the final month only — the axis and tooltip carry the rest.
-      if (i === series.length - 1) {
-        const labLic = svg("text", { x: x0 + barW / 2, y: yOf(point.licensed) - 7, "text-anchor": "middle", class: "chart-label-text" });
-        labLic.textContent = fmt(point.licensed);
-        root.appendChild(labLic);
-        const labAct = svg("text", { x: x0 + barW + 2 + barW / 2, y: yOf(point.active) - 7, "text-anchor": "middle", class: "chart-label-text" });
-        labAct.textContent = fmt(point.active);
-        root.appendChild(labAct);
-      }
+    const pts = series.map((p, i) => [cx(i), capY(p.loc)]);
+    const line = monotonePath(pts);
+    const last = series.length - 1;
+    root.appendChild(svg("path", {
+      d: line + " L" + pts[last][0] + " " + capY(0) + " L" + pts[0][0] + " " + capY(0) + " Z",
+      fill: colCapacity, "fill-opacity": "0.1",
+    }));
+    root.appendChild(svg("path", {
+      d: line, fill: "none", stroke: colCapacity, "stroke-width": "2",
+      "stroke-linejoin": "round", "stroke-linecap": "round",
+    }));
 
-      const monthLabel = svg("text", {
-        x: bandX + band / 2, y: H - 12, "text-anchor": "middle", class: "chart-axis-text",
-      });
-      monthLabel.textContent = point.month.slice(0, 3);
-      root.appendChild(monthLabel);
+    const barW = Math.min(24, Math.max(8, band / 2 - 5));
+    const pairX = (i) => left + band * i + (band - (barW * 2 + 2)) / 2;
+    series.forEach((p, i) => {
+      const x0 = pairX(i);
+      root.appendChild(svg("path", { d: barPath(x0, barY(p.licensed), barW, barBase - barY(p.licensed), 4), fill: colLicensed }));
+      root.appendChild(svg("path", { d: barPath(x0 + barW + 2, barY(p.active), barW, barBase - barY(p.active), 4), fill: colActive }));
+      addText(cx(i), H - 12, p.month.slice(0, 3), "chart-axis-text");
+    });
 
+    // Direct labels on the final month only; the axis and tooltip carry the rest.
+    const lp = series[last];
+    addText(pairX(last) + barW / 2, barY(lp.licensed) - 7, fmt(lp.licensed), "chart-label-text");
+    addText(pairX(last) + barW * 1.5 + 2, barY(lp.active) - 7, fmt(lp.active), "chart-label-text");
+    root.appendChild(svg("circle", {
+      cx: pts[last][0], cy: pts[last][1], r: 4, fill: colCapacity, stroke: colSurface, "stroke-width": 2,
+    }));
+    addText(pts[last][0], pts[last][1] - 11, fmtCompact(lp.loc), "chart-label-text");
+
+    const hoverDot = svg("circle", {
+      r: 4.5, fill: colCapacity, stroke: colSurface, "stroke-width": 2,
+      opacity: 0, "pointer-events": "none",
+    });
+    root.appendChild(hoverDot);
+
+    series.forEach((p, i) => {
+      const rate = p.licensed ? Math.round((p.active / p.licensed) * 100) : 0;
       const hit = svg("rect", {
-        x: bandX, y: m.top, width: band, height: plotH,
+        x: left + band * i, y: spanTop, width: band, height: barBase - spanTop,
         class: "chart-hit", tabindex: "0", role: "button",
-        "aria-label": point.month + ": " + point.active + " active of " + point.licensed + " licensed",
+        "aria-label": p.month + ": " + fmt(p.loc) + " lines committed, " +
+          p.active + " active of " + p.licensed + " licensed",
       });
-      const rate = point.licensed ? Math.round((point.active / point.licensed) * 100) : 0;
       const enter = (event) => {
-        highlight.style.opacity = "1";
-        showTooltip(event, point.month + " " + YEAR, [
-          { color: colLicensed, value: fmt(point.licensed), name: "Licensed" },
-          { color: colActive, value: fmt(point.active), name: "Active · " + rate + "%" },
-          { color: "transparent", value: fmtCompact(point.tokens), name: "Tokens" },
+        highlights[i].style.opacity = "1";
+        hoverDot.setAttribute("cx", pts[i][0]);
+        hoverDot.setAttribute("cy", pts[i][1]);
+        hoverDot.setAttribute("opacity", "1");
+        showTooltip(event, p.month + " " + YEAR, [
+          { color: colCapacity, value: fmt(p.loc), name: "Lines committed" },
+          { color: colLicensed, value: fmt(p.licensed), name: "Licensed" },
+          { color: colActive, value: fmt(p.active), name: "Active · " + rate + "%" },
+          { color: "transparent", value: fmtCompact(p.tokens), name: "Tokens" },
         ]);
+      };
+      const leave = () => {
+        highlights[i].style.opacity = "0";
+        hoverDot.setAttribute("opacity", "0");
+        hideTooltip();
       };
       hit.addEventListener("pointerenter", enter);
       hit.addEventListener("pointermove", positionTooltip);
@@ -385,14 +613,12 @@
         const box = hit.getBoundingClientRect();
         enter({ clientX: box.left + box.width / 2, clientY: box.top + 40 });
       });
-      const leave = () => { highlight.style.opacity = "0"; hideTooltip(); };
       hit.addEventListener("pointerleave", leave);
       hit.addEventListener("blur", leave);
       root.appendChild(hit);
     });
 
     host.appendChild(root);
-    renderTrendTable(series);
   }
 
   function renderTrendTable(series) {
@@ -401,7 +627,7 @@
     const table = el("table", "data-table mini-table");
     const thead = el("thead");
     const hrow = el("tr");
-    ["Month", "Licensed", "Active", "Adoption", "Tokens"].forEach((h, i) => {
+    ["Month", "Licensed", "Active", "Adoption", "Tokens", "Lines committed", "Lines / 1K tokens"].forEach((h, i) => {
       const th = el("th", null, h);
       if (i > 0) th.style.textAlign = "right";
       hrow.appendChild(th);
@@ -410,11 +636,17 @@
     table.appendChild(thead);
 
     const tbody = el("tbody");
-    for (const point of series) {
+    for (const p of series) {
       const tr = el("tr");
-      tr.appendChild(el("td", null, point.month));
-      const rate = point.licensed ? Math.round((point.active / point.licensed) * 100) + "%" : "—";
-      [fmt(point.licensed), fmt(point.active), rate, fmt(point.tokens)].forEach((v) => {
+      tr.appendChild(el("td", null, p.month));
+      [
+        fmt(p.licensed),
+        fmt(p.active),
+        p.licensed ? Math.round((p.active / p.licensed) * 100) + "%" : "—",
+        fmt(p.tokens),
+        fmt(p.loc),
+        p.tokens ? fmt(p.loc / (p.tokens / 1000)) : "—",
+      ].forEach((v) => {
         const td = el("td", "num", v);
         td.style.textAlign = "right";
         tr.appendChild(td);
@@ -429,14 +661,14 @@
 
   // The chart shows the top `limit` rows for a consistent row rhythm across cards;
   // the table twin always carries the full list, so nothing is hidden.
-  function renderBarList(hostId, tableId, subId, allRows, limit, unitLabel) {
+  function renderBarList(hostId, tableId, subId, allRows, limit, unitLabel, scope) {
     const host = $(hostId);
     clear(host);
 
     const total = allRows.reduce((s, r) => s + r.value, 0);
     const rows = allRows.slice(0, limit);
 
-    $(subId).textContent = "Total tokens utilised" +
+    $(subId).textContent = scope +
       (allRows.length > rows.length ? " · top " + rows.length + " of " + allRows.length : "");
 
     if (!rows.length) {
@@ -528,9 +760,11 @@
 
   /* ------------------------------------------------------- rank lists */
 
-  function renderRisk(rows) {
+  function renderRisk(rows, period) {
     const host = $("riskList");
     clear(host);
+    $("riskSub").textContent = "Lowest team adoption (3+ licences)" +
+      (period.kind === "ytd" ? "" : " · " + period.label);
     const teams = groupAdoption(rows, (e) => e.manager, 3)
       .sort((a, b) => a.rate - b.rate)
       .slice(0, 6);
@@ -552,13 +786,15 @@
     }
   }
 
-  function renderTopUsers(rows) {
+  function renderTopUsers(rows, period) {
     const host = $("topUsers");
     clear(host);
-    const top = [...rows].sort((a, b) => b.tokens - a.tokens).slice(0, 6);
+    $("topUsersSub").textContent = "Highest token consumption" +
+      (period.kind === "ytd" ? "" : " · " + period.label);
+    const top = rows.filter((e) => e.tokens > 0).sort((a, b) => b.tokens - a.tokens).slice(0, 6);
 
     if (!top.length) {
-      host.appendChild(el("p", "empty-state", "No employees match the current filters."));
+      host.appendChild(el("p", "empty-state", "No token usage for this selection."));
       return;
     }
 
@@ -576,16 +812,17 @@
 
   /* --------------------------------------------------- employee table */
 
-  function renderEmployees(rows) {
+  function renderEmployees(rows, period) {
     const tbody = document.querySelector("#employeeTable tbody");
     clear(tbody);
 
     const narrowed = getTableRows(rows);
     const narrowing = Boolean(state.tableSearch || state.status);
     $("clearTableFilters").hidden = !narrowing;
-    $("employeeSub").textContent = narrowing
+    $("employeeSub").textContent = (narrowing
       ? "Filtered to " + fmt(narrowed.length) + " of " + fmt(rows.length) + " in the current selection"
-      : "Licence holders in the current selection";
+      : "Licence holders in the current selection") +
+      (period.kind === "ytd" ? "" : " · tokens for " + period.label);
 
     const sorted = [...narrowed].sort((a, b) => {
       const av = a[state.sortKey];
@@ -620,12 +857,17 @@
       const meta = el("div");
       meta.appendChild(el("p", "person-name", person.name));
       meta.appendChild(el("p", "person-meta", person.title));
+      meta.title = person.name + " · " + person.title;
       wrap.appendChild(meta);
       nameCell.appendChild(wrap);
       tr.appendChild(nameCell);
 
-      tr.appendChild(el("td", null, person.manager));
-      tr.appendChild(el("td", null, person.marketTag));
+      const managerCell = el("td", null, person.manager);
+      managerCell.title = person.manager;
+      tr.appendChild(managerCell);
+      const marketCell = el("td", null, person.marketTag);
+      marketCell.title = person.marketTag;
+      tr.appendChild(marketCell);
 
       const statusCell = el("td");
       const pill = el("span", "pill " + (person.active ? "is-active" : "is-inactive"));
@@ -694,11 +936,12 @@
 
   /* -------------------------------------------------- filter chip row */
 
-  function renderChips() {
+  function renderChips(period) {
     const host = $("activeFilters");
     clear(host);
 
     const chips = [];
+    if (period.kind !== "ytd") chips.push({ label: "Period: " + period.label, clear: () => { setPeriod("", ""); } });
     if (state.manager) chips.push({ label: "Manager: " + state.manager, clear: () => { state.manager = ""; $("managerFilter").value = ""; } });
     if (state.market) chips.push({ label: "Market: " + state.market, clear: () => { state.market = ""; $("marketFilter").value = ""; } });
     if (state.search) chips.push({ label: 'Search: "' + state.search + '"', clear: () => { state.search = ""; $("searchInput").value = ""; } });
@@ -722,22 +965,30 @@
   /* -------------------------------------------------------- render all */
 
   function render() {
-    const rows = getFiltered();
+    const base = getFiltered();
+    const period = currentPeriod();
+    // Token views read e.tokens / e.active, so a selected period is projected onto
+    // those two fields. Capacity and the monthly trend keep the unprojected rows.
+    const rows = period.kind === "ytd" ? base : base.map((e) => {
+      const tokens = tokensIn(e, period);
+      return Object.assign({}, e, { tokens, active: tokens > 0 });
+    });
+    const scope = period.kind === "ytd" ? "Total tokens utilised" : "Tokens utilised in " + period.label;
 
-    renderChips();
-    renderKpis(rows);
-    renderHero(rows);
-    renderTrend(rows);
-    renderBarList("marketChart", "marketTable", "marketSub", groupTokens(rows, (e) => e.marketTag), 8, "Tokens");
-    renderBarList("managerChart", "managerTable", "managerSub", groupTokens(rows, (e) => e.manager), 8, "Tokens");
-    renderBarList("departmentChart", "departmentTable", "departmentSub", groupTokens(rows, (e) => e.department), 8, "Tokens");
-    renderRisk(rows);
-    renderTopUsers(rows);
-    renderEmployees(rows);
+    renderChips(period);
+    renderKpis(rows, period);
+    renderCapacity(base);
+    renderHero(base, period);
+    renderTrend(base, period);
+    renderBarList("marketChart", "marketTable", "marketSub", groupTokens(rows, (e) => e.marketTag), 8, "Tokens", scope);
+    renderBarList("managerChart", "managerTable", "managerSub", groupTokens(rows, (e) => e.manager), 8, "Tokens", scope);
+    renderBarList("departmentChart", "departmentTable", "departmentSub", groupTokens(rows, (e) => e.department), 8, "Tokens", scope);
+    renderRisk(rows, period);
+    renderTopUsers(rows, period);
+    renderEmployees(rows, period);
 
     const markets = new Set(rows.map((e) => e.marketTag)).size;
     const teams = new Set(rows.map((e) => e.manager)).size;
-    $("sideFootCount").textContent = fmt(rows.length) + " licensed";
     $("pageSubtitle").textContent =
       "Licence utilisation across " + markets + (markets === 1 ? " market · " : " markets · ") +
       teams + (teams === 1 ? " team" : " teams");
@@ -779,6 +1030,47 @@
       select.appendChild(option);
     });
   }
+
+  REPORTED.forEach((month) => {
+    const option = el("option", null, month);
+    option.value = month;
+    $("monthFilter").appendChild(option);
+  });
+  $("monthFilter").options[0].textContent = "All months (" + REPORTED[0].slice(0, 3) + "–" +
+    REPORTED[REPORTED.length - 1].slice(0, 3) + ")";
+
+  // The week list follows the chosen month, so the two controls never disagree.
+  function fillWeekOptions() {
+    const select = $("weekFilter");
+    while (select.options.length > 1) select.remove(1);
+    select.options[0].textContent = state.month ? "All weeks in " + state.month.slice(0, 3) : "All weeks";
+    WEEKS.filter((w) => !state.month || w.month === state.month).forEach((w) => {
+      const option = el("option", null, w.label);
+      option.value = w.id;
+      select.appendChild(option);
+    });
+    select.value = state.week;
+  }
+
+  function setPeriod(month, week) {
+    state.month = month;
+    state.week = week;
+    $("monthFilter").value = month;
+    fillWeekOptions();
+  }
+
+  $("monthFilter").addEventListener("change", (e) => {
+    setPeriod(e.target.value, "");
+    state.page = 1;
+    render();
+  });
+  $("weekFilter").addEventListener("change", (e) => {
+    const week = WEEKS.find((w) => w.id === e.target.value);
+    setPeriod(week ? week.month : state.month, week ? week.id : "");
+    state.page = 1;
+    render();
+  });
+  fillWeekOptions();
 
   fillSelect($("managerFilter"), EMPLOYEES.map((e) => e.manager));
   fillSelect($("marketFilter"), EMPLOYEES.map((e) => e.marketTag));
@@ -824,6 +1116,7 @@
   });
 
   $("resetFilters").addEventListener("click", () => {
+    setPeriod("", "");
     state.manager = ""; state.market = ""; state.search = "";
     state.tableSearch = ""; state.status = ""; state.page = 1;
     $("managerFilter").value = ""; $("marketFilter").value = ""; $("searchInput").value = "";
