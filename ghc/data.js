@@ -1,8 +1,9 @@
-// Auto-generated from gh-for-reporting.xlsx - do not edit by hand.
-// licensedOn = date the Copilot seat was assigned (GitHub seat created_at). DUMMY VALUES until the seat export is connected.
-// weeklyTokens = ISO weeks (Mon-Sun). DUMMY VALUES: a split of monthlyTokens until a daily usage export is connected.
-// linesOfCode / monthlyLinesOfCode = lines committed in Bitbucket (Capacity Created).
-// DUMMY VALUES derived from token usage until the Bitbucket export is connected.
+// Auto-generated - do not edit by hand.
+// EMPLOYEES: from gh-for-reporting-v2.xlsx (Copilot licences + token usage).
+//   licensedOn = seat assignment date; weeklyTokens = ISO weeks. Both DUMMY until the real exports are connected.
+// CAPACITY: from bitbucket-commits.xlsx (Bitbucket commits). Company-wide totals only -
+//   commit authors are NOT mapped to Copilot licence holders, so capacity ignores the Manager/Market filters.
+//   Formula values live on that file's `parameters` sheet.
 const EMPLOYEES = [
   {
     "login": "ysusanto",
@@ -72,21 +73,6 @@ const EMPLOYEES = [
       "2026-W38": 624,
       "2026-W39": 490,
       "2026-W40": 352
-    },
-    "linesOfCode": 4342,
-    "monthlyLinesOfCode": {
-      "January": 353,
-      "February": 395,
-      "March": 142,
-      "April": 380,
-      "May": 1002,
-      "June": 359,
-      "July": 333,
-      "August": 631,
-      "September": 747,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -157,21 +143,6 @@ const EMPLOYEES = [
       "2026-W38": 542,
       "2026-W39": 545,
       "2026-W40": 390
-    },
-    "linesOfCode": 204,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 27,
-      "March": 17,
-      "April": 13,
-      "May": 25,
-      "June": 21,
-      "July": 23,
-      "August": 38,
-      "September": 40,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -242,21 +213,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -327,21 +283,6 @@ const EMPLOYEES = [
       "2026-W38": 342,
       "2026-W39": 306,
       "2026-W40": 209
-    },
-    "linesOfCode": 151,
-    "monthlyLinesOfCode": {
-      "January": 15,
-      "February": 17,
-      "March": 15,
-      "April": 6,
-      "May": 16,
-      "June": 16,
-      "July": 18,
-      "August": 19,
-      "September": 29,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -412,21 +353,6 @@ const EMPLOYEES = [
       "2026-W38": 184,
       "2026-W39": 181,
       "2026-W40": 119
-    },
-    "linesOfCode": 123,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 16,
-      "March": 8,
-      "April": 16,
-      "May": 13,
-      "June": 18,
-      "July": 11,
-      "August": 17,
-      "September": 19,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -497,21 +423,6 @@ const EMPLOYEES = [
       "2026-W38": 531,
       "2026-W39": 590,
       "2026-W40": 388
-    },
-    "linesOfCode": 1446,
-    "monthlyLinesOfCode": {
-      "January": 170,
-      "February": 115,
-      "March": 172,
-      "April": 125,
-      "May": 143,
-      "June": 164,
-      "July": 91,
-      "August": 181,
-      "September": 285,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -582,21 +493,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -667,21 +563,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -752,21 +633,6 @@ const EMPLOYEES = [
       "2026-W38": 233,
       "2026-W39": 265,
       "2026-W40": 140
-    },
-    "linesOfCode": 618,
-    "monthlyLinesOfCode": {
-      "January": 23,
-      "February": 26,
-      "March": 73,
-      "April": 67,
-      "May": 92,
-      "June": 64,
-      "July": 57,
-      "August": 138,
-      "September": 78,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -837,21 +703,6 @@ const EMPLOYEES = [
       "2026-W38": 384,
       "2026-W39": 388,
       "2026-W40": 255
-    },
-    "linesOfCode": 142,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 20,
-      "May": 22,
-      "June": 27,
-      "July": 28,
-      "August": 10,
-      "September": 35,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -922,21 +773,6 @@ const EMPLOYEES = [
       "2026-W38": 1778,
       "2026-W39": 1994,
       "2026-W40": 1245
-    },
-    "linesOfCode": 16417,
-    "monthlyLinesOfCode": {
-      "January": 1944,
-      "February": 1745,
-      "March": 1639,
-      "April": 0,
-      "May": 1535,
-      "June": 1838,
-      "July": 2091,
-      "August": 2737,
-      "September": 2888,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1007,21 +843,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1092,21 +913,6 @@ const EMPLOYEES = [
       "2026-W38": 580,
       "2026-W39": 404,
       "2026-W40": 253
-    },
-    "linesOfCode": 339,
-    "monthlyLinesOfCode": {
-      "January": 65,
-      "February": 18,
-      "March": 0,
-      "April": 63,
-      "May": 39,
-      "June": 41,
-      "July": 53,
-      "August": 23,
-      "September": 37,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1177,21 +983,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1262,21 +1053,6 @@ const EMPLOYEES = [
       "2026-W38": 286,
       "2026-W39": 306,
       "2026-W40": 203
-    },
-    "linesOfCode": 106,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 11,
-      "April": 0,
-      "May": 13,
-      "June": 12,
-      "July": 17,
-      "August": 27,
-      "September": 26,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1347,21 +1123,6 @@ const EMPLOYEES = [
       "2026-W38": 1330,
       "2026-W39": 1518,
       "2026-W40": 704
-    },
-    "linesOfCode": 5107,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 625,
-      "May": 619,
-      "June": 607,
-      "July": 882,
-      "August": 880,
-      "September": 1494,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1432,21 +1193,6 @@ const EMPLOYEES = [
       "2026-W38": 55,
       "2026-W39": 53,
       "2026-W40": 38
-    },
-    "linesOfCode": 115,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 25,
-      "April": 11,
-      "May": 13,
-      "June": 14,
-      "July": 15,
-      "August": 19,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1517,21 +1263,6 @@ const EMPLOYEES = [
       "2026-W38": 653,
       "2026-W39": 672,
       "2026-W40": 396
-    },
-    "linesOfCode": 1211,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 172,
-      "June": 314,
-      "July": 218,
-      "August": 195,
-      "September": 312,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1602,21 +1333,6 @@ const EMPLOYEES = [
       "2026-W38": 564,
       "2026-W39": 456,
       "2026-W40": 249
-    },
-    "linesOfCode": 1281,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 376,
-      "July": 252,
-      "August": 0,
-      "September": 653,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1687,21 +1403,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 1306,
-    "monthlyLinesOfCode": {
-      "January": 206,
-      "February": 158,
-      "March": 132,
-      "April": 65,
-      "May": 110,
-      "June": 167,
-      "July": 252,
-      "August": 216,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1772,21 +1473,6 @@ const EMPLOYEES = [
       "2026-W38": 1204,
       "2026-W39": 1176,
       "2026-W40": 742
-    },
-    "linesOfCode": 10987,
-    "monthlyLinesOfCode": {
-      "January": 595,
-      "February": 1118,
-      "March": 703,
-      "April": 1133,
-      "May": 1806,
-      "June": 2546,
-      "July": 0,
-      "August": 1627,
-      "September": 1459,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1857,21 +1543,6 @@ const EMPLOYEES = [
       "2026-W38": 279,
       "2026-W39": 282,
       "2026-W40": 134
-    },
-    "linesOfCode": 134,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 14,
-      "March": 8,
-      "April": 15,
-      "May": 12,
-      "June": 18,
-      "July": 4,
-      "August": 29,
-      "September": 24,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -1942,21 +1613,6 @@ const EMPLOYEES = [
       "2026-W38": 179,
       "2026-W39": 198,
       "2026-W40": 97
-    },
-    "linesOfCode": 147,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 10,
-      "March": 15,
-      "April": 14,
-      "May": 20,
-      "June": 18,
-      "July": 13,
-      "August": 29,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2027,21 +1683,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2112,21 +1753,6 @@ const EMPLOYEES = [
       "2026-W38": 1664,
       "2026-W39": 1590,
       "2026-W40": 889
-    },
-    "linesOfCode": 16147,
-    "monthlyLinesOfCode": {
-      "January": 1562,
-      "February": 2475,
-      "March": 874,
-      "April": 1377,
-      "May": 2021,
-      "June": 1670,
-      "July": 1400,
-      "August": 2532,
-      "September": 2236,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2197,21 +1823,6 @@ const EMPLOYEES = [
       "2026-W38": 110,
       "2026-W39": 103,
       "2026-W40": 53
-    },
-    "linesOfCode": 71,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 6,
-      "March": 4,
-      "April": 6,
-      "May": 9,
-      "June": 10,
-      "July": 8,
-      "August": 9,
-      "September": 10,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2282,21 +1893,6 @@ const EMPLOYEES = [
       "2026-W38": 1396,
       "2026-W39": 1200,
       "2026-W40": 828
-    },
-    "linesOfCode": 8504,
-    "monthlyLinesOfCode": {
-      "January": 1288,
-      "February": 496,
-      "March": 1236,
-      "April": 893,
-      "May": 1024,
-      "June": 866,
-      "July": 1266,
-      "August": 0,
-      "September": 1435,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2367,21 +1963,6 @@ const EMPLOYEES = [
       "2026-W38": 41,
       "2026-W39": 44,
       "2026-W40": 24
-    },
-    "linesOfCode": 35,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 4,
-      "March": 4,
-      "April": 4,
-      "May": 6,
-      "June": 3,
-      "July": 5,
-      "August": 6,
-      "September": 3,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2452,21 +2033,6 @@ const EMPLOYEES = [
       "2026-W38": 743,
       "2026-W39": 577,
       "2026-W40": 371
-    },
-    "linesOfCode": 5404,
-    "monthlyLinesOfCode": {
-      "January": 466,
-      "February": 512,
-      "March": 514,
-      "April": 206,
-      "May": 443,
-      "June": 795,
-      "July": 978,
-      "August": 705,
-      "September": 785,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2537,21 +2103,6 @@ const EMPLOYEES = [
       "2026-W38": 426,
       "2026-W39": 403,
       "2026-W40": 206
-    },
-    "linesOfCode": 961,
-    "monthlyLinesOfCode": {
-      "January": 49,
-      "February": 126,
-      "March": 0,
-      "April": 67,
-      "May": 47,
-      "June": 139,
-      "July": 183,
-      "August": 201,
-      "September": 149,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2622,21 +2173,6 @@ const EMPLOYEES = [
       "2026-W38": 54,
       "2026-W39": 62,
       "2026-W40": 28
-    },
-    "linesOfCode": 24,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 2,
-      "March": 4,
-      "April": 1,
-      "May": 3,
-      "June": 3,
-      "July": 3,
-      "August": 3,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2707,21 +2243,6 @@ const EMPLOYEES = [
       "2026-W38": 539,
       "2026-W39": 513,
       "2026-W40": 323
-    },
-    "linesOfCode": 838,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 143,
-      "May": 176,
-      "June": 0,
-      "July": 126,
-      "August": 190,
-      "September": 203,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2792,21 +2313,6 @@ const EMPLOYEES = [
       "2026-W38": 1977,
       "2026-W39": 1583,
       "2026-W40": 1005
-    },
-    "linesOfCode": 12931,
-    "monthlyLinesOfCode": {
-      "January": 1202,
-      "February": 2098,
-      "March": 428,
-      "April": 1166,
-      "May": 0,
-      "June": 1916,
-      "July": 1564,
-      "August": 2104,
-      "September": 2453,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2877,21 +2383,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -2962,21 +2453,6 @@ const EMPLOYEES = [
       "2026-W38": 164,
       "2026-W39": 156,
       "2026-W40": 78
-    },
-    "linesOfCode": 8358,
-    "monthlyLinesOfCode": {
-      "January": 788,
-      "February": 355,
-      "March": 1957,
-      "April": 1496,
-      "May": 897,
-      "June": 821,
-      "July": 1254,
-      "August": 542,
-      "September": 248,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3047,21 +2523,6 @@ const EMPLOYEES = [
       "2026-W38": 906,
       "2026-W39": 1323,
       "2026-W40": 536
-    },
-    "linesOfCode": 5427,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 700,
-      "May": 1328,
-      "June": 1030,
-      "July": 636,
-      "August": 0,
-      "September": 1733,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3132,21 +2593,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3217,21 +2663,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3302,21 +2733,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3387,21 +2803,6 @@ const EMPLOYEES = [
       "2026-W38": 435,
       "2026-W39": 515,
       "2026-W40": 261
-    },
-    "linesOfCode": 4898,
-    "monthlyLinesOfCode": {
-      "January": 257,
-      "February": 595,
-      "March": 377,
-      "April": 403,
-      "May": 428,
-      "June": 858,
-      "July": 944,
-      "August": 523,
-      "September": 513,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3472,21 +2873,6 @@ const EMPLOYEES = [
       "2026-W38": 43,
       "2026-W39": 38,
       "2026-W40": 18
-    },
-    "linesOfCode": 21,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 1,
-      "March": 2,
-      "April": 2,
-      "May": 4,
-      "June": 4,
-      "July": 2,
-      "August": 2,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3557,21 +2943,6 @@ const EMPLOYEES = [
       "2026-W38": 200,
       "2026-W39": 140,
       "2026-W40": 133
-    },
-    "linesOfCode": 59,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 7,
-      "June": 11,
-      "July": 10,
-      "August": 18,
-      "September": 13,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3642,21 +3013,6 @@ const EMPLOYEES = [
       "2026-W38": 602,
       "2026-W39": 653,
       "2026-W40": 226
-    },
-    "linesOfCode": 6840,
-    "monthlyLinesOfCode": {
-      "January": 400,
-      "February": 887,
-      "March": 988,
-      "April": 772,
-      "May": 954,
-      "June": 287,
-      "July": 589,
-      "August": 960,
-      "September": 1003,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3727,21 +3083,6 @@ const EMPLOYEES = [
       "2026-W38": 301,
       "2026-W39": 339,
       "2026-W40": 198
-    },
-    "linesOfCode": 816,
-    "monthlyLinesOfCode": {
-      "January": 52,
-      "February": 59,
-      "March": 57,
-      "April": 119,
-      "May": 65,
-      "June": 142,
-      "July": 116,
-      "August": 78,
-      "September": 128,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3812,21 +3153,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3897,21 +3223,6 @@ const EMPLOYEES = [
       "2026-W38": 1883,
       "2026-W39": 1976,
       "2026-W40": 1027
-    },
-    "linesOfCode": 3844,
-    "monthlyLinesOfCode": {
-      "January": 293,
-      "February": 644,
-      "March": 366,
-      "April": 544,
-      "May": 0,
-      "June": 536,
-      "July": 513,
-      "August": 436,
-      "September": 512,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -3982,21 +3293,6 @@ const EMPLOYEES = [
       "2026-W38": 327,
       "2026-W39": 282,
       "2026-W40": 169
-    },
-    "linesOfCode": 704,
-    "monthlyLinesOfCode": {
-      "January": 78,
-      "February": 52,
-      "March": 71,
-      "April": 40,
-      "May": 83,
-      "June": 74,
-      "July": 109,
-      "August": 116,
-      "September": 81,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4067,21 +3363,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4152,21 +3433,6 @@ const EMPLOYEES = [
       "2026-W38": 589,
       "2026-W39": 471,
       "2026-W40": 362
-    },
-    "linesOfCode": 513,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 182,
-      "August": 101,
-      "September": 230,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4237,21 +3503,6 @@ const EMPLOYEES = [
       "2026-W38": 1708,
       "2026-W39": 1795,
       "2026-W40": 879
-    },
-    "linesOfCode": 11581,
-    "monthlyLinesOfCode": {
-      "January": 615,
-      "February": 911,
-      "March": 1164,
-      "April": 1542,
-      "May": 1359,
-      "June": 882,
-      "July": 956,
-      "August": 1290,
-      "September": 2862,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4322,21 +3573,6 @@ const EMPLOYEES = [
       "2026-W38": 755,
       "2026-W39": 676,
       "2026-W40": 313
-    },
-    "linesOfCode": 5078,
-    "monthlyLinesOfCode": {
-      "January": 344,
-      "February": 444,
-      "March": 866,
-      "April": 510,
-      "May": 419,
-      "June": 439,
-      "July": 294,
-      "August": 549,
-      "September": 1213,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4407,21 +3643,6 @@ const EMPLOYEES = [
       "2026-W38": 692,
       "2026-W39": 495,
       "2026-W40": 278
-    },
-    "linesOfCode": 1386,
-    "monthlyLinesOfCode": {
-      "January": 142,
-      "February": 126,
-      "March": 159,
-      "April": 225,
-      "May": 131,
-      "June": 138,
-      "July": 81,
-      "August": 138,
-      "September": 246,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4492,21 +3713,6 @@ const EMPLOYEES = [
       "2026-W38": 195,
       "2026-W39": 165,
       "2026-W40": 125
-    },
-    "linesOfCode": 1268,
-    "monthlyLinesOfCode": {
-      "January": 93,
-      "February": 194,
-      "March": 150,
-      "April": 101,
-      "May": 125,
-      "June": 147,
-      "July": 84,
-      "August": 304,
-      "September": 70,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4577,21 +3783,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4662,21 +3853,6 @@ const EMPLOYEES = [
       "2026-W38": 92,
       "2026-W39": 94,
       "2026-W40": 60
-    },
-    "linesOfCode": 40,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 4,
-      "March": 5,
-      "April": 3,
-      "May": 3,
-      "June": 3,
-      "July": 5,
-      "August": 5,
-      "September": 8,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4747,21 +3923,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 1025,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 194,
-      "June": 140,
-      "July": 367,
-      "August": 324,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4832,21 +3993,6 @@ const EMPLOYEES = [
       "2026-W38": 44,
       "2026-W39": 63,
       "2026-W40": 33
-    },
-    "linesOfCode": 44,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 8,
-      "April": 4,
-      "May": 8,
-      "June": 5,
-      "July": 8,
-      "August": 7,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -4917,21 +4063,6 @@ const EMPLOYEES = [
       "2026-W38": 82,
       "2026-W39": 71,
       "2026-W40": 48
-    },
-    "linesOfCode": 130,
-    "monthlyLinesOfCode": {
-      "January": 19,
-      "February": 23,
-      "March": 17,
-      "April": 7,
-      "May": 12,
-      "June": 17,
-      "July": 12,
-      "August": 16,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5002,21 +4133,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5087,21 +4203,6 @@ const EMPLOYEES = [
       "2026-W38": 1760,
       "2026-W39": 1826,
       "2026-W40": 1151
-    },
-    "linesOfCode": 13528,
-    "monthlyLinesOfCode": {
-      "January": 1305,
-      "February": 1796,
-      "March": 0,
-      "April": 1108,
-      "May": 538,
-      "June": 2146,
-      "July": 1501,
-      "August": 2050,
-      "September": 3084,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5172,21 +4273,6 @@ const EMPLOYEES = [
       "2026-W38": 207,
       "2026-W39": 252,
       "2026-W40": 104
-    },
-    "linesOfCode": 69,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 15,
-      "May": 15,
-      "June": 0,
-      "July": 15,
-      "August": 9,
-      "September": 15,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5257,21 +4343,6 @@ const EMPLOYEES = [
       "2026-W38": 230,
       "2026-W39": 226,
       "2026-W40": 98
-    },
-    "linesOfCode": 100,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 16,
-      "April": 7,
-      "May": 7,
-      "June": 20,
-      "July": 11,
-      "August": 20,
-      "September": 19,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5342,21 +4413,6 @@ const EMPLOYEES = [
       "2026-W38": 530,
       "2026-W39": 547,
       "2026-W40": 269
-    },
-    "linesOfCode": 314,
-    "monthlyLinesOfCode": {
-      "January": 29,
-      "February": 51,
-      "March": 16,
-      "April": 21,
-      "May": 36,
-      "June": 71,
-      "July": 21,
-      "August": 22,
-      "September": 47,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5427,21 +4483,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5512,21 +4553,6 @@ const EMPLOYEES = [
       "2026-W38": 359,
       "2026-W39": 400,
       "2026-W40": 226
-    },
-    "linesOfCode": 3273,
-    "monthlyLinesOfCode": {
-      "January": 435,
-      "February": 165,
-      "March": 448,
-      "April": 292,
-      "May": 673,
-      "June": 266,
-      "July": 309,
-      "August": 531,
-      "September": 154,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5597,21 +4623,6 @@ const EMPLOYEES = [
       "2026-W38": 1120,
       "2026-W39": 1060,
       "2026-W40": 568
-    },
-    "linesOfCode": 542,
-    "monthlyLinesOfCode": {
-      "January": 38,
-      "February": 44,
-      "March": 50,
-      "April": 64,
-      "May": 66,
-      "June": 97,
-      "July": 36,
-      "August": 61,
-      "September": 86,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5682,21 +4693,6 @@ const EMPLOYEES = [
       "2026-W38": 153,
       "2026-W39": 168,
       "2026-W40": 70
-    },
-    "linesOfCode": 212,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 77,
-      "July": 37,
-      "August": 40,
-      "September": 58,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5767,21 +4763,6 @@ const EMPLOYEES = [
       "2026-W38": 425,
       "2026-W39": 416,
       "2026-W40": 259
-    },
-    "linesOfCode": 3916,
-    "monthlyLinesOfCode": {
-      "January": 438,
-      "February": 448,
-      "March": 334,
-      "April": 468,
-      "May": 407,
-      "June": 519,
-      "July": 331,
-      "August": 262,
-      "September": 709,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5852,21 +4833,6 @@ const EMPLOYEES = [
       "2026-W38": 443,
       "2026-W39": 438,
       "2026-W40": 271
-    },
-    "linesOfCode": 950,
-    "monthlyLinesOfCode": {
-      "January": 39,
-      "February": 0,
-      "March": 48,
-      "April": 142,
-      "May": 117,
-      "June": 147,
-      "July": 169,
-      "August": 149,
-      "September": 139,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -5937,21 +4903,6 @@ const EMPLOYEES = [
       "2026-W38": 1177,
       "2026-W39": 990,
       "2026-W40": 460
-    },
-    "linesOfCode": 15289,
-    "monthlyLinesOfCode": {
-      "January": 1130,
-      "February": 1172,
-      "March": 1020,
-      "April": 2167,
-      "May": 2673,
-      "June": 2543,
-      "July": 1568,
-      "August": 1590,
-      "September": 1426,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6022,21 +4973,6 @@ const EMPLOYEES = [
       "2026-W38": 108,
       "2026-W39": 101,
       "2026-W40": 49
-    },
-    "linesOfCode": 130,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 11,
-      "March": 20,
-      "April": 26,
-      "May": 17,
-      "June": 9,
-      "July": 14,
-      "August": 16,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6107,21 +5043,6 @@ const EMPLOYEES = [
       "2026-W38": 1946,
       "2026-W39": 1777,
       "2026-W40": 1032
-    },
-    "linesOfCode": 19631,
-    "monthlyLinesOfCode": {
-      "January": 2108,
-      "February": 1963,
-      "March": 1606,
-      "April": 1169,
-      "May": 1931,
-      "June": 1827,
-      "July": 1772,
-      "August": 4085,
-      "September": 3170,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6192,21 +5113,6 @@ const EMPLOYEES = [
       "2026-W38": 198,
       "2026-W39": 167,
       "2026-W40": 87
-    },
-    "linesOfCode": 323,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 36,
-      "July": 78,
-      "August": 151,
-      "September": 58,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6277,21 +5183,6 @@ const EMPLOYEES = [
       "2026-W38": 2630,
       "2026-W39": 2617,
       "2026-W40": 830
-    },
-    "linesOfCode": 19319,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 3193,
-      "March": 0,
-      "April": 2883,
-      "May": 0,
-      "June": 3144,
-      "July": 2402,
-      "August": 4640,
-      "September": 3057,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6362,21 +5253,6 @@ const EMPLOYEES = [
       "2026-W38": 986,
       "2026-W39": 886,
       "2026-W40": 631
-    },
-    "linesOfCode": 12174,
-    "monthlyLinesOfCode": {
-      "January": 781,
-      "February": 1545,
-      "March": 2022,
-      "April": 1461,
-      "May": 0,
-      "June": 2919,
-      "July": 0,
-      "August": 1826,
-      "September": 1620,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6447,21 +5323,6 @@ const EMPLOYEES = [
       "2026-W38": 37,
       "2026-W39": 32,
       "2026-W40": 17
-    },
-    "linesOfCode": 51,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 7,
-      "March": 4,
-      "April": 4,
-      "May": 11,
-      "June": 8,
-      "July": 8,
-      "August": 4,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6532,21 +5393,6 @@ const EMPLOYEES = [
       "2026-W38": 571,
       "2026-W39": 680,
       "2026-W40": 308
-    },
-    "linesOfCode": 1394,
-    "monthlyLinesOfCode": {
-      "January": 29,
-      "February": 155,
-      "March": 158,
-      "April": 88,
-      "May": 133,
-      "June": 261,
-      "July": 252,
-      "August": 149,
-      "September": 169,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6617,21 +5463,6 @@ const EMPLOYEES = [
       "2026-W38": 1008,
       "2026-W39": 807,
       "2026-W40": 420
-    },
-    "linesOfCode": 13593,
-    "monthlyLinesOfCode": {
-      "January": 932,
-      "February": 1360,
-      "March": 1945,
-      "April": 1722,
-      "May": 1851,
-      "June": 1820,
-      "July": 1396,
-      "August": 1352,
-      "September": 1215,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6702,21 +5533,6 @@ const EMPLOYEES = [
       "2026-W38": 547,
       "2026-W39": 657,
       "2026-W40": 391
-    },
-    "linesOfCode": 10295,
-    "monthlyLinesOfCode": {
-      "January": 553,
-      "February": 1377,
-      "March": 1640,
-      "April": 566,
-      "May": 2072,
-      "June": 586,
-      "July": 1201,
-      "August": 1545,
-      "September": 755,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6787,21 +5603,6 @@ const EMPLOYEES = [
       "2026-W38": 316,
       "2026-W39": 227,
       "2026-W40": 189
-    },
-    "linesOfCode": 54,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 16,
-      "August": 13,
-      "September": 25,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6872,21 +5673,6 @@ const EMPLOYEES = [
       "2026-W38": 544,
       "2026-W39": 522,
       "2026-W40": 219
-    },
-    "linesOfCode": 116,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 36,
-      "June": 0,
-      "July": 18,
-      "August": 21,
-      "September": 41,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -6957,21 +5743,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7042,21 +5813,6 @@ const EMPLOYEES = [
       "2026-W38": 242,
       "2026-W39": 293,
       "2026-W40": 201
-    },
-    "linesOfCode": 1226,
-    "monthlyLinesOfCode": {
-      "January": 117,
-      "February": 144,
-      "March": 149,
-      "April": 104,
-      "May": 211,
-      "June": 86,
-      "July": 151,
-      "August": 173,
-      "September": 91,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7127,21 +5883,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7212,21 +5953,6 @@ const EMPLOYEES = [
       "2026-W38": 205,
       "2026-W39": 239,
       "2026-W40": 115
-    },
-    "linesOfCode": 660,
-    "monthlyLinesOfCode": {
-      "January": 78,
-      "February": 78,
-      "March": 82,
-      "April": 64,
-      "May": 92,
-      "June": 128,
-      "July": 0,
-      "August": 74,
-      "September": 64,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7297,21 +6023,6 @@ const EMPLOYEES = [
       "2026-W38": 2226,
       "2026-W39": 2901,
       "2026-W40": 1221
-    },
-    "linesOfCode": 29641,
-    "monthlyLinesOfCode": {
-      "January": 3380,
-      "February": 4693,
-      "March": 0,
-      "April": 5005,
-      "May": 0,
-      "June": 5654,
-      "July": 2529,
-      "August": 4908,
-      "September": 3472,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7382,21 +6093,6 @@ const EMPLOYEES = [
       "2026-W38": 2989,
       "2026-W39": 2909,
       "2026-W40": 1562
-    },
-    "linesOfCode": 27397,
-    "monthlyLinesOfCode": {
-      "January": 3039,
-      "February": 1724,
-      "March": 1817,
-      "April": 3888,
-      "May": 1929,
-      "June": 5373,
-      "July": 2354,
-      "August": 2709,
-      "September": 4564,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7467,21 +6163,6 @@ const EMPLOYEES = [
       "2026-W38": 329,
       "2026-W39": 407,
       "2026-W40": 187
-    },
-    "linesOfCode": 3055,
-    "monthlyLinesOfCode": {
-      "January": 552,
-      "February": 0,
-      "March": 523,
-      "April": 334,
-      "May": 425,
-      "June": 0,
-      "July": 450,
-      "August": 253,
-      "September": 518,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7552,21 +6233,6 @@ const EMPLOYEES = [
       "2026-W38": 2264,
       "2026-W39": 1875,
       "2026-W40": 1253
-    },
-    "linesOfCode": 4390,
-    "monthlyLinesOfCode": {
-      "January": 308,
-      "February": 382,
-      "March": 494,
-      "April": 390,
-      "May": 328,
-      "June": 384,
-      "July": 420,
-      "August": 766,
-      "September": 918,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7637,21 +6303,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7722,21 +6373,6 @@ const EMPLOYEES = [
       "2026-W38": 2454,
       "2026-W39": 3060,
       "2026-W40": 1336
-    },
-    "linesOfCode": 25786,
-    "monthlyLinesOfCode": {
-      "January": 3374,
-      "February": 1296,
-      "March": 4717,
-      "April": 2469,
-      "May": 2576,
-      "June": 2859,
-      "July": 3532,
-      "August": 1361,
-      "September": 3602,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7807,21 +6443,6 @@ const EMPLOYEES = [
       "2026-W38": 468,
       "2026-W39": 458,
       "2026-W40": 181
-    },
-    "linesOfCode": 3490,
-    "monthlyLinesOfCode": {
-      "January": 182,
-      "February": 467,
-      "March": 458,
-      "April": 346,
-      "May": 246,
-      "June": 346,
-      "July": 643,
-      "August": 198,
-      "September": 604,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7892,21 +6513,6 @@ const EMPLOYEES = [
       "2026-W38": 1419,
       "2026-W39": 1635,
       "2026-W40": 928
-    },
-    "linesOfCode": 10929,
-    "monthlyLinesOfCode": {
-      "January": 846,
-      "February": 1062,
-      "March": 924,
-      "April": 1474,
-      "May": 768,
-      "June": 1244,
-      "July": 1307,
-      "August": 681,
-      "September": 2623,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -7977,21 +6583,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8062,21 +6653,6 @@ const EMPLOYEES = [
       "2026-W38": 793,
       "2026-W39": 767,
       "2026-W40": 384
-    },
-    "linesOfCode": 2013,
-    "monthlyLinesOfCode": {
-      "January": 234,
-      "February": 118,
-      "March": 185,
-      "April": 246,
-      "May": 206,
-      "June": 394,
-      "July": 173,
-      "August": 154,
-      "September": 303,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8147,21 +6723,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8232,21 +6793,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8317,21 +6863,6 @@ const EMPLOYEES = [
       "2026-W38": 256,
       "2026-W39": 237,
       "2026-W40": 127
-    },
-    "linesOfCode": 398,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 116,
-      "June": 51,
-      "July": 81,
-      "August": 79,
-      "September": 71,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8402,21 +6933,6 @@ const EMPLOYEES = [
       "2026-W38": 156,
       "2026-W39": 202,
       "2026-W40": 96
-    },
-    "linesOfCode": 183,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 46,
-      "August": 73,
-      "September": 64,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8487,21 +7003,6 @@ const EMPLOYEES = [
       "2026-W38": 1468,
       "2026-W39": 1196,
       "2026-W40": 706
-    },
-    "linesOfCode": 5615,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 887,
-      "June": 405,
-      "July": 0,
-      "August": 2100,
-      "September": 2223,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8572,21 +7073,6 @@ const EMPLOYEES = [
       "2026-W38": 191,
       "2026-W39": 178,
       "2026-W40": 98
-    },
-    "linesOfCode": 89,
-    "monthlyLinesOfCode": {
-      "January": 7,
-      "February": 5,
-      "March": 12,
-      "April": 8,
-      "May": 14,
-      "June": 10,
-      "July": 0,
-      "August": 15,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8657,21 +7143,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8742,21 +7213,6 @@ const EMPLOYEES = [
       "2026-W38": 56,
       "2026-W39": 57,
       "2026-W40": 29
-    },
-    "linesOfCode": 14,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 3,
-      "August": 7,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8827,21 +7283,6 @@ const EMPLOYEES = [
       "2026-W38": 115,
       "2026-W39": 86,
       "2026-W40": 58
-    },
-    "linesOfCode": 383,
-    "monthlyLinesOfCode": {
-      "January": 51,
-      "February": 48,
-      "March": 48,
-      "April": 31,
-      "May": 54,
-      "June": 34,
-      "July": 31,
-      "August": 54,
-      "September": 32,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8912,21 +7353,6 @@ const EMPLOYEES = [
       "2026-W38": 487,
       "2026-W39": 556,
       "2026-W40": 254
-    },
-    "linesOfCode": 5257,
-    "monthlyLinesOfCode": {
-      "January": 460,
-      "February": 388,
-      "March": 751,
-      "April": 609,
-      "May": 662,
-      "June": 666,
-      "July": 449,
-      "August": 521,
-      "September": 751,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -8997,21 +7423,6 @@ const EMPLOYEES = [
       "2026-W38": 265,
       "2026-W39": 236,
       "2026-W40": 115
-    },
-    "linesOfCode": 354,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 24,
-      "June": 93,
-      "July": 50,
-      "August": 115,
-      "September": 72,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9082,21 +7493,6 @@ const EMPLOYEES = [
       "2026-W38": 708,
       "2026-W39": 522,
       "2026-W40": 377
-    },
-    "linesOfCode": 7371,
-    "monthlyLinesOfCode": {
-      "January": 837,
-      "February": 829,
-      "March": 822,
-      "April": 1282,
-      "May": 1059,
-      "June": 240,
-      "July": 366,
-      "August": 1192,
-      "September": 744,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9167,21 +7563,6 @@ const EMPLOYEES = [
       "2026-W38": 699,
       "2026-W39": 747,
       "2026-W40": 400
-    },
-    "linesOfCode": 17902,
-    "monthlyLinesOfCode": {
-      "January": 1104,
-      "February": 1136,
-      "March": 2397,
-      "April": 2963,
-      "May": 1351,
-      "June": 2278,
-      "July": 3079,
-      "August": 2869,
-      "September": 725,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9252,21 +7633,6 @@ const EMPLOYEES = [
       "2026-W38": 1189,
       "2026-W39": 1372,
       "2026-W40": 680
-    },
-    "linesOfCode": 9345,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 1633,
-      "April": 829,
-      "May": 1866,
-      "June": 1139,
-      "July": 939,
-      "August": 1333,
-      "September": 1606,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9337,21 +7703,6 @@ const EMPLOYEES = [
       "2026-W38": 342,
       "2026-W39": 405,
       "2026-W40": 206
-    },
-    "linesOfCode": 115,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 0,
-      "March": 20,
-      "April": 12,
-      "May": 8,
-      "June": 10,
-      "July": 17,
-      "August": 20,
-      "September": 23,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9422,21 +7773,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 20272,
-    "monthlyLinesOfCode": {
-      "January": 2285,
-      "February": 0,
-      "March": 3654,
-      "April": 2506,
-      "May": 3099,
-      "June": 3979,
-      "July": 2568,
-      "August": 2181,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9507,21 +7843,6 @@ const EMPLOYEES = [
       "2026-W38": 340,
       "2026-W39": 332,
       "2026-W40": 189
-    },
-    "linesOfCode": 135,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 30,
-      "May": 20,
-      "June": 5,
-      "July": 29,
-      "August": 22,
-      "September": 29,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9592,21 +7913,6 @@ const EMPLOYEES = [
       "2026-W38": 555,
       "2026-W39": 524,
       "2026-W40": 325
-    },
-    "linesOfCode": 577,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 183,
-      "August": 202,
-      "September": 192,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9677,21 +7983,6 @@ const EMPLOYEES = [
       "2026-W38": 2001,
       "2026-W39": 1917,
       "2026-W40": 1168
-    },
-    "linesOfCode": 15407,
-    "monthlyLinesOfCode": {
-      "January": 1149,
-      "February": 1335,
-      "March": 1113,
-      "April": 2170,
-      "May": 1202,
-      "June": 1057,
-      "July": 2084,
-      "August": 2080,
-      "September": 3217,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9762,21 +8053,6 @@ const EMPLOYEES = [
       "2026-W38": 144,
       "2026-W39": 194,
       "2026-W40": 102
-    },
-    "linesOfCode": 51,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 20,
-      "August": 15,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9847,21 +8123,6 @@ const EMPLOYEES = [
       "2026-W38": 383,
       "2026-W39": 464,
       "2026-W40": 226
-    },
-    "linesOfCode": 1232,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 176,
-      "March": 173,
-      "April": 119,
-      "May": 297,
-      "June": 110,
-      "July": 174,
-      "August": 0,
-      "September": 172,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -9932,21 +8193,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10017,21 +8263,6 @@ const EMPLOYEES = [
       "2026-W38": 186,
       "2026-W39": 166,
       "2026-W40": 110
-    },
-    "linesOfCode": 78,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 8,
-      "May": 10,
-      "June": 18,
-      "July": 15,
-      "August": 15,
-      "September": 12,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10102,21 +8333,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10187,21 +8403,6 @@ const EMPLOYEES = [
       "2026-W38": 140,
       "2026-W39": 180,
       "2026-W40": 104
-    },
-    "linesOfCode": 46,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 11,
-      "June": 10,
-      "July": 5,
-      "August": 4,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10272,21 +8473,6 @@ const EMPLOYEES = [
       "2026-W38": 354,
       "2026-W39": 414,
       "2026-W40": 210
-    },
-    "linesOfCode": 90,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 16,
-      "May": 0,
-      "June": 17,
-      "July": 15,
-      "August": 14,
-      "September": 28,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10357,21 +8543,6 @@ const EMPLOYEES = [
       "2026-W38": 119,
       "2026-W39": 139,
       "2026-W40": 83
-    },
-    "linesOfCode": 102,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 14,
-      "March": 15,
-      "April": 10,
-      "May": 13,
-      "June": 11,
-      "July": 18,
-      "August": 7,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10442,21 +8613,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10527,21 +8683,6 @@ const EMPLOYEES = [
       "2026-W38": 20,
       "2026-W39": 16,
       "2026-W40": 9
-    },
-    "linesOfCode": 7,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 1,
-      "June": 2,
-      "July": 1,
-      "August": 2,
-      "September": 1,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10612,21 +8753,6 @@ const EMPLOYEES = [
       "2026-W38": 496,
       "2026-W39": 548,
       "2026-W40": 237
-    },
-    "linesOfCode": 3842,
-    "monthlyLinesOfCode": {
-      "January": 304,
-      "February": 0,
-      "March": 457,
-      "April": 417,
-      "May": 849,
-      "June": 749,
-      "July": 368,
-      "August": 0,
-      "September": 698,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10697,21 +8823,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10782,21 +8893,6 @@ const EMPLOYEES = [
       "2026-W38": 790,
       "2026-W39": 688,
       "2026-W40": 270
-    },
-    "linesOfCode": 458,
-    "monthlyLinesOfCode": {
-      "January": 41,
-      "February": 71,
-      "March": 36,
-      "April": 42,
-      "May": 54,
-      "June": 69,
-      "July": 46,
-      "August": 41,
-      "September": 58,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10867,21 +8963,6 @@ const EMPLOYEES = [
       "2026-W38": 2163,
       "2026-W39": 2463,
       "2026-W40": 1360
-    },
-    "linesOfCode": 16310,
-    "monthlyLinesOfCode": {
-      "January": 1742,
-      "February": 1416,
-      "March": 423,
-      "April": 2537,
-      "May": 674,
-      "June": 1632,
-      "July": 1715,
-      "August": 2606,
-      "September": 3565,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -10952,21 +9033,6 @@ const EMPLOYEES = [
       "2026-W38": 125,
       "2026-W39": 141,
       "2026-W40": 64
-    },
-    "linesOfCode": 90,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 41,
-      "August": 1,
-      "September": 48,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11037,21 +9103,6 @@ const EMPLOYEES = [
       "2026-W38": 602,
       "2026-W39": 709,
       "2026-W40": 441
-    },
-    "linesOfCode": 1863,
-    "monthlyLinesOfCode": {
-      "January": 143,
-      "February": 290,
-      "March": 221,
-      "April": 131,
-      "May": 177,
-      "June": 209,
-      "July": 401,
-      "August": 21,
-      "September": 270,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11122,21 +9173,6 @@ const EMPLOYEES = [
       "2026-W38": 48,
       "2026-W39": 51,
       "2026-W40": 29
-    },
-    "linesOfCode": 18,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 1,
-      "March": 2,
-      "April": 2,
-      "May": 1,
-      "June": 2,
-      "July": 2,
-      "August": 3,
-      "September": 3,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11207,21 +9243,6 @@ const EMPLOYEES = [
       "2026-W38": 251,
       "2026-W39": 311,
       "2026-W40": 143
-    },
-    "linesOfCode": 48,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 11,
-      "August": 13,
-      "September": 24,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11292,21 +9313,6 @@ const EMPLOYEES = [
       "2026-W38": 252,
       "2026-W39": 264,
       "2026-W40": 154
-    },
-    "linesOfCode": 979,
-    "monthlyLinesOfCode": {
-      "January": 92,
-      "February": 128,
-      "March": 135,
-      "April": 0,
-      "May": 87,
-      "June": 151,
-      "July": 207,
-      "August": 85,
-      "September": 94,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11377,21 +9383,6 @@ const EMPLOYEES = [
       "2026-W38": 39,
       "2026-W39": 36,
       "2026-W40": 30
-    },
-    "linesOfCode": 43,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 9,
-      "March": 3,
-      "April": 5,
-      "May": 4,
-      "June": 6,
-      "July": 2,
-      "August": 5,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11462,21 +9453,6 @@ const EMPLOYEES = [
       "2026-W38": 1004,
       "2026-W39": 895,
       "2026-W40": 504
-    },
-    "linesOfCode": 6761,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 1277,
-      "June": 983,
-      "July": 1996,
-      "August": 1409,
-      "September": 1096,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11547,21 +9523,6 @@ const EMPLOYEES = [
       "2026-W38": 301,
       "2026-W39": 288,
       "2026-W40": 165
-    },
-    "linesOfCode": 1498,
-    "monthlyLinesOfCode": {
-      "January": 176,
-      "February": 202,
-      "March": 0,
-      "April": 154,
-      "May": 134,
-      "June": 206,
-      "July": 299,
-      "August": 188,
-      "September": 139,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11632,21 +9593,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11717,21 +9663,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11802,21 +9733,6 @@ const EMPLOYEES = [
       "2026-W38": 191,
       "2026-W39": 200,
       "2026-W40": 131
-    },
-    "linesOfCode": 403,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 80,
-      "May": 63,
-      "June": 79,
-      "July": 32,
-      "August": 66,
-      "September": 83,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11887,21 +9803,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -11972,21 +9873,6 @@ const EMPLOYEES = [
       "2026-W38": 210,
       "2026-W39": 205,
       "2026-W40": 181
-    },
-    "linesOfCode": 173,
-    "monthlyLinesOfCode": {
-      "January": 21,
-      "February": 12,
-      "March": 20,
-      "April": 17,
-      "May": 38,
-      "June": 14,
-      "July": 12,
-      "August": 18,
-      "September": 21,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12057,21 +9943,6 @@ const EMPLOYEES = [
       "2026-W38": 206,
       "2026-W39": 224,
       "2026-W40": 93
-    },
-    "linesOfCode": 106,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 9,
-      "March": 7,
-      "April": 5,
-      "May": 14,
-      "June": 16,
-      "July": 11,
-      "August": 18,
-      "September": 17,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12142,21 +10013,6 @@ const EMPLOYEES = [
       "2026-W38": 1081,
       "2026-W39": 1101,
       "2026-W40": 515
-    },
-    "linesOfCode": 8540,
-    "monthlyLinesOfCode": {
-      "January": 1290,
-      "February": 1094,
-      "March": 689,
-      "April": 224,
-      "May": 0,
-      "June": 1849,
-      "July": 882,
-      "August": 789,
-      "September": 1723,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12227,21 +10083,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12312,21 +10153,6 @@ const EMPLOYEES = [
       "2026-W38": 882,
       "2026-W39": 853,
       "2026-W40": 462
-    },
-    "linesOfCode": 1967,
-    "monthlyLinesOfCode": {
-      "January": 152,
-      "February": 133,
-      "March": 136,
-      "April": 270,
-      "May": 157,
-      "June": 272,
-      "July": 293,
-      "August": 241,
-      "September": 313,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12397,21 +10223,6 @@ const EMPLOYEES = [
       "2026-W38": 234,
       "2026-W39": 273,
       "2026-W40": 111
-    },
-    "linesOfCode": 1751,
-    "monthlyLinesOfCode": {
-      "January": 168,
-      "February": 119,
-      "March": 185,
-      "April": 234,
-      "May": 214,
-      "June": 329,
-      "July": 125,
-      "August": 288,
-      "September": 89,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12482,21 +10293,6 @@ const EMPLOYEES = [
       "2026-W38": 1460,
       "2026-W39": 1551,
       "2026-W40": 1147
-    },
-    "linesOfCode": 17675,
-    "monthlyLinesOfCode": {
-      "January": 1648,
-      "February": 1501,
-      "March": 987,
-      "April": 1719,
-      "May": 2168,
-      "June": 1874,
-      "July": 3220,
-      "August": 2204,
-      "September": 2354,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12567,21 +10363,6 @@ const EMPLOYEES = [
       "2026-W38": 176,
       "2026-W39": 195,
       "2026-W40": 155
-    },
-    "linesOfCode": 1146,
-    "monthlyLinesOfCode": {
-      "January": 92,
-      "February": 161,
-      "March": 127,
-      "April": 80,
-      "May": 141,
-      "June": 111,
-      "July": 231,
-      "August": 135,
-      "September": 68,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12652,21 +10433,6 @@ const EMPLOYEES = [
       "2026-W38": 1246,
       "2026-W39": 1474,
       "2026-W40": 865
-    },
-    "linesOfCode": 12886,
-    "monthlyLinesOfCode": {
-      "January": 690,
-      "February": 960,
-      "March": 1865,
-      "April": 0,
-      "May": 1620,
-      "June": 1148,
-      "July": 3177,
-      "August": 1156,
-      "September": 2270,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12737,21 +10503,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12822,21 +10573,6 @@ const EMPLOYEES = [
       "2026-W38": 290,
       "2026-W39": 195,
       "2026-W40": 166
-    },
-    "linesOfCode": 146,
-    "monthlyLinesOfCode": {
-      "January": 16,
-      "February": 14,
-      "March": 16,
-      "April": 15,
-      "May": 28,
-      "June": 10,
-      "July": 23,
-      "August": 8,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12907,21 +10643,6 @@ const EMPLOYEES = [
       "2026-W38": 92,
       "2026-W39": 97,
       "2026-W40": 61
-    },
-    "linesOfCode": 47,
-    "monthlyLinesOfCode": {
-      "January": 8,
-      "February": 0,
-      "March": 0,
-      "April": 6,
-      "May": 8,
-      "June": 2,
-      "July": 7,
-      "August": 9,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -12992,21 +10713,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 6167,
-    "monthlyLinesOfCode": {
-      "January": 603,
-      "February": 766,
-      "March": 611,
-      "April": 464,
-      "May": 851,
-      "June": 1035,
-      "July": 619,
-      "August": 1218,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13077,21 +10783,6 @@ const EMPLOYEES = [
       "2026-W38": 1018,
       "2026-W39": 864,
       "2026-W40": 688
-    },
-    "linesOfCode": 3996,
-    "monthlyLinesOfCode": {
-      "January": 326,
-      "February": 578,
-      "March": 526,
-      "April": 305,
-      "May": 523,
-      "June": 143,
-      "July": 626,
-      "August": 584,
-      "September": 385,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13162,21 +10853,6 @@ const EMPLOYEES = [
       "2026-W38": 31,
       "2026-W39": 42,
       "2026-W40": 22
-    },
-    "linesOfCode": 78,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 11,
-      "March": 0,
-      "April": 15,
-      "May": 12,
-      "June": 6,
-      "July": 8,
-      "August": 11,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13247,21 +10923,6 @@ const EMPLOYEES = [
       "2026-W38": 300,
       "2026-W39": 357,
       "2026-W40": 150
-    },
-    "linesOfCode": 8456,
-    "monthlyLinesOfCode": {
-      "January": 1152,
-      "February": 934,
-      "March": 1561,
-      "April": 1173,
-      "May": 763,
-      "June": 749,
-      "July": 503,
-      "August": 1089,
-      "September": 532,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13332,21 +10993,6 @@ const EMPLOYEES = [
       "2026-W38": 817,
       "2026-W39": 719,
       "2026-W40": 463
-    },
-    "linesOfCode": 1524,
-    "monthlyLinesOfCode": {
-      "January": 159,
-      "February": 108,
-      "March": 138,
-      "April": 98,
-      "May": 151,
-      "June": 145,
-      "July": 298,
-      "August": 124,
-      "September": 303,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13417,21 +11063,6 @@ const EMPLOYEES = [
       "2026-W38": 2098,
       "2026-W39": 1836,
       "2026-W40": 974
-    },
-    "linesOfCode": 11077,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 1398,
-      "May": 1347,
-      "June": 2563,
-      "July": 0,
-      "August": 2633,
-      "September": 3136,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13502,21 +11133,6 @@ const EMPLOYEES = [
       "2026-W38": 496,
       "2026-W39": 448,
       "2026-W40": 228
-    },
-    "linesOfCode": 200,
-    "monthlyLinesOfCode": {
-      "January": 17,
-      "February": 9,
-      "March": 17,
-      "April": 18,
-      "May": 27,
-      "June": 15,
-      "July": 31,
-      "August": 34,
-      "September": 32,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13587,21 +11203,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13672,21 +11273,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13757,21 +11343,6 @@ const EMPLOYEES = [
       "2026-W38": 879,
       "2026-W39": 756,
       "2026-W40": 353
-    },
-    "linesOfCode": 6858,
-    "monthlyLinesOfCode": {
-      "January": 569,
-      "February": 297,
-      "March": 731,
-      "April": 857,
-      "May": 799,
-      "June": 622,
-      "July": 844,
-      "August": 1271,
-      "September": 868,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13842,21 +11413,6 @@ const EMPLOYEES = [
       "2026-W38": 845,
       "2026-W39": 913,
       "2026-W40": 423
-    },
-    "linesOfCode": 1030,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 330,
-      "July": 172,
-      "August": 193,
-      "September": 335,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -13927,21 +11483,6 @@ const EMPLOYEES = [
       "2026-W38": 343,
       "2026-W39": 409,
       "2026-W40": 181
-    },
-    "linesOfCode": 125,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 5,
-      "April": 32,
-      "May": 7,
-      "June": 16,
-      "July": 1,
-      "August": 32,
-      "September": 32,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14012,21 +11553,6 @@ const EMPLOYEES = [
       "2026-W38": 204,
       "2026-W39": 185,
       "2026-W40": 87
-    },
-    "linesOfCode": 124,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 11,
-      "March": 18,
-      "April": 9,
-      "May": 22,
-      "June": 25,
-      "July": 0,
-      "August": 10,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14097,21 +11623,6 @@ const EMPLOYEES = [
       "2026-W38": 76,
       "2026-W39": 91,
       "2026-W40": 50
-    },
-    "linesOfCode": 53,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 13,
-      "April": 5,
-      "May": 10,
-      "June": 1,
-      "July": 5,
-      "August": 14,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14182,21 +11693,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14267,21 +11763,6 @@ const EMPLOYEES = [
       "2026-W38": 42,
       "2026-W39": 47,
       "2026-W40": 22
-    },
-    "linesOfCode": 1886,
-    "monthlyLinesOfCode": {
-      "January": 222,
-      "February": 244,
-      "March": 363,
-      "April": 209,
-      "May": 166,
-      "June": 279,
-      "July": 219,
-      "August": 170,
-      "September": 14,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14352,21 +11833,6 @@ const EMPLOYEES = [
       "2026-W38": 377,
       "2026-W39": 350,
       "2026-W40": 164
-    },
-    "linesOfCode": 436,
-    "monthlyLinesOfCode": {
-      "January": 18,
-      "February": 39,
-      "March": 94,
-      "April": 70,
-      "May": 41,
-      "June": 61,
-      "July": 40,
-      "August": 46,
-      "September": 27,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14437,21 +11903,6 @@ const EMPLOYEES = [
       "2026-W38": 509,
       "2026-W39": 606,
       "2026-W40": 373
-    },
-    "linesOfCode": 1424,
-    "monthlyLinesOfCode": {
-      "January": 100,
-      "February": 156,
-      "March": 222,
-      "April": 182,
-      "May": 181,
-      "June": 176,
-      "July": 151,
-      "August": 57,
-      "September": 199,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14522,21 +11973,6 @@ const EMPLOYEES = [
       "2026-W38": 885,
       "2026-W39": 977,
       "2026-W40": 467
-    },
-    "linesOfCode": 4301,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 1335,
-      "July": 519,
-      "August": 1178,
-      "September": 1269,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14607,21 +12043,6 @@ const EMPLOYEES = [
       "2026-W38": 604,
       "2026-W39": 519,
       "2026-W40": 424
-    },
-    "linesOfCode": 3039,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 784,
-      "July": 1053,
-      "August": 354,
-      "September": 848,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14692,21 +12113,6 @@ const EMPLOYEES = [
       "2026-W38": 513,
       "2026-W39": 638,
       "2026-W40": 317
-    },
-    "linesOfCode": 4226,
-    "monthlyLinesOfCode": {
-      "January": 265,
-      "February": 634,
-      "March": 0,
-      "April": 415,
-      "May": 521,
-      "June": 250,
-      "July": 632,
-      "August": 599,
-      "September": 910,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14777,21 +12183,6 @@ const EMPLOYEES = [
       "2026-W38": 382,
       "2026-W39": 401,
       "2026-W40": 161
-    },
-    "linesOfCode": 652,
-    "monthlyLinesOfCode": {
-      "January": 64,
-      "February": 103,
-      "March": 98,
-      "April": 57,
-      "May": 23,
-      "June": 58,
-      "July": 43,
-      "August": 71,
-      "September": 135,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14862,21 +12253,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -14947,21 +12323,6 @@ const EMPLOYEES = [
       "2026-W38": 147,
       "2026-W39": 132,
       "2026-W40": 59
-    },
-    "linesOfCode": 58,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 13,
-      "March": 8,
-      "April": 5,
-      "May": 4,
-      "June": 11,
-      "July": 0,
-      "August": 4,
-      "September": 11,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15032,21 +12393,6 @@ const EMPLOYEES = [
       "2026-W38": 580,
       "2026-W39": 479,
       "2026-W40": 409
-    },
-    "linesOfCode": 1010,
-    "monthlyLinesOfCode": {
-      "January": 24,
-      "February": 120,
-      "March": 93,
-      "April": 97,
-      "May": 114,
-      "June": 119,
-      "July": 125,
-      "August": 152,
-      "September": 166,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15117,21 +12463,6 @@ const EMPLOYEES = [
       "2026-W38": 9,
       "2026-W39": 8,
       "2026-W40": 7
-    },
-    "linesOfCode": 23,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 3,
-      "March": 3,
-      "April": 3,
-      "May": 2,
-      "June": 3,
-      "July": 3,
-      "August": 3,
-      "September": 1,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15202,21 +12533,6 @@ const EMPLOYEES = [
       "2026-W38": 146,
       "2026-W39": 152,
       "2026-W40": 103
-    },
-    "linesOfCode": 110,
-    "monthlyLinesOfCode": {
-      "January": 18,
-      "February": 21,
-      "March": 15,
-      "April": 4,
-      "May": 10,
-      "June": 12,
-      "July": 8,
-      "August": 8,
-      "September": 14,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15287,21 +12603,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15372,21 +12673,6 @@ const EMPLOYEES = [
       "2026-W38": 2108,
       "2026-W39": 1611,
       "2026-W40": 1355
-    },
-    "linesOfCode": 15218,
-    "monthlyLinesOfCode": {
-      "January": 650,
-      "February": 2697,
-      "March": 415,
-      "April": 2315,
-      "May": 2443,
-      "June": 0,
-      "July": 2728,
-      "August": 1124,
-      "September": 2846,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15457,21 +12743,6 @@ const EMPLOYEES = [
       "2026-W38": 4146,
       "2026-W39": 3896,
       "2026-W40": 2614
-    },
-    "linesOfCode": 38010,
-    "monthlyLinesOfCode": {
-      "January": 4545,
-      "February": 2593,
-      "March": 1624,
-      "April": 5157,
-      "May": 5150,
-      "June": 2446,
-      "July": 4063,
-      "August": 5816,
-      "September": 6616,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15542,21 +12813,6 @@ const EMPLOYEES = [
       "2026-W38": 333,
       "2026-W39": 317,
       "2026-W40": 186
-    },
-    "linesOfCode": 1385,
-    "monthlyLinesOfCode": {
-      "January": 101,
-      "February": 128,
-      "March": 176,
-      "April": 243,
-      "May": 121,
-      "June": 108,
-      "July": 181,
-      "August": 233,
-      "September": 94,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15627,21 +12883,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15712,21 +12953,6 @@ const EMPLOYEES = [
       "2026-W38": 104,
       "2026-W39": 106,
       "2026-W40": 81
-    },
-    "linesOfCode": 133,
-    "monthlyLinesOfCode": {
-      "January": 13,
-      "February": 12,
-      "March": 14,
-      "April": 15,
-      "May": 8,
-      "June": 23,
-      "July": 19,
-      "August": 19,
-      "September": 10,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15797,21 +13023,6 @@ const EMPLOYEES = [
       "2026-W38": 309,
       "2026-W39": 312,
       "2026-W40": 173
-    },
-    "linesOfCode": 5951,
-    "monthlyLinesOfCode": {
-      "January": 720,
-      "February": 611,
-      "March": 1113,
-      "April": 774,
-      "May": 601,
-      "June": 383,
-      "July": 1274,
-      "August": 40,
-      "September": 435,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15882,21 +13093,6 @@ const EMPLOYEES = [
       "2026-W38": 1020,
       "2026-W39": 1120,
       "2026-W40": 578
-    },
-    "linesOfCode": 11151,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 2309,
-      "May": 1023,
-      "June": 1345,
-      "July": 1239,
-      "August": 3569,
-      "September": 1666,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -15967,21 +13163,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16052,21 +13233,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16137,21 +13303,6 @@ const EMPLOYEES = [
       "2026-W38": 160,
       "2026-W39": 119,
       "2026-W40": 82
-    },
-    "linesOfCode": 1257,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 546,
-      "August": 493,
-      "September": 218,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16222,21 +13373,6 @@ const EMPLOYEES = [
       "2026-W38": 256,
       "2026-W39": 350,
       "2026-W40": 173
-    },
-    "linesOfCode": 114,
-    "monthlyLinesOfCode": {
-      "January": 12,
-      "February": 15,
-      "March": 3,
-      "April": 11,
-      "May": 8,
-      "June": 5,
-      "July": 18,
-      "August": 20,
-      "September": 22,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16307,21 +13443,6 @@ const EMPLOYEES = [
       "2026-W38": 214,
       "2026-W39": 193,
       "2026-W40": 98
-    },
-    "linesOfCode": 489,
-    "monthlyLinesOfCode": {
-      "January": 25,
-      "February": 46,
-      "March": 40,
-      "April": 78,
-      "May": 33,
-      "June": 65,
-      "July": 65,
-      "August": 48,
-      "September": 89,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16392,21 +13513,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16477,21 +13583,6 @@ const EMPLOYEES = [
       "2026-W38": 537,
       "2026-W39": 516,
       "2026-W40": 324
-    },
-    "linesOfCode": 1414,
-    "monthlyLinesOfCode": {
-      "January": 127,
-      "February": 123,
-      "March": 191,
-      "April": 147,
-      "May": 132,
-      "June": 146,
-      "July": 224,
-      "August": 100,
-      "September": 224,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16562,21 +13653,6 @@ const EMPLOYEES = [
       "2026-W38": 247,
       "2026-W39": 216,
       "2026-W40": 157
-    },
-    "linesOfCode": 249,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 65,
-      "July": 56,
-      "August": 29,
-      "September": 99,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16647,21 +13723,6 @@ const EMPLOYEES = [
       "2026-W38": 24,
       "2026-W39": 28,
       "2026-W40": 11
-    },
-    "linesOfCode": 64,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 8,
-      "March": 6,
-      "April": 9,
-      "May": 4,
-      "June": 8,
-      "July": 5,
-      "August": 13,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16732,21 +13793,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16817,21 +13863,6 @@ const EMPLOYEES = [
       "2026-W38": 103,
       "2026-W39": 150,
       "2026-W40": 54
-    },
-    "linesOfCode": 595,
-    "monthlyLinesOfCode": {
-      "January": 84,
-      "February": 114,
-      "March": 62,
-      "April": 23,
-      "May": 113,
-      "June": 67,
-      "July": 85,
-      "August": 0,
-      "September": 47,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16902,21 +13933,6 @@ const EMPLOYEES = [
       "2026-W38": 274,
       "2026-W39": 216,
       "2026-W40": 161
-    },
-    "linesOfCode": 130,
-    "monthlyLinesOfCode": {
-      "January": 16,
-      "February": 11,
-      "March": 15,
-      "April": 12,
-      "May": 6,
-      "June": 13,
-      "July": 11,
-      "August": 23,
-      "September": 23,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -16987,21 +14003,6 @@ const EMPLOYEES = [
       "2026-W38": 428,
       "2026-W39": 467,
       "2026-W40": 289
-    },
-    "linesOfCode": 110,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 8,
-      "June": 22,
-      "July": 13,
-      "August": 24,
-      "September": 43,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17072,21 +14073,6 @@ const EMPLOYEES = [
       "2026-W38": 53,
       "2026-W39": 59,
       "2026-W40": 34
-    },
-    "linesOfCode": 44,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 2,
-      "March": 5,
-      "April": 10,
-      "May": 3,
-      "June": 10,
-      "July": 0,
-      "August": 8,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17157,21 +14143,6 @@ const EMPLOYEES = [
       "2026-W38": 969,
       "2026-W39": 1103,
       "2026-W40": 675
-    },
-    "linesOfCode": 17952,
-    "monthlyLinesOfCode": {
-      "January": 1355,
-      "February": 3420,
-      "March": 1805,
-      "April": 1934,
-      "May": 0,
-      "June": 2563,
-      "July": 2236,
-      "August": 3394,
-      "September": 1245,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17242,21 +14213,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17327,21 +14283,6 @@ const EMPLOYEES = [
       "2026-W38": 200,
       "2026-W39": 173,
       "2026-W40": 107
-    },
-    "linesOfCode": 97,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 8,
-      "March": 9,
-      "April": 10,
-      "May": 13,
-      "June": 17,
-      "July": 3,
-      "August": 20,
-      "September": 14,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17412,21 +14353,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17497,21 +14423,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17582,21 +14493,6 @@ const EMPLOYEES = [
       "2026-W38": 155,
       "2026-W39": 186,
       "2026-W40": 108
-    },
-    "linesOfCode": 85,
-    "monthlyLinesOfCode": {
-      "January": 6,
-      "February": 17,
-      "March": 15,
-      "April": 14,
-      "May": 0,
-      "June": 13,
-      "July": 0,
-      "August": 6,
-      "September": 14,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17667,21 +14563,6 @@ const EMPLOYEES = [
       "2026-W38": 404,
       "2026-W39": 357,
       "2026-W40": 262
-    },
-    "linesOfCode": 1148,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 162,
-      "April": 259,
-      "May": 142,
-      "June": 77,
-      "July": 207,
-      "August": 136,
-      "September": 165,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17752,21 +14633,6 @@ const EMPLOYEES = [
       "2026-W38": 863,
       "2026-W39": 792,
       "2026-W40": 274
-    },
-    "linesOfCode": 7385,
-    "monthlyLinesOfCode": {
-      "January": 631,
-      "February": 625,
-      "March": 766,
-      "April": 678,
-      "May": 553,
-      "June": 931,
-      "July": 1202,
-      "August": 894,
-      "September": 1105,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17837,21 +14703,6 @@ const EMPLOYEES = [
       "2026-W38": 381,
       "2026-W39": 307,
       "2026-W40": 213
-    },
-    "linesOfCode": 931,
-    "monthlyLinesOfCode": {
-      "January": 46,
-      "February": 99,
-      "March": 39,
-      "April": 145,
-      "May": 117,
-      "June": 87,
-      "July": 173,
-      "August": 102,
-      "September": 123,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -17922,21 +14773,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18007,21 +14843,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18092,21 +14913,6 @@ const EMPLOYEES = [
       "2026-W38": 671,
       "2026-W39": 604,
       "2026-W40": 449
-    },
-    "linesOfCode": 2196,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 177,
-      "March": 260,
-      "April": 280,
-      "May": 395,
-      "June": 202,
-      "July": 330,
-      "August": 275,
-      "September": 277,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18177,21 +14983,6 @@ const EMPLOYEES = [
       "2026-W38": 2086,
       "2026-W39": 2022,
       "2026-W40": 1065
-    },
-    "linesOfCode": 27239,
-    "monthlyLinesOfCode": {
-      "January": 3826,
-      "February": 1715,
-      "March": 3765,
-      "April": 4261,
-      "May": 2036,
-      "June": 4173,
-      "July": 1303,
-      "August": 3437,
-      "September": 2723,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18262,21 +15053,6 @@ const EMPLOYEES = [
       "2026-W38": 275,
       "2026-W39": 281,
       "2026-W40": 133
-    },
-    "linesOfCode": 600,
-    "monthlyLinesOfCode": {
-      "January": 65,
-      "February": 63,
-      "March": 0,
-      "April": 0,
-      "May": 71,
-      "June": 118,
-      "July": 85,
-      "August": 111,
-      "September": 87,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18347,21 +15123,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18432,21 +15193,6 @@ const EMPLOYEES = [
       "2026-W38": 1547,
       "2026-W39": 1529,
       "2026-W40": 611
-    },
-    "linesOfCode": 3435,
-    "monthlyLinesOfCode": {
-      "January": 374,
-      "February": 349,
-      "March": 519,
-      "April": 318,
-      "May": 0,
-      "June": 286,
-      "July": 0,
-      "August": 999,
-      "September": 590,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18517,21 +15263,6 @@ const EMPLOYEES = [
       "2026-W38": 657,
       "2026-W39": 772,
       "2026-W40": 342
-    },
-    "linesOfCode": 7036,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 573,
-      "May": 2227,
-      "June": 404,
-      "July": 1107,
-      "August": 1795,
-      "September": 930,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18602,21 +15333,6 @@ const EMPLOYEES = [
       "2026-W38": 707,
       "2026-W39": 747,
       "2026-W40": 504
-    },
-    "linesOfCode": 6608,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 520,
-      "May": 1007,
-      "June": 1217,
-      "July": 1350,
-      "August": 1543,
-      "September": 971,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18687,21 +15403,6 @@ const EMPLOYEES = [
       "2026-W38": 24,
       "2026-W39": 21,
       "2026-W40": 13
-    },
-    "linesOfCode": 15,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 5,
-      "March": 0,
-      "April": 1,
-      "May": 2,
-      "June": 3,
-      "July": 1,
-      "August": 1,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18772,21 +15473,6 @@ const EMPLOYEES = [
       "2026-W38": 904,
       "2026-W39": 842,
       "2026-W40": 369
-    },
-    "linesOfCode": 1799,
-    "monthlyLinesOfCode": {
-      "January": 360,
-      "February": 0,
-      "March": 158,
-      "April": 146,
-      "May": 0,
-      "June": 253,
-      "July": 252,
-      "August": 299,
-      "September": 331,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18857,21 +15543,6 @@ const EMPLOYEES = [
       "2026-W38": 20,
       "2026-W39": 22,
       "2026-W40": 11
-    },
-    "linesOfCode": 21,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 3,
-      "March": 4,
-      "April": 2,
-      "May": 2,
-      "June": 3,
-      "July": 2,
-      "August": 2,
-      "September": 1,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -18942,21 +15613,6 @@ const EMPLOYEES = [
       "2026-W38": 122,
       "2026-W39": 97,
       "2026-W40": 52
-    },
-    "linesOfCode": 30,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 6,
-      "July": 6,
-      "August": 8,
-      "September": 10,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19027,21 +15683,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19112,21 +15753,6 @@ const EMPLOYEES = [
       "2026-W38": 77,
       "2026-W39": 85,
       "2026-W40": 39
-    },
-    "linesOfCode": 69,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 6,
-      "March": 6,
-      "April": 9,
-      "May": 5,
-      "June": 9,
-      "July": 10,
-      "August": 15,
-      "September": 6,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19197,21 +15823,6 @@ const EMPLOYEES = [
       "2026-W38": 407,
       "2026-W39": 374,
       "2026-W40": 260
-    },
-    "linesOfCode": 90,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 13,
-      "June": 15,
-      "July": 19,
-      "August": 18,
-      "September": 25,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19282,21 +15893,6 @@ const EMPLOYEES = [
       "2026-W38": 3073,
       "2026-W39": 2807,
       "2026-W40": 1644
-    },
-    "linesOfCode": 36113,
-    "monthlyLinesOfCode": {
-      "January": 3856,
-      "February": 5542,
-      "March": 4944,
-      "April": 2456,
-      "May": 5722,
-      "June": 3716,
-      "July": 3773,
-      "August": 2544,
-      "September": 3560,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19367,21 +15963,6 @@ const EMPLOYEES = [
       "2026-W38": 192,
       "2026-W39": 194,
       "2026-W40": 118
-    },
-    "linesOfCode": 99,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 4,
-      "March": 6,
-      "April": 13,
-      "May": 18,
-      "June": 12,
-      "July": 13,
-      "August": 8,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19452,21 +16033,6 @@ const EMPLOYEES = [
       "2026-W38": 87,
       "2026-W39": 85,
       "2026-W40": 40
-    },
-    "linesOfCode": 44,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 4,
-      "March": 3,
-      "April": 5,
-      "May": 6,
-      "June": 4,
-      "July": 6,
-      "August": 6,
-      "September": 6,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19537,21 +16103,6 @@ const EMPLOYEES = [
       "2026-W38": 213,
       "2026-W39": 266,
       "2026-W40": 132
-    },
-    "linesOfCode": 108,
-    "monthlyLinesOfCode": {
-      "January": 6,
-      "February": 16,
-      "March": 7,
-      "April": 11,
-      "May": 15,
-      "June": 15,
-      "July": 14,
-      "August": 10,
-      "September": 14,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19622,21 +16173,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19707,21 +16243,6 @@ const EMPLOYEES = [
       "2026-W38": 773,
       "2026-W39": 583,
       "2026-W40": 475
-    },
-    "linesOfCode": 9365,
-    "monthlyLinesOfCode": {
-      "January": 1521,
-      "February": 618,
-      "March": 549,
-      "April": 1037,
-      "May": 894,
-      "June": 1180,
-      "July": 1402,
-      "August": 1452,
-      "September": 712,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19792,21 +16313,6 @@ const EMPLOYEES = [
       "2026-W38": 254,
       "2026-W39": 284,
       "2026-W40": 127
-    },
-    "linesOfCode": 757,
-    "monthlyLinesOfCode": {
-      "January": 108,
-      "February": 67,
-      "March": 81,
-      "April": 0,
-      "May": 138,
-      "June": 51,
-      "July": 103,
-      "August": 97,
-      "September": 112,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19877,21 +16383,6 @@ const EMPLOYEES = [
       "2026-W38": 447,
       "2026-W39": 530,
       "2026-W40": 295
-    },
-    "linesOfCode": 600,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 128,
-      "August": 294,
-      "September": 178,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -19962,21 +16453,6 @@ const EMPLOYEES = [
       "2026-W38": 913,
       "2026-W39": 836,
       "2026-W40": 554
-    },
-    "linesOfCode": 1789,
-    "monthlyLinesOfCode": {
-      "January": 89,
-      "February": 139,
-      "March": 226,
-      "April": 141,
-      "May": 108,
-      "June": 133,
-      "July": 411,
-      "August": 199,
-      "September": 343,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20047,21 +16523,6 @@ const EMPLOYEES = [
       "2026-W38": 269,
       "2026-W39": 203,
       "2026-W40": 107
-    },
-    "linesOfCode": 142,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 12,
-      "March": 13,
-      "April": 0,
-      "May": 19,
-      "June": 18,
-      "July": 12,
-      "August": 45,
-      "September": 20,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20132,21 +16593,6 @@ const EMPLOYEES = [
       "2026-W38": 495,
       "2026-W39": 594,
       "2026-W40": 267
-    },
-    "linesOfCode": 4406,
-    "monthlyLinesOfCode": {
-      "January": 646,
-      "February": 49,
-      "March": 577,
-      "April": 258,
-      "May": 488,
-      "June": 378,
-      "July": 782,
-      "August": 587,
-      "September": 641,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20217,21 +16663,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 122,
-    "monthlyLinesOfCode": {
-      "January": 18,
-      "February": 19,
-      "March": 16,
-      "April": 19,
-      "May": 0,
-      "June": 18,
-      "July": 13,
-      "August": 19,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20302,21 +16733,6 @@ const EMPLOYEES = [
       "2026-W38": 275,
       "2026-W39": 313,
       "2026-W40": 135
-    },
-    "linesOfCode": 162,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 6,
-      "March": 20,
-      "April": 20,
-      "May": 15,
-      "June": 13,
-      "July": 26,
-      "August": 29,
-      "September": 24,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20387,21 +16803,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20472,21 +16873,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20557,21 +16943,6 @@ const EMPLOYEES = [
       "2026-W38": 1126,
       "2026-W39": 1449,
       "2026-W40": 498
-    },
-    "linesOfCode": 7099,
-    "monthlyLinesOfCode": {
-      "January": 625,
-      "February": 1204,
-      "March": 0,
-      "April": 1029,
-      "May": 500,
-      "June": 895,
-      "July": 628,
-      "August": 960,
-      "September": 1258,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20642,21 +17013,6 @@ const EMPLOYEES = [
       "2026-W38": 225,
       "2026-W39": 234,
       "2026-W40": 147
-    },
-    "linesOfCode": 176,
-    "monthlyLinesOfCode": {
-      "January": 17,
-      "February": 22,
-      "March": 23,
-      "April": 15,
-      "May": 16,
-      "June": 20,
-      "July": 16,
-      "August": 26,
-      "September": 21,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20727,21 +17083,6 @@ const EMPLOYEES = [
       "2026-W38": 1795,
       "2026-W39": 1504,
       "2026-W40": 597
-    },
-    "linesOfCode": 12182,
-    "monthlyLinesOfCode": {
-      "January": 1244,
-      "February": 1029,
-      "March": 1626,
-      "April": 1186,
-      "May": 1658,
-      "June": 1108,
-      "July": 984,
-      "August": 1338,
-      "September": 2009,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20812,21 +17153,6 @@ const EMPLOYEES = [
       "2026-W38": 81,
       "2026-W39": 82,
       "2026-W40": 65
-    },
-    "linesOfCode": 319,
-    "monthlyLinesOfCode": {
-      "January": 44,
-      "February": 27,
-      "March": 25,
-      "April": 37,
-      "May": 36,
-      "June": 35,
-      "July": 25,
-      "August": 63,
-      "September": 27,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20897,21 +17223,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -20982,21 +17293,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21067,21 +17363,6 @@ const EMPLOYEES = [
       "2026-W38": 443,
       "2026-W39": 356,
       "2026-W40": 280
-    },
-    "linesOfCode": 718,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 310,
-      "August": 276,
-      "September": 132,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21152,21 +17433,6 @@ const EMPLOYEES = [
       "2026-W38": 298,
       "2026-W39": 223,
       "2026-W40": 183
-    },
-    "linesOfCode": 179,
-    "monthlyLinesOfCode": {
-      "January": 14,
-      "February": 24,
-      "March": 22,
-      "April": 17,
-      "May": 22,
-      "June": 9,
-      "July": 19,
-      "August": 36,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21237,21 +17503,6 @@ const EMPLOYEES = [
       "2026-W38": 152,
       "2026-W39": 121,
       "2026-W40": 91
-    },
-    "linesOfCode": 48,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 12,
-      "June": 2,
-      "July": 13,
-      "August": 10,
-      "September": 11,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21322,21 +17573,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21407,21 +17643,6 @@ const EMPLOYEES = [
       "2026-W38": 2454,
       "2026-W39": 2119,
       "2026-W40": 1401
-    },
-    "linesOfCode": 28959,
-    "monthlyLinesOfCode": {
-      "January": 1976,
-      "February": 3138,
-      "March": 3183,
-      "April": 1376,
-      "May": 3265,
-      "June": 5809,
-      "July": 1713,
-      "August": 5278,
-      "September": 3221,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21492,21 +17713,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21577,21 +17783,6 @@ const EMPLOYEES = [
       "2026-W38": 1224,
       "2026-W39": 1459,
       "2026-W40": 897
-    },
-    "linesOfCode": 14780,
-    "monthlyLinesOfCode": {
-      "January": 1419,
-      "February": 1651,
-      "March": 1365,
-      "April": 1356,
-      "May": 2556,
-      "June": 1240,
-      "July": 1363,
-      "August": 1691,
-      "September": 2139,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21662,21 +17853,6 @@ const EMPLOYEES = [
       "2026-W38": 166,
       "2026-W39": 188,
       "2026-W40": 110
-    },
-    "linesOfCode": 513,
-    "monthlyLinesOfCode": {
-      "January": 41,
-      "February": 83,
-      "March": 27,
-      "April": 89,
-      "May": 52,
-      "June": 71,
-      "July": 0,
-      "August": 88,
-      "September": 62,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21747,21 +17923,6 @@ const EMPLOYEES = [
       "2026-W38": 207,
       "2026-W39": 271,
       "2026-W40": 155
-    },
-    "linesOfCode": 120,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 0,
-      "March": 0,
-      "April": 15,
-      "May": 19,
-      "June": 22,
-      "July": 21,
-      "August": 14,
-      "September": 20,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21832,21 +17993,6 @@ const EMPLOYEES = [
       "2026-W38": 2808,
       "2026-W39": 2881,
       "2026-W40": 1901
-    },
-    "linesOfCode": 23496,
-    "monthlyLinesOfCode": {
-      "January": 1516,
-      "February": 3111,
-      "March": 3275,
-      "April": 1029,
-      "May": 2887,
-      "June": 4513,
-      "July": 2458,
-      "August": 0,
-      "September": 4707,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -21917,21 +18063,6 @@ const EMPLOYEES = [
       "2026-W38": 225,
       "2026-W39": 206,
       "2026-W40": 120
-    },
-    "linesOfCode": 852,
-    "monthlyLinesOfCode": {
-      "January": 97,
-      "February": 81,
-      "March": 111,
-      "April": 75,
-      "May": 146,
-      "June": 53,
-      "July": 131,
-      "August": 82,
-      "September": 76,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22002,21 +18133,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22087,21 +18203,6 @@ const EMPLOYEES = [
       "2026-W38": 436,
       "2026-W39": 411,
       "2026-W40": 308
-    },
-    "linesOfCode": 5484,
-    "monthlyLinesOfCode": {
-      "January": 453,
-      "February": 306,
-      "March": 634,
-      "April": 383,
-      "May": 804,
-      "June": 618,
-      "July": 396,
-      "August": 1113,
-      "September": 777,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22172,21 +18273,6 @@ const EMPLOYEES = [
       "2026-W38": 1934,
       "2026-W39": 1783,
       "2026-W40": 894
-    },
-    "linesOfCode": 22663,
-    "monthlyLinesOfCode": {
-      "January": 3057,
-      "February": 2465,
-      "March": 3140,
-      "April": 3338,
-      "May": 2843,
-      "June": 0,
-      "July": 906,
-      "August": 5068,
-      "September": 1846,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22257,21 +18343,6 @@ const EMPLOYEES = [
       "2026-W38": 630,
       "2026-W39": 798,
       "2026-W40": 406
-    },
-    "linesOfCode": 5656,
-    "monthlyLinesOfCode": {
-      "January": 420,
-      "February": 458,
-      "March": 787,
-      "April": 901,
-      "May": 240,
-      "June": 479,
-      "July": 872,
-      "August": 590,
-      "September": 909,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22342,21 +18413,6 @@ const EMPLOYEES = [
       "2026-W38": 226,
       "2026-W39": 211,
       "2026-W40": 123
-    },
-    "linesOfCode": 125,
-    "monthlyLinesOfCode": {
-      "January": 13,
-      "February": 21,
-      "March": 0,
-      "April": 18,
-      "May": 14,
-      "June": 5,
-      "July": 15,
-      "August": 23,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22427,21 +18483,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22512,21 +18553,6 @@ const EMPLOYEES = [
       "2026-W38": 5129,
       "2026-W39": 5492,
       "2026-W40": 3411
-    },
-    "linesOfCode": 37097,
-    "monthlyLinesOfCode": {
-      "January": 3184,
-      "February": 4375,
-      "March": 2307,
-      "April": 0,
-      "May": 2912,
-      "June": 5815,
-      "July": 7205,
-      "August": 4280,
-      "September": 7019,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22597,21 +18623,6 @@ const EMPLOYEES = [
       "2026-W38": 88,
       "2026-W39": 82,
       "2026-W40": 56
-    },
-    "linesOfCode": 79,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 13,
-      "March": 7,
-      "April": 8,
-      "May": 13,
-      "June": 7,
-      "July": 8,
-      "August": 7,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22682,21 +18693,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 13041,
-    "monthlyLinesOfCode": {
-      "January": 1418,
-      "February": 718,
-      "March": 1199,
-      "April": 1568,
-      "May": 1285,
-      "June": 2601,
-      "July": 2372,
-      "August": 1880,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22767,21 +18763,6 @@ const EMPLOYEES = [
       "2026-W38": 839,
       "2026-W39": 683,
       "2026-W40": 308
-    },
-    "linesOfCode": 5093,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 1067,
-      "May": 503,
-      "June": 1021,
-      "July": 390,
-      "August": 947,
-      "September": 1165,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22852,21 +18833,6 @@ const EMPLOYEES = [
       "2026-W38": 214,
       "2026-W39": 214,
       "2026-W40": 107
-    },
-    "linesOfCode": 414,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 52,
-      "March": 45,
-      "April": 35,
-      "May": 46,
-      "June": 97,
-      "July": 66,
-      "August": 0,
-      "September": 73,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -22937,21 +18903,6 @@ const EMPLOYEES = [
       "2026-W38": 3006,
       "2026-W39": 2968,
       "2026-W40": 1481
-    },
-    "linesOfCode": 23264,
-    "monthlyLinesOfCode": {
-      "January": 2262,
-      "February": 2180,
-      "March": 2420,
-      "April": 2355,
-      "May": 1603,
-      "June": 2227,
-      "July": 0,
-      "August": 6261,
-      "September": 3956,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23022,21 +18973,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 4433,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 830,
-      "April": 1002,
-      "May": 677,
-      "June": 915,
-      "July": 499,
-      "August": 510,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23107,21 +19043,6 @@ const EMPLOYEES = [
       "2026-W38": 4527,
       "2026-W39": 3410,
       "2026-W40": 2378
-    },
-    "linesOfCode": 27955,
-    "monthlyLinesOfCode": {
-      "January": 2404,
-      "February": 3063,
-      "March": 2529,
-      "April": 3154,
-      "May": 3183,
-      "June": 2016,
-      "July": 3214,
-      "August": 3903,
-      "September": 4489,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23192,21 +19113,6 @@ const EMPLOYEES = [
       "2026-W38": 209,
       "2026-W39": 149,
       "2026-W40": 127
-    },
-    "linesOfCode": 120,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 27,
-      "May": 17,
-      "June": 25,
-      "July": 22,
-      "August": 17,
-      "September": 12,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23277,21 +19183,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23362,21 +19253,6 @@ const EMPLOYEES = [
       "2026-W38": 585,
       "2026-W39": 575,
       "2026-W40": 359
-    },
-    "linesOfCode": 8669,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 315,
-      "March": 750,
-      "April": 1279,
-      "May": 1526,
-      "June": 1873,
-      "July": 1041,
-      "August": 966,
-      "September": 919,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23447,21 +19323,6 @@ const EMPLOYEES = [
       "2026-W38": 225,
       "2026-W39": 227,
       "2026-W40": 99
-    },
-    "linesOfCode": 109,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 12,
-      "March": 17,
-      "April": 14,
-      "May": 6,
-      "June": 9,
-      "July": 8,
-      "August": 14,
-      "September": 19,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23532,21 +19393,6 @@ const EMPLOYEES = [
       "2026-W38": 32,
       "2026-W39": 36,
       "2026-W40": 26
-    },
-    "linesOfCode": 21,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 1,
-      "March": 5,
-      "April": 1,
-      "May": 2,
-      "June": 2,
-      "July": 3,
-      "August": 2,
-      "September": 3,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23617,21 +19463,6 @@ const EMPLOYEES = [
       "2026-W38": 6101,
       "2026-W39": 6813,
       "2026-W40": 2961
-    },
-    "linesOfCode": 29315,
-    "monthlyLinesOfCode": {
-      "January": 2868,
-      "February": 2167,
-      "March": 1389,
-      "April": 2400,
-      "May": 4312,
-      "June": 3257,
-      "July": 1983,
-      "August": 4066,
-      "September": 6873,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23702,21 +19533,6 @@ const EMPLOYEES = [
       "2026-W38": 425,
       "2026-W39": 485,
       "2026-W40": 295
-    },
-    "linesOfCode": 12144,
-    "monthlyLinesOfCode": {
-      "January": 1496,
-      "February": 1297,
-      "March": 2634,
-      "April": 1610,
-      "May": 1210,
-      "June": 1825,
-      "July": 1313,
-      "August": 95,
-      "September": 664,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23787,21 +19603,6 @@ const EMPLOYEES = [
       "2026-W38": 351,
       "2026-W39": 344,
       "2026-W40": 190
-    },
-    "linesOfCode": 838,
-    "monthlyLinesOfCode": {
-      "January": 53,
-      "February": 69,
-      "March": 87,
-      "April": 138,
-      "May": 64,
-      "June": 97,
-      "July": 80,
-      "August": 129,
-      "September": 121,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23872,21 +19673,6 @@ const EMPLOYEES = [
       "2026-W38": 62,
       "2026-W39": 65,
       "2026-W40": 36
-    },
-    "linesOfCode": 82,
-    "monthlyLinesOfCode": {
-      "January": 6,
-      "February": 7,
-      "March": 11,
-      "April": 14,
-      "May": 12,
-      "June": 9,
-      "July": 11,
-      "August": 7,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -23957,21 +19743,6 @@ const EMPLOYEES = [
       "2026-W38": 583,
       "2026-W39": 475,
       "2026-W40": 286
-    },
-    "linesOfCode": 5256,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 715,
-      "March": 306,
-      "April": 650,
-      "May": 449,
-      "June": 1295,
-      "July": 587,
-      "August": 711,
-      "September": 543,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24042,21 +19813,6 @@ const EMPLOYEES = [
       "2026-W38": 217,
       "2026-W39": 239,
       "2026-W40": 140
-    },
-    "linesOfCode": 610,
-    "monthlyLinesOfCode": {
-      "January": 126,
-      "February": 66,
-      "March": 56,
-      "April": 53,
-      "May": 96,
-      "June": 0,
-      "July": 70,
-      "August": 77,
-      "September": 66,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24127,21 +19883,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24212,21 +19953,6 @@ const EMPLOYEES = [
       "2026-W38": 213,
       "2026-W39": 227,
       "2026-W40": 111
-    },
-    "linesOfCode": 3822,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 571,
-      "June": 0,
-      "July": 1783,
-      "August": 1173,
-      "September": 295,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24297,21 +20023,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24382,21 +20093,6 @@ const EMPLOYEES = [
       "2026-W38": 86,
       "2026-W39": 109,
       "2026-W40": 62
-    },
-    "linesOfCode": 74,
-    "monthlyLinesOfCode": {
-      "January": 7,
-      "February": 6,
-      "March": 1,
-      "April": 5,
-      "May": 11,
-      "June": 10,
-      "July": 10,
-      "August": 16,
-      "September": 8,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24467,21 +20163,6 @@ const EMPLOYEES = [
       "2026-W38": 231,
       "2026-W39": 216,
       "2026-W40": 95
-    },
-    "linesOfCode": 353,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 38,
-      "March": 14,
-      "April": 0,
-      "May": 39,
-      "June": 76,
-      "July": 19,
-      "August": 69,
-      "September": 98,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24552,21 +20233,6 @@ const EMPLOYEES = [
       "2026-W38": 765,
       "2026-W39": 761,
       "2026-W40": 531
-    },
-    "linesOfCode": 22819,
-    "monthlyLinesOfCode": {
-      "January": 1655,
-      "February": 2412,
-      "March": 2028,
-      "April": 3185,
-      "May": 3363,
-      "June": 4281,
-      "July": 1888,
-      "August": 2969,
-      "September": 1038,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24637,21 +20303,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 39,
-    "monthlyLinesOfCode": {
-      "January": 1,
-      "February": 1,
-      "March": 6,
-      "April": 5,
-      "May": 6,
-      "June": 8,
-      "July": 5,
-      "August": 7,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24722,21 +20373,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24807,21 +20443,6 @@ const EMPLOYEES = [
       "2026-W38": 377,
       "2026-W39": 331,
       "2026-W40": 212
-    },
-    "linesOfCode": 189,
-    "monthlyLinesOfCode": {
-      "January": 24,
-      "February": 16,
-      "March": 13,
-      "April": 18,
-      "May": 21,
-      "June": 22,
-      "July": 9,
-      "August": 32,
-      "September": 34,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24892,21 +20513,6 @@ const EMPLOYEES = [
       "2026-W38": 26,
       "2026-W39": 34,
       "2026-W40": 14
-    },
-    "linesOfCode": 400,
-    "monthlyLinesOfCode": {
-      "January": 45,
-      "February": 35,
-      "March": 42,
-      "April": 35,
-      "May": 76,
-      "June": 70,
-      "July": 34,
-      "August": 61,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -24977,21 +20583,6 @@ const EMPLOYEES = [
       "2026-W38": 424,
       "2026-W39": 397,
       "2026-W40": 295
-    },
-    "linesOfCode": 4744,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 769,
-      "March": 509,
-      "April": 602,
-      "May": 475,
-      "June": 834,
-      "July": 531,
-      "August": 520,
-      "September": 504,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25062,21 +20653,6 @@ const EMPLOYEES = [
       "2026-W38": 450,
       "2026-W39": 427,
       "2026-W40": 314
-    },
-    "linesOfCode": 1547,
-    "monthlyLinesOfCode": {
-      "January": 144,
-      "February": 220,
-      "March": 114,
-      "April": 135,
-      "May": 153,
-      "June": 156,
-      "July": 316,
-      "August": 92,
-      "September": 217,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25147,21 +20723,6 @@ const EMPLOYEES = [
       "2026-W38": 135,
       "2026-W39": 136,
       "2026-W40": 66
-    },
-    "linesOfCode": 68,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 6,
-      "March": 6,
-      "April": 10,
-      "May": 2,
-      "June": 13,
-      "July": 7,
-      "August": 7,
-      "September": 12,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25232,21 +20793,6 @@ const EMPLOYEES = [
       "2026-W38": 1260,
       "2026-W39": 1318,
       "2026-W40": 598
-    },
-    "linesOfCode": 15762,
-    "monthlyLinesOfCode": {
-      "January": 781,
-      "February": 1270,
-      "March": 1266,
-      "April": 2326,
-      "May": 1140,
-      "June": 3790,
-      "July": 1445,
-      "August": 1492,
-      "September": 2252,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25317,21 +20863,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25402,21 +20933,6 @@ const EMPLOYEES = [
       "2026-W38": 1600,
       "2026-W39": 1411,
       "2026-W40": 876
-    },
-    "linesOfCode": 11928,
-    "monthlyLinesOfCode": {
-      "January": 1152,
-      "February": 2043,
-      "March": 79,
-      "April": 1344,
-      "May": 1701,
-      "June": 1902,
-      "July": 754,
-      "August": 1240,
-      "September": 1713,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25487,21 +21003,6 @@ const EMPLOYEES = [
       "2026-W38": 352,
       "2026-W39": 483,
       "2026-W40": 228
-    },
-    "linesOfCode": 3855,
-    "monthlyLinesOfCode": {
-      "January": 301,
-      "February": 253,
-      "March": 293,
-      "April": 801,
-      "May": 329,
-      "June": 105,
-      "July": 303,
-      "August": 772,
-      "September": 698,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25572,21 +21073,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25657,21 +21143,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25742,21 +21213,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25827,21 +21283,6 @@ const EMPLOYEES = [
       "2026-W38": 1143,
       "2026-W39": 1107,
       "2026-W40": 595
-    },
-    "linesOfCode": 9894,
-    "monthlyLinesOfCode": {
-      "January": 1104,
-      "February": 805,
-      "March": 739,
-      "April": 680,
-      "May": 1220,
-      "June": 847,
-      "July": 1665,
-      "August": 1504,
-      "September": 1330,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25912,21 +21353,6 @@ const EMPLOYEES = [
       "2026-W38": 757,
       "2026-W39": 930,
       "2026-W40": 424
-    },
-    "linesOfCode": 8322,
-    "monthlyLinesOfCode": {
-      "January": 741,
-      "February": 971,
-      "March": 1384,
-      "April": 910,
-      "May": 848,
-      "June": 1209,
-      "July": 1340,
-      "August": 98,
-      "September": 821,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -25997,21 +21423,6 @@ const EMPLOYEES = [
       "2026-W38": 674,
       "2026-W39": 774,
       "2026-W40": 464
-    },
-    "linesOfCode": 9573,
-    "monthlyLinesOfCode": {
-      "January": 1109,
-      "February": 1030,
-      "March": 767,
-      "April": 1435,
-      "May": 0,
-      "June": 1499,
-      "July": 925,
-      "August": 1591,
-      "September": 1217,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26082,21 +21493,6 @@ const EMPLOYEES = [
       "2026-W38": 449,
       "2026-W39": 490,
       "2026-W40": 187
-    },
-    "linesOfCode": 4736,
-    "monthlyLinesOfCode": {
-      "January": 316,
-      "February": 422,
-      "March": 591,
-      "April": 242,
-      "May": 822,
-      "June": 370,
-      "July": 826,
-      "August": 608,
-      "September": 539,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26167,21 +21563,6 @@ const EMPLOYEES = [
       "2026-W38": 463,
       "2026-W39": 463,
       "2026-W40": 256
-    },
-    "linesOfCode": 3595,
-    "monthlyLinesOfCode": {
-      "January": 576,
-      "February": 220,
-      "March": 169,
-      "April": 403,
-      "May": 414,
-      "June": 572,
-      "July": 384,
-      "August": 101,
-      "September": 756,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26252,21 +21633,6 @@ const EMPLOYEES = [
       "2026-W38": 904,
       "2026-W39": 840,
       "2026-W40": 517
-    },
-    "linesOfCode": 15931,
-    "monthlyLinesOfCode": {
-      "January": 1107,
-      "February": 1426,
-      "March": 1137,
-      "April": 1627,
-      "May": 2749,
-      "June": 1547,
-      "July": 1202,
-      "August": 3610,
-      "September": 1526,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26337,21 +21703,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26422,21 +21773,6 @@ const EMPLOYEES = [
       "2026-W38": 434,
       "2026-W39": 468,
       "2026-W40": 229
-    },
-    "linesOfCode": 8934,
-    "monthlyLinesOfCode": {
-      "January": 1701,
-      "February": 923,
-      "March": 998,
-      "April": 563,
-      "May": 398,
-      "June": 1218,
-      "July": 1225,
-      "August": 1100,
-      "September": 808,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26507,21 +21843,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26592,21 +21913,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26677,21 +21983,6 @@ const EMPLOYEES = [
       "2026-W38": 1234,
       "2026-W39": 1190,
       "2026-W40": 840
-    },
-    "linesOfCode": 15685,
-    "monthlyLinesOfCode": {
-      "January": 823,
-      "February": 1359,
-      "March": 329,
-      "April": 2652,
-      "May": 1435,
-      "June": 2799,
-      "July": 1302,
-      "August": 3105,
-      "September": 1881,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26762,21 +22053,6 @@ const EMPLOYEES = [
       "2026-W38": 525,
       "2026-W39": 600,
       "2026-W40": 389
-    },
-    "linesOfCode": 10091,
-    "monthlyLinesOfCode": {
-      "January": 1357,
-      "February": 1672,
-      "March": 1687,
-      "April": 823,
-      "May": 1568,
-      "June": 2102,
-      "July": 0,
-      "August": 0,
-      "September": 882,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26847,21 +22123,6 @@ const EMPLOYEES = [
       "2026-W38": 124,
       "2026-W39": 104,
       "2026-W40": 47
-    },
-    "linesOfCode": 479,
-    "monthlyLinesOfCode": {
-      "January": 40,
-      "February": 27,
-      "March": 65,
-      "April": 67,
-      "May": 67,
-      "June": 62,
-      "July": 43,
-      "August": 60,
-      "September": 48,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -26932,21 +22193,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27017,21 +22263,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27102,21 +22333,6 @@ const EMPLOYEES = [
       "2026-W38": 448,
       "2026-W39": 505,
       "2026-W40": 341
-    },
-    "linesOfCode": 12378,
-    "monthlyLinesOfCode": {
-      "January": 1324,
-      "February": 2077,
-      "March": 639,
-      "April": 2837,
-      "May": 1836,
-      "June": 1237,
-      "July": 931,
-      "August": 762,
-      "September": 735,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27187,21 +22403,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27272,21 +22473,6 @@ const EMPLOYEES = [
       "2026-W38": 113,
       "2026-W39": 127,
       "2026-W40": 74
-    },
-    "linesOfCode": 1471,
-    "monthlyLinesOfCode": {
-      "January": 121,
-      "February": 115,
-      "March": 73,
-      "April": 0,
-      "May": 333,
-      "June": 169,
-      "July": 262,
-      "August": 352,
-      "September": 46,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27357,21 +22543,6 @@ const EMPLOYEES = [
       "2026-W38": 80,
       "2026-W39": 71,
       "2026-W40": 28
-    },
-    "linesOfCode": 73,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 7,
-      "March": 8,
-      "April": 9,
-      "May": 2,
-      "June": 9,
-      "July": 19,
-      "August": 11,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27442,21 +22613,6 @@ const EMPLOYEES = [
       "2026-W38": 64,
       "2026-W39": 58,
       "2026-W40": 33
-    },
-    "linesOfCode": 58,
-    "monthlyLinesOfCode": {
-      "January": 7,
-      "February": 8,
-      "March": 2,
-      "April": 8,
-      "May": 4,
-      "June": 11,
-      "July": 6,
-      "August": 7,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27527,21 +22683,6 @@ const EMPLOYEES = [
       "2026-W38": 53,
       "2026-W39": 48,
       "2026-W40": 38
-    },
-    "linesOfCode": 35,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 2,
-      "March": 2,
-      "April": 5,
-      "May": 6,
-      "June": 5,
-      "July": 6,
-      "August": 3,
-      "September": 3,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27612,21 +22753,6 @@ const EMPLOYEES = [
       "2026-W38": 78,
       "2026-W39": 81,
       "2026-W40": 53
-    },
-    "linesOfCode": 59,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 6,
-      "March": 9,
-      "April": 5,
-      "May": 6,
-      "June": 8,
-      "July": 9,
-      "August": 6,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27697,21 +22823,6 @@ const EMPLOYEES = [
       "2026-W38": 955,
       "2026-W39": 1116,
       "2026-W40": 415
-    },
-    "linesOfCode": 16440,
-    "monthlyLinesOfCode": {
-      "January": 2479,
-      "February": 1946,
-      "March": 1921,
-      "April": 1192,
-      "May": 2050,
-      "June": 1737,
-      "July": 1959,
-      "August": 1700,
-      "September": 1456,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27782,21 +22893,6 @@ const EMPLOYEES = [
       "2026-W38": 294,
       "2026-W39": 329,
       "2026-W40": 157
-    },
-    "linesOfCode": 91,
-    "monthlyLinesOfCode": {
-      "January": 9,
-      "February": 10,
-      "March": 0,
-      "April": 13,
-      "May": 0,
-      "June": 18,
-      "July": 18,
-      "August": 6,
-      "September": 17,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27867,21 +22963,6 @@ const EMPLOYEES = [
       "2026-W38": 219,
       "2026-W39": 218,
       "2026-W40": 86
-    },
-    "linesOfCode": 117,
-    "monthlyLinesOfCode": {
-      "January": 17,
-      "February": 8,
-      "March": 19,
-      "April": 1,
-      "May": 12,
-      "June": 17,
-      "July": 27,
-      "August": 0,
-      "September": 16,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -27952,21 +23033,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28037,21 +23103,6 @@ const EMPLOYEES = [
       "2026-W38": 1317,
       "2026-W39": 1231,
       "2026-W40": 716
-    },
-    "linesOfCode": 8700,
-    "monthlyLinesOfCode": {
-      "January": 962,
-      "February": 440,
-      "March": 981,
-      "April": 612,
-      "May": 796,
-      "June": 1367,
-      "July": 1285,
-      "August": 886,
-      "September": 1371,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28122,21 +23173,6 @@ const EMPLOYEES = [
       "2026-W38": 526,
       "2026-W39": 530,
       "2026-W40": 260
-    },
-    "linesOfCode": 275,
-    "monthlyLinesOfCode": {
-      "January": 48,
-      "February": 33,
-      "March": 38,
-      "April": 20,
-      "May": 28,
-      "June": 29,
-      "July": 6,
-      "August": 35,
-      "September": 38,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28207,21 +23243,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28292,21 +23313,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28377,21 +23383,6 @@ const EMPLOYEES = [
       "2026-W38": 185,
       "2026-W39": 150,
       "2026-W40": 65
-    },
-    "linesOfCode": 86,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 8,
-      "March": 13,
-      "April": 10,
-      "May": 10,
-      "June": 7,
-      "July": 9,
-      "August": 10,
-      "September": 15,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28462,21 +23453,6 @@ const EMPLOYEES = [
       "2026-W38": 227,
       "2026-W39": 214,
       "2026-W40": 111
-    },
-    "linesOfCode": 103,
-    "monthlyLinesOfCode": {
-      "January": 13,
-      "February": 7,
-      "March": 10,
-      "April": 13,
-      "May": 18,
-      "June": 10,
-      "July": 15,
-      "August": 0,
-      "September": 17,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28547,21 +23523,6 @@ const EMPLOYEES = [
       "2026-W38": 329,
       "2026-W39": 412,
       "2026-W40": 229
-    },
-    "linesOfCode": 4179,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 301,
-      "March": 389,
-      "April": 518,
-      "May": 511,
-      "June": 305,
-      "July": 784,
-      "August": 873,
-      "September": 498,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28632,21 +23593,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28717,21 +23663,6 @@ const EMPLOYEES = [
       "2026-W38": 211,
       "2026-W39": 252,
       "2026-W40": 165
-    },
-    "linesOfCode": 277,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 66,
-      "May": 0,
-      "June": 60,
-      "July": 55,
-      "August": 0,
-      "September": 96,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28802,21 +23733,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28887,21 +23803,6 @@ const EMPLOYEES = [
       "2026-W38": 700,
       "2026-W39": 842,
       "2026-W40": 412
-    },
-    "linesOfCode": 3308,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 1367,
-      "August": 1082,
-      "September": 859,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -28972,21 +23873,6 @@ const EMPLOYEES = [
       "2026-W38": 222,
       "2026-W39": 235,
       "2026-W40": 157
-    },
-    "linesOfCode": 142,
-    "monthlyLinesOfCode": {
-      "January": 8,
-      "February": 15,
-      "March": 11,
-      "April": 26,
-      "May": 0,
-      "June": 28,
-      "July": 18,
-      "August": 16,
-      "September": 20,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29057,21 +23943,6 @@ const EMPLOYEES = [
       "2026-W38": 1987,
       "2026-W39": 1583,
       "2026-W40": 1116
-    },
-    "linesOfCode": 14705,
-    "monthlyLinesOfCode": {
-      "January": 1531,
-      "February": 704,
-      "March": 2060,
-      "April": 2082,
-      "May": 1149,
-      "June": 813,
-      "July": 2285,
-      "August": 1306,
-      "September": 2775,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29142,21 +24013,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29227,21 +24083,6 @@ const EMPLOYEES = [
       "2026-W38": 327,
       "2026-W39": 346,
       "2026-W40": 188
-    },
-    "linesOfCode": 147,
-    "monthlyLinesOfCode": {
-      "January": 16,
-      "February": 18,
-      "March": 9,
-      "April": 9,
-      "May": 19,
-      "June": 22,
-      "July": 10,
-      "August": 15,
-      "September": 29,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29312,21 +24153,6 @@ const EMPLOYEES = [
       "2026-W38": 685,
       "2026-W39": 712,
       "2026-W40": 396
-    },
-    "linesOfCode": 1983,
-    "monthlyLinesOfCode": {
-      "January": 217,
-      "February": 214,
-      "March": 239,
-      "April": 120,
-      "May": 92,
-      "June": 198,
-      "July": 300,
-      "August": 344,
-      "September": 259,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29397,21 +24223,6 @@ const EMPLOYEES = [
       "2026-W38": 199,
       "2026-W39": 181,
       "2026-W40": 118
-    },
-    "linesOfCode": 368,
-    "monthlyLinesOfCode": {
-      "January": 24,
-      "February": 58,
-      "March": 39,
-      "April": 55,
-      "May": 36,
-      "June": 49,
-      "July": 36,
-      "August": 0,
-      "September": 71,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29482,21 +24293,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29567,21 +24363,6 @@ const EMPLOYEES = [
       "2026-W38": 138,
       "2026-W39": 164,
       "2026-W40": 75
-    },
-    "linesOfCode": 52,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 4,
-      "June": 13,
-      "July": 12,
-      "August": 14,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29652,21 +24433,6 @@ const EMPLOYEES = [
       "2026-W38": 26,
       "2026-W39": 23,
       "2026-W40": 12
-    },
-    "linesOfCode": 16,
-    "monthlyLinesOfCode": {
-      "January": 2,
-      "February": 2,
-      "March": 2,
-      "April": 2,
-      "May": 3,
-      "June": 2,
-      "July": 1,
-      "August": 0,
-      "September": 2,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29737,21 +24503,6 @@ const EMPLOYEES = [
       "2026-W38": 382,
       "2026-W39": 488,
       "2026-W40": 217
-    },
-    "linesOfCode": 2388,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 509,
-      "August": 1170,
-      "September": 709,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29822,21 +24573,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29907,21 +24643,6 @@ const EMPLOYEES = [
       "2026-W38": 589,
       "2026-W39": 587,
       "2026-W40": 412
-    },
-    "linesOfCode": 1455,
-    "monthlyLinesOfCode": {
-      "January": 204,
-      "February": 141,
-      "March": 113,
-      "April": 111,
-      "May": 120,
-      "June": 197,
-      "July": 218,
-      "August": 133,
-      "September": 218,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -29992,21 +24713,6 @@ const EMPLOYEES = [
       "2026-W38": 275,
       "2026-W39": 270,
       "2026-W40": 175
-    },
-    "linesOfCode": 74,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 18,
-      "August": 29,
-      "September": 27,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30077,21 +24783,6 @@ const EMPLOYEES = [
       "2026-W38": 78,
       "2026-W39": 82,
       "2026-W40": 61
-    },
-    "linesOfCode": 71,
-    "monthlyLinesOfCode": {
-      "January": 6,
-      "February": 5,
-      "March": 7,
-      "April": 11,
-      "May": 10,
-      "June": 12,
-      "July": 5,
-      "August": 7,
-      "September": 8,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30162,21 +24853,6 @@ const EMPLOYEES = [
       "2026-W38": 1880,
       "2026-W39": 1870,
       "2026-W40": 1002
-    },
-    "linesOfCode": 11673,
-    "monthlyLinesOfCode": {
-      "January": 1328,
-      "February": 708,
-      "March": 1146,
-      "April": 1751,
-      "May": 1503,
-      "June": 1402,
-      "July": 1153,
-      "August": 674,
-      "September": 2008,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30247,21 +24923,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30332,21 +24993,6 @@ const EMPLOYEES = [
       "2026-W38": 4406,
       "2026-W39": 4129,
       "2026-W40": 1800
-    },
-    "linesOfCode": 28227,
-    "monthlyLinesOfCode": {
-      "January": 2522,
-      "February": 2332,
-      "March": 2194,
-      "April": 2458,
-      "May": 2950,
-      "June": 3991,
-      "July": 3565,
-      "August": 3979,
-      "September": 4236,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30417,21 +25063,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30502,21 +25133,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30587,21 +25203,6 @@ const EMPLOYEES = [
       "2026-W38": 132,
       "2026-W39": 124,
       "2026-W40": 95
-    },
-    "linesOfCode": 146,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 82,
-      "August": 24,
-      "September": 40,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30672,21 +25273,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30757,21 +25343,6 @@ const EMPLOYEES = [
       "2026-W38": 474,
       "2026-W39": 408,
       "2026-W40": 260
-    },
-    "linesOfCode": 1870,
-    "monthlyLinesOfCode": {
-      "January": 294,
-      "February": 198,
-      "March": 240,
-      "April": 204,
-      "May": 132,
-      "June": 359,
-      "July": 106,
-      "August": 205,
-      "September": 132,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30842,21 +25413,6 @@ const EMPLOYEES = [
       "2026-W38": 246,
       "2026-W39": 317,
       "2026-W40": 185
-    },
-    "linesOfCode": 176,
-    "monthlyLinesOfCode": {
-      "January": 21,
-      "February": 0,
-      "March": 35,
-      "April": 16,
-      "May": 16,
-      "June": 18,
-      "July": 6,
-      "August": 36,
-      "September": 28,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -30927,21 +25483,6 @@ const EMPLOYEES = [
       "2026-W38": 383,
       "2026-W39": 287,
       "2026-W40": 252
-    },
-    "linesOfCode": 4281,
-    "monthlyLinesOfCode": {
-      "January": 418,
-      "February": 387,
-      "March": 145,
-      "April": 287,
-      "May": 293,
-      "June": 956,
-      "July": 674,
-      "August": 613,
-      "September": 508,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31012,21 +25553,6 @@ const EMPLOYEES = [
       "2026-W38": 445,
       "2026-W39": 372,
       "2026-W40": 190
-    },
-    "linesOfCode": 1049,
-    "monthlyLinesOfCode": {
-      "January": 108,
-      "February": 144,
-      "March": 128,
-      "April": 82,
-      "May": 139,
-      "June": 85,
-      "July": 130,
-      "August": 78,
-      "September": 155,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31097,21 +25623,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 3287,
-    "monthlyLinesOfCode": {
-      "January": 277,
-      "February": 303,
-      "March": 410,
-      "April": 409,
-      "May": 345,
-      "June": 608,
-      "July": 418,
-      "August": 517,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31182,21 +25693,6 @@ const EMPLOYEES = [
       "2026-W38": 176,
       "2026-W39": 127,
       "2026-W40": 99
-    },
-    "linesOfCode": 67,
-    "monthlyLinesOfCode": {
-      "January": 6,
-      "February": 5,
-      "March": 0,
-      "April": 5,
-      "May": 5,
-      "June": 10,
-      "July": 10,
-      "August": 15,
-      "September": 11,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31267,21 +25763,6 @@ const EMPLOYEES = [
       "2026-W38": 102,
       "2026-W39": 95,
       "2026-W40": 57
-    },
-    "linesOfCode": 38,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 9,
-      "April": 8,
-      "May": 3,
-      "June": 5,
-      "July": 0,
-      "August": 4,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31352,21 +25833,6 @@ const EMPLOYEES = [
       "2026-W38": 94,
       "2026-W39": 82,
       "2026-W40": 60
-    },
-    "linesOfCode": 300,
-    "monthlyLinesOfCode": {
-      "January": 35,
-      "February": 34,
-      "March": 4,
-      "April": 25,
-      "May": 43,
-      "June": 35,
-      "July": 48,
-      "August": 46,
-      "September": 30,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31437,21 +25903,6 @@ const EMPLOYEES = [
       "2026-W38": 535,
       "2026-W39": 566,
       "2026-W40": 424
-    },
-    "linesOfCode": 6484,
-    "monthlyLinesOfCode": {
-      "January": 625,
-      "February": 0,
-      "March": 868,
-      "April": 1108,
-      "May": 490,
-      "June": 1119,
-      "July": 714,
-      "August": 883,
-      "September": 677,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31522,21 +25973,6 @@ const EMPLOYEES = [
       "2026-W38": 399,
       "2026-W39": 548,
       "2026-W40": 211
-    },
-    "linesOfCode": 6145,
-    "monthlyLinesOfCode": {
-      "January": 789,
-      "February": 432,
-      "March": 807,
-      "April": 1116,
-      "May": 148,
-      "June": 757,
-      "July": 695,
-      "August": 799,
-      "September": 602,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31607,21 +26043,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31692,21 +26113,6 @@ const EMPLOYEES = [
       "2026-W38": 872,
       "2026-W39": 1101,
       "2026-W40": 519
-    },
-    "linesOfCode": 11096,
-    "monthlyLinesOfCode": {
-      "January": 693,
-      "February": 1098,
-      "March": 780,
-      "April": 1345,
-      "May": 1598,
-      "June": 1241,
-      "July": 1256,
-      "August": 1935,
-      "September": 1150,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31777,21 +26183,6 @@ const EMPLOYEES = [
       "2026-W38": 72,
       "2026-W39": 59,
       "2026-W40": 33
-    },
-    "linesOfCode": 24,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 1,
-      "May": 2,
-      "June": 5,
-      "July": 2,
-      "August": 7,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31862,21 +26253,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -31947,21 +26323,6 @@ const EMPLOYEES = [
       "2026-W38": 192,
       "2026-W39": 160,
       "2026-W40": 98
-    },
-    "linesOfCode": 1280,
-    "monthlyLinesOfCode": {
-      "January": 207,
-      "February": 57,
-      "March": 198,
-      "April": 144,
-      "May": 208,
-      "June": 136,
-      "July": 140,
-      "August": 128,
-      "September": 62,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32032,21 +26393,6 @@ const EMPLOYEES = [
       "2026-W38": 859,
       "2026-W39": 785,
       "2026-W40": 478
-    },
-    "linesOfCode": 389,
-    "monthlyLinesOfCode": {
-      "January": 28,
-      "February": 43,
-      "March": 42,
-      "April": 21,
-      "May": 70,
-      "June": 37,
-      "July": 26,
-      "August": 54,
-      "September": 68,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32117,21 +26463,6 @@ const EMPLOYEES = [
       "2026-W38": 104,
       "2026-W39": 130,
       "2026-W40": 60
-    },
-    "linesOfCode": 160,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 16,
-      "March": 30,
-      "April": 21,
-      "May": 16,
-      "June": 16,
-      "July": 25,
-      "August": 16,
-      "September": 10,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32202,21 +26533,6 @@ const EMPLOYEES = [
       "2026-W38": 238,
       "2026-W39": 311,
       "2026-W40": 180
-    },
-    "linesOfCode": 131,
-    "monthlyLinesOfCode": {
-      "January": 12,
-      "February": 12,
-      "March": 15,
-      "April": 12,
-      "May": 11,
-      "June": 20,
-      "July": 19,
-      "August": 13,
-      "September": 17,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32287,21 +26603,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 306,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 80,
-      "May": 81,
-      "June": 0,
-      "July": 91,
-      "August": 54,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32372,21 +26673,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32457,21 +26743,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 27,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 8,
-      "July": 8,
-      "August": 11,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32542,21 +26813,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32627,21 +26883,6 @@ const EMPLOYEES = [
       "2026-W38": 381,
       "2026-W39": 418,
       "2026-W40": 241
-    },
-    "linesOfCode": 4756,
-    "monthlyLinesOfCode": {
-      "January": 586,
-      "February": 667,
-      "March": 232,
-      "April": 542,
-      "May": 430,
-      "June": 759,
-      "July": 609,
-      "August": 402,
-      "September": 529,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32712,21 +26953,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32797,21 +27023,6 @@ const EMPLOYEES = [
       "2026-W38": 259,
       "2026-W39": 298,
       "2026-W40": 105
-    },
-    "linesOfCode": 1003,
-    "monthlyLinesOfCode": {
-      "January": 167,
-      "February": 220,
-      "March": 96,
-      "April": 77,
-      "May": 116,
-      "June": 115,
-      "July": 87,
-      "August": 34,
-      "September": 91,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32882,21 +27093,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -32967,21 +27163,6 @@ const EMPLOYEES = [
       "2026-W38": 167,
       "2026-W39": 197,
       "2026-W40": 126
-    },
-    "linesOfCode": 8015,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 1014,
-      "March": 745,
-      "April": 1492,
-      "May": 1692,
-      "June": 1152,
-      "July": 418,
-      "August": 1255,
-      "September": 247,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33052,21 +27233,6 @@ const EMPLOYEES = [
       "2026-W38": 290,
       "2026-W39": 209,
       "2026-W40": 198
-    },
-    "linesOfCode": 1029,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 96,
-      "June": 0,
-      "July": 278,
-      "August": 230,
-      "September": 425,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33137,21 +27303,6 @@ const EMPLOYEES = [
       "2026-W38": 2871,
       "2026-W39": 2221,
       "2026-W40": 1549
-    },
-    "linesOfCode": 25230,
-    "monthlyLinesOfCode": {
-      "January": 1211,
-      "February": 3461,
-      "March": 3959,
-      "April": 849,
-      "May": 4379,
-      "June": 4663,
-      "July": 2991,
-      "August": 0,
-      "September": 3717,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33222,21 +27373,6 @@ const EMPLOYEES = [
       "2026-W38": 74,
       "2026-W39": 73,
       "2026-W40": 36
-    },
-    "linesOfCode": 60,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 0,
-      "March": 8,
-      "April": 3,
-      "May": 15,
-      "June": 13,
-      "July": 5,
-      "August": 0,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33307,21 +27443,6 @@ const EMPLOYEES = [
       "2026-W38": 74,
       "2026-W39": 73,
       "2026-W40": 47
-    },
-    "linesOfCode": 25,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 6,
-      "June": 6,
-      "July": 0,
-      "August": 7,
-      "September": 6,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33392,21 +27513,6 @@ const EMPLOYEES = [
       "2026-W38": 261,
       "2026-W39": 245,
       "2026-W40": 129
-    },
-    "linesOfCode": 856,
-    "monthlyLinesOfCode": {
-      "January": 73,
-      "February": 76,
-      "March": 140,
-      "April": 109,
-      "May": 73,
-      "June": 75,
-      "July": 106,
-      "August": 117,
-      "September": 87,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33477,21 +27583,6 @@ const EMPLOYEES = [
       "2026-W38": 101,
       "2026-W39": 100,
       "2026-W40": 63
-    },
-    "linesOfCode": 901,
-    "monthlyLinesOfCode": {
-      "January": 63,
-      "February": 44,
-      "March": 109,
-      "April": 82,
-      "May": 113,
-      "June": 155,
-      "July": 155,
-      "August": 151,
-      "September": 29,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33562,21 +27653,6 @@ const EMPLOYEES = [
       "2026-W38": 946,
       "2026-W39": 747,
       "2026-W40": 422
-    },
-    "linesOfCode": 1828,
-    "monthlyLinesOfCode": {
-      "January": 70,
-      "February": 182,
-      "March": 113,
-      "April": 150,
-      "May": 334,
-      "June": 380,
-      "July": 252,
-      "August": 0,
-      "September": 347,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33647,21 +27723,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33732,21 +27793,6 @@ const EMPLOYEES = [
       "2026-W38": 619,
       "2026-W39": 447,
       "2026-W40": 324
-    },
-    "linesOfCode": 1316,
-    "monthlyLinesOfCode": {
-      "January": 100,
-      "February": 0,
-      "March": 192,
-      "April": 124,
-      "May": 152,
-      "June": 302,
-      "July": 126,
-      "August": 169,
-      "September": 151,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33817,21 +27863,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 42,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 16,
-      "June": 7,
-      "July": 8,
-      "August": 11,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33902,21 +27933,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -33987,21 +28003,6 @@ const EMPLOYEES = [
       "2026-W38": 603,
       "2026-W39": 723,
       "2026-W40": 548
-    },
-    "linesOfCode": 3056,
-    "monthlyLinesOfCode": {
-      "January": 240,
-      "February": 205,
-      "March": 0,
-      "April": 265,
-      "May": 482,
-      "June": 513,
-      "July": 451,
-      "August": 595,
-      "September": 305,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34072,21 +28073,6 @@ const EMPLOYEES = [
       "2026-W38": 178,
       "2026-W39": 211,
       "2026-W40": 107
-    },
-    "linesOfCode": 110,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 3,
-      "March": 14,
-      "April": 10,
-      "May": 10,
-      "June": 18,
-      "July": 11,
-      "August": 22,
-      "September": 12,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34157,21 +28143,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34242,21 +28213,6 @@ const EMPLOYEES = [
       "2026-W38": 787,
       "2026-W39": 547,
       "2026-W40": 494
-    },
-    "linesOfCode": 8842,
-    "monthlyLinesOfCode": {
-      "January": 1108,
-      "February": 909,
-      "March": 761,
-      "April": 865,
-      "May": 985,
-      "June": 762,
-      "July": 929,
-      "August": 1287,
-      "September": 1236,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34327,21 +28283,6 @@ const EMPLOYEES = [
       "2026-W38": 1271,
       "2026-W39": 1218,
       "2026-W40": 506
-    },
-    "linesOfCode": 10641,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 587,
-      "April": 1565,
-      "May": 1210,
-      "June": 1372,
-      "July": 2191,
-      "August": 1890,
-      "September": 1826,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34412,21 +28353,6 @@ const EMPLOYEES = [
       "2026-W38": 846,
       "2026-W39": 991,
       "2026-W40": 493
-    },
-    "linesOfCode": 1605,
-    "monthlyLinesOfCode": {
-      "January": 210,
-      "February": 99,
-      "March": 211,
-      "April": 175,
-      "May": 85,
-      "June": 140,
-      "July": 206,
-      "August": 163,
-      "September": 316,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34497,21 +28423,6 @@ const EMPLOYEES = [
       "2026-W38": 214,
       "2026-W39": 209,
       "2026-W40": 122
-    },
-    "linesOfCode": 119,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 18,
-      "April": 17,
-      "May": 23,
-      "June": 11,
-      "July": 16,
-      "August": 16,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34582,21 +28493,6 @@ const EMPLOYEES = [
       "2026-W38": 2017,
       "2026-W39": 1938,
       "2026-W40": 1080
-    },
-    "linesOfCode": 3789,
-    "monthlyLinesOfCode": {
-      "January": 531,
-      "February": 211,
-      "March": 331,
-      "April": 395,
-      "May": 319,
-      "June": 467,
-      "July": 328,
-      "August": 380,
-      "September": 827,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34667,21 +28563,6 @@ const EMPLOYEES = [
       "2026-W38": 530,
       "2026-W39": 394,
       "2026-W40": 362
-    },
-    "linesOfCode": 91,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 19,
-      "June": 0,
-      "July": 9,
-      "August": 23,
-      "September": 40,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34752,21 +28633,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34837,21 +28703,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -34922,21 +28773,6 @@ const EMPLOYEES = [
       "2026-W38": 278,
       "2026-W39": 283,
       "2026-W40": 93
-    },
-    "linesOfCode": 166,
-    "monthlyLinesOfCode": {
-      "January": 19,
-      "February": 13,
-      "March": 15,
-      "April": 19,
-      "May": 1,
-      "June": 20,
-      "July": 15,
-      "August": 38,
-      "September": 26,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35007,21 +28843,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35092,21 +28913,6 @@ const EMPLOYEES = [
       "2026-W38": 269,
       "2026-W39": 247,
       "2026-W40": 130
-    },
-    "linesOfCode": 183,
-    "monthlyLinesOfCode": {
-      "January": 17,
-      "February": 21,
-      "March": 21,
-      "April": 0,
-      "May": 43,
-      "June": 17,
-      "July": 19,
-      "August": 21,
-      "September": 24,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35177,21 +28983,6 @@ const EMPLOYEES = [
       "2026-W38": 929,
       "2026-W39": 844,
       "2026-W40": 450
-    },
-    "linesOfCode": 6099,
-    "monthlyLinesOfCode": {
-      "January": 193,
-      "February": 338,
-      "March": 604,
-      "April": 472,
-      "May": 707,
-      "June": 935,
-      "July": 790,
-      "August": 897,
-      "September": 1163,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35262,21 +29053,6 @@ const EMPLOYEES = [
       "2026-W38": 178,
       "2026-W39": 174,
       "2026-W40": 79
-    },
-    "linesOfCode": 108,
-    "monthlyLinesOfCode": {
-      "January": 12,
-      "February": 11,
-      "March": 9,
-      "April": 16,
-      "May": 7,
-      "June": 18,
-      "July": 16,
-      "August": 8,
-      "September": 11,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35347,21 +29123,6 @@ const EMPLOYEES = [
       "2026-W38": 213,
       "2026-W39": 194,
       "2026-W40": 177
-    },
-    "linesOfCode": 589,
-    "monthlyLinesOfCode": {
-      "January": 74,
-      "February": 78,
-      "March": 69,
-      "April": 25,
-      "May": 68,
-      "June": 77,
-      "July": 90,
-      "August": 0,
-      "September": 108,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35432,21 +29193,6 @@ const EMPLOYEES = [
       "2026-W38": 236,
       "2026-W39": 293,
       "2026-W40": 180
-    },
-    "linesOfCode": 1073,
-    "monthlyLinesOfCode": {
-      "January": 194,
-      "February": 97,
-      "March": 153,
-      "April": 123,
-      "May": 61,
-      "June": 136,
-      "July": 59,
-      "August": 136,
-      "September": 114,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35517,21 +29263,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 156,
-    "monthlyLinesOfCode": {
-      "January": 19,
-      "February": 12,
-      "March": 28,
-      "April": 21,
-      "May": 14,
-      "June": 16,
-      "July": 27,
-      "August": 19,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35602,21 +29333,6 @@ const EMPLOYEES = [
       "2026-W38": 439,
       "2026-W39": 483,
       "2026-W40": 248
-    },
-    "linesOfCode": 709,
-    "monthlyLinesOfCode": {
-      "January": 44,
-      "February": 75,
-      "March": 53,
-      "April": 97,
-      "May": 80,
-      "June": 65,
-      "July": 117,
-      "August": 41,
-      "September": 137,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35687,21 +29403,6 @@ const EMPLOYEES = [
       "2026-W38": 1176,
       "2026-W39": 1230,
       "2026-W40": 608
-    },
-    "linesOfCode": 12627,
-    "monthlyLinesOfCode": {
-      "January": 2182,
-      "February": 1939,
-      "March": 56,
-      "April": 2063,
-      "May": 772,
-      "June": 1857,
-      "July": 627,
-      "August": 1648,
-      "September": 1483,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35772,21 +29473,6 @@ const EMPLOYEES = [
       "2026-W38": 417,
       "2026-W39": 457,
       "2026-W40": 223
-    },
-    "linesOfCode": 1336,
-    "monthlyLinesOfCode": {
-      "January": 116,
-      "February": 167,
-      "March": 61,
-      "April": 177,
-      "May": 116,
-      "June": 234,
-      "July": 123,
-      "August": 172,
-      "September": 170,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35857,21 +29543,6 @@ const EMPLOYEES = [
       "2026-W38": 207,
       "2026-W39": 194,
       "2026-W40": 105
-    },
-    "linesOfCode": 917,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 100,
-      "March": 83,
-      "April": 77,
-      "May": 148,
-      "June": 138,
-      "July": 157,
-      "August": 154,
-      "September": 60,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -35942,21 +29613,6 @@ const EMPLOYEES = [
       "2026-W38": 945,
       "2026-W39": 1172,
       "2026-W40": 568
-    },
-    "linesOfCode": 3879,
-    "monthlyLinesOfCode": {
-      "January": 210,
-      "February": 249,
-      "March": 407,
-      "April": 407,
-      "May": 363,
-      "June": 544,
-      "July": 733,
-      "August": 530,
-      "September": 436,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36027,21 +29683,6 @@ const EMPLOYEES = [
       "2026-W38": 2191,
       "2026-W39": 1840,
       "2026-W40": 1370
-    },
-    "linesOfCode": 13431,
-    "monthlyLinesOfCode": {
-      "January": 1026,
-      "February": 1237,
-      "March": 1900,
-      "April": 2020,
-      "May": 0,
-      "June": 2151,
-      "July": 1415,
-      "August": 1442,
-      "September": 2240,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36112,21 +29753,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36197,21 +29823,6 @@ const EMPLOYEES = [
       "2026-W38": 101,
       "2026-W39": 84,
       "2026-W40": 68
-    },
-    "linesOfCode": 81,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 25,
-      "June": 18,
-      "July": 17,
-      "August": 12,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36282,21 +29893,6 @@ const EMPLOYEES = [
       "2026-W38": 983,
       "2026-W39": 1196,
       "2026-W40": 750
-    },
-    "linesOfCode": 12673,
-    "monthlyLinesOfCode": {
-      "January": 829,
-      "February": 1116,
-      "March": 2059,
-      "April": 905,
-      "May": 811,
-      "June": 1497,
-      "July": 2226,
-      "August": 1460,
-      "September": 1770,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36367,21 +29963,6 @@ const EMPLOYEES = [
       "2026-W38": 96,
       "2026-W39": 84,
       "2026-W40": 40
-    },
-    "linesOfCode": 21,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 5,
-      "July": 4,
-      "August": 5,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36452,21 +30033,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36537,21 +30103,6 @@ const EMPLOYEES = [
       "2026-W38": 380,
       "2026-W39": 327,
       "2026-W40": 190
-    },
-    "linesOfCode": 226,
-    "monthlyLinesOfCode": {
-      "January": 19,
-      "February": 20,
-      "March": 16,
-      "April": 20,
-      "May": 24,
-      "June": 21,
-      "July": 36,
-      "August": 43,
-      "September": 27,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36622,21 +30173,6 @@ const EMPLOYEES = [
       "2026-W38": 297,
       "2026-W39": 256,
       "2026-W40": 201
-    },
-    "linesOfCode": 1038,
-    "monthlyLinesOfCode": {
-      "January": 123,
-      "February": 79,
-      "March": 125,
-      "April": 126,
-      "May": 102,
-      "June": 131,
-      "July": 166,
-      "August": 83,
-      "September": 103,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36707,21 +30243,6 @@ const EMPLOYEES = [
       "2026-W38": 317,
       "2026-W39": 262,
       "2026-W40": 177
-    },
-    "linesOfCode": 120,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 26,
-      "May": 13,
-      "June": 21,
-      "July": 23,
-      "August": 12,
-      "September": 25,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36792,21 +30313,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36877,21 +30383,6 @@ const EMPLOYEES = [
       "2026-W38": 1360,
       "2026-W39": 1621,
       "2026-W40": 1142
-    },
-    "linesOfCode": 24628,
-    "monthlyLinesOfCode": {
-      "January": 2789,
-      "February": 2664,
-      "March": 2779,
-      "April": 3851,
-      "May": 905,
-      "June": 1959,
-      "July": 4356,
-      "August": 3490,
-      "September": 1835,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -36962,21 +30453,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37047,21 +30523,6 @@ const EMPLOYEES = [
       "2026-W38": 282,
       "2026-W39": 327,
       "2026-W40": 188
-    },
-    "linesOfCode": 163,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 11,
-      "March": 8,
-      "April": 23,
-      "May": 18,
-      "June": 19,
-      "July": 17,
-      "August": 30,
-      "September": 27,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37132,21 +30593,6 @@ const EMPLOYEES = [
       "2026-W38": 982,
       "2026-W39": 622,
       "2026-W40": 553
-    },
-    "linesOfCode": 1613,
-    "monthlyLinesOfCode": {
-      "January": 31,
-      "February": 115,
-      "March": 194,
-      "April": 157,
-      "May": 141,
-      "June": 153,
-      "July": 302,
-      "August": 174,
-      "September": 346,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37217,21 +30663,6 @@ const EMPLOYEES = [
       "2026-W38": 331,
       "2026-W39": 382,
       "2026-W40": 263
-    },
-    "linesOfCode": 4943,
-    "monthlyLinesOfCode": {
-      "January": 488,
-      "February": 411,
-      "March": 287,
-      "April": 887,
-      "May": 493,
-      "June": 946,
-      "July": 127,
-      "August": 902,
-      "September": 402,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37302,21 +30733,6 @@ const EMPLOYEES = [
       "2026-W38": 181,
       "2026-W39": 224,
       "2026-W40": 103
-    },
-    "linesOfCode": 1156,
-    "monthlyLinesOfCode": {
-      "January": 111,
-      "February": 73,
-      "March": 144,
-      "April": 240,
-      "May": 84,
-      "June": 101,
-      "July": 169,
-      "August": 172,
-      "September": 62,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37387,21 +30803,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37472,21 +30873,6 @@ const EMPLOYEES = [
       "2026-W38": 341,
       "2026-W39": 400,
       "2026-W40": 214
-    },
-    "linesOfCode": 4865,
-    "monthlyLinesOfCode": {
-      "January": 175,
-      "February": 416,
-      "March": 408,
-      "April": 451,
-      "May": 319,
-      "June": 597,
-      "July": 1143,
-      "August": 742,
-      "September": 614,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37557,21 +30943,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 4713,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 307,
-      "April": 404,
-      "May": 827,
-      "June": 786,
-      "July": 1374,
-      "August": 1015,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37642,21 +31013,6 @@ const EMPLOYEES = [
       "2026-W38": 195,
       "2026-W39": 243,
       "2026-W40": 145
-    },
-    "linesOfCode": 135,
-    "monthlyLinesOfCode": {
-      "January": 12,
-      "February": 24,
-      "March": 12,
-      "April": 12,
-      "May": 12,
-      "June": 14,
-      "July": 14,
-      "August": 20,
-      "September": 15,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37727,21 +31083,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 75,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 21,
-      "March": 15,
-      "April": 11,
-      "May": 11,
-      "June": 14,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37812,21 +31153,6 @@ const EMPLOYEES = [
       "2026-W38": 357,
       "2026-W39": 447,
       "2026-W40": 232
-    },
-    "linesOfCode": 12567,
-    "monthlyLinesOfCode": {
-      "January": 1141,
-      "February": 1502,
-      "March": 1456,
-      "April": 1236,
-      "May": 1414,
-      "June": 1956,
-      "July": 1794,
-      "August": 1505,
-      "September": 563,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37897,21 +31223,6 @@ const EMPLOYEES = [
       "2026-W38": 999,
       "2026-W39": 799,
       "2026-W40": 489
-    },
-    "linesOfCode": 6010,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 1238,
-      "May": 940,
-      "June": 681,
-      "July": 1311,
-      "August": 633,
-      "September": 1207,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -37982,21 +31293,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38067,21 +31363,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38152,21 +31433,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38237,21 +31503,6 @@ const EMPLOYEES = [
       "2026-W38": 275,
       "2026-W39": 251,
       "2026-W40": 126
-    },
-    "linesOfCode": 109,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 15,
-      "March": 9,
-      "April": 11,
-      "May": 9,
-      "June": 5,
-      "July": 17,
-      "August": 16,
-      "September": 17,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38322,21 +31573,6 @@ const EMPLOYEES = [
       "2026-W38": 1831,
       "2026-W39": 1594,
       "2026-W40": 917
-    },
-    "linesOfCode": 10439,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 2200,
-      "April": 0,
-      "May": 2132,
-      "June": 1430,
-      "July": 1102,
-      "August": 1630,
-      "September": 1945,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38407,21 +31643,6 @@ const EMPLOYEES = [
       "2026-W38": 705,
       "2026-W39": 691,
       "2026-W40": 300
-    },
-    "linesOfCode": 7746,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 816,
-      "March": 831,
-      "April": 659,
-      "May": 897,
-      "June": 1022,
-      "July": 1269,
-      "August": 1183,
-      "September": 1069,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38492,21 +31713,6 @@ const EMPLOYEES = [
       "2026-W38": 198,
       "2026-W39": 235,
       "2026-W40": 103
-    },
-    "linesOfCode": 850,
-    "monthlyLinesOfCode": {
-      "January": 77,
-      "February": 87,
-      "March": 88,
-      "April": 0,
-      "May": 121,
-      "June": 172,
-      "July": 155,
-      "August": 88,
-      "September": 62,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38577,21 +31783,6 @@ const EMPLOYEES = [
       "2026-W38": 938,
       "2026-W39": 856,
       "2026-W40": 509
-    },
-    "linesOfCode": 432,
-    "monthlyLinesOfCode": {
-      "January": 47,
-      "February": 72,
-      "March": 38,
-      "April": 31,
-      "May": 36,
-      "June": 31,
-      "July": 51,
-      "August": 44,
-      "September": 82,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38662,21 +31853,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38747,21 +31923,6 @@ const EMPLOYEES = [
       "2026-W38": 848,
       "2026-W39": 815,
       "2026-W40": 353
-    },
-    "linesOfCode": 13541,
-    "monthlyLinesOfCode": {
-      "January": 1603,
-      "February": 0,
-      "March": 2164,
-      "April": 2054,
-      "May": 2306,
-      "June": 1327,
-      "July": 892,
-      "August": 1924,
-      "September": 1271,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38832,21 +31993,6 @@ const EMPLOYEES = [
       "2026-W38": 3474,
       "2026-W39": 5100,
       "2026-W40": 2922
-    },
-    "linesOfCode": 36169,
-    "monthlyLinesOfCode": {
-      "January": 3186,
-      "February": 3831,
-      "March": 5977,
-      "April": 7258,
-      "May": 2752,
-      "June": 3343,
-      "July": 3355,
-      "August": 0,
-      "September": 6467,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -38917,21 +32063,6 @@ const EMPLOYEES = [
       "2026-W38": 50,
       "2026-W39": 41,
       "2026-W40": 28
-    },
-    "linesOfCode": 26,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 5,
-      "March": 2,
-      "April": 2,
-      "May": 2,
-      "June": 1,
-      "July": 3,
-      "August": 3,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39002,21 +32133,6 @@ const EMPLOYEES = [
       "2026-W38": 88,
       "2026-W39": 112,
       "2026-W40": 52
-    },
-    "linesOfCode": 40,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 4,
-      "March": 4,
-      "April": 1,
-      "May": 6,
-      "June": 5,
-      "July": 8,
-      "August": 0,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39087,21 +32203,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 3713,
-    "monthlyLinesOfCode": {
-      "January": 344,
-      "February": 237,
-      "March": 242,
-      "April": 310,
-      "May": 1236,
-      "June": 514,
-      "July": 830,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39172,21 +32273,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39257,21 +32343,6 @@ const EMPLOYEES = [
       "2026-W38": 1490,
       "2026-W39": 1346,
       "2026-W40": 699
-    },
-    "linesOfCode": 10989,
-    "monthlyLinesOfCode": {
-      "January": 973,
-      "February": 1912,
-      "March": 910,
-      "April": 448,
-      "May": 2905,
-      "June": 789,
-      "July": 0,
-      "August": 1542,
-      "September": 1510,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39342,21 +32413,6 @@ const EMPLOYEES = [
       "2026-W38": 265,
       "2026-W39": 294,
       "2026-W40": 122
-    },
-    "linesOfCode": 163,
-    "monthlyLinesOfCode": {
-      "January": 22,
-      "February": 9,
-      "March": 15,
-      "April": 14,
-      "May": 20,
-      "June": 23,
-      "July": 12,
-      "August": 23,
-      "September": 25,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39427,21 +32483,6 @@ const EMPLOYEES = [
       "2026-W38": 79,
       "2026-W39": 92,
       "2026-W40": 47
-    },
-    "linesOfCode": 38,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 3,
-      "March": 6,
-      "April": 3,
-      "May": 6,
-      "June": 3,
-      "July": 5,
-      "August": 4,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39512,21 +32553,6 @@ const EMPLOYEES = [
       "2026-W38": 808,
       "2026-W39": 634,
       "2026-W40": 392
-    },
-    "linesOfCode": 1474,
-    "monthlyLinesOfCode": {
-      "January": 98,
-      "February": 171,
-      "March": 214,
-      "April": 254,
-      "May": 31,
-      "June": 71,
-      "July": 0,
-      "August": 310,
-      "September": 325,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39597,21 +32623,6 @@ const EMPLOYEES = [
       "2026-W38": 483,
       "2026-W39": 402,
       "2026-W40": 250
-    },
-    "linesOfCode": 10554,
-    "monthlyLinesOfCode": {
-      "January": 1540,
-      "February": 1281,
-      "March": 1193,
-      "April": 613,
-      "May": 845,
-      "June": 2308,
-      "July": 1347,
-      "August": 770,
-      "September": 657,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39682,21 +32693,6 @@ const EMPLOYEES = [
       "2026-W38": 350,
       "2026-W39": 324,
       "2026-W40": 255
-    },
-    "linesOfCode": 5626,
-    "monthlyLinesOfCode": {
-      "January": 367,
-      "February": 802,
-      "March": 350,
-      "April": 614,
-      "May": 716,
-      "June": 850,
-      "July": 598,
-      "August": 760,
-      "September": 569,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39767,21 +32763,6 @@ const EMPLOYEES = [
       "2026-W38": 649,
       "2026-W39": 641,
       "2026-W40": 360
-    },
-    "linesOfCode": 976,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 138,
-      "May": 156,
-      "June": 0,
-      "July": 238,
-      "August": 214,
-      "September": 230,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39852,21 +32833,6 @@ const EMPLOYEES = [
       "2026-W38": 164,
       "2026-W39": 139,
       "2026-W40": 105
-    },
-    "linesOfCode": 85,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 10,
-      "April": 14,
-      "May": 13,
-      "June": 6,
-      "July": 18,
-      "August": 13,
-      "September": 11,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -39937,21 +32903,6 @@ const EMPLOYEES = [
       "2026-W38": 633,
       "2026-W39": 596,
       "2026-W40": 412
-    },
-    "linesOfCode": 8149,
-    "monthlyLinesOfCode": {
-      "January": 486,
-      "February": 856,
-      "March": 1086,
-      "April": 1046,
-      "May": 842,
-      "June": 935,
-      "July": 593,
-      "August": 1648,
-      "September": 657,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40022,21 +32973,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40107,21 +33043,6 @@ const EMPLOYEES = [
       "2026-W38": 583,
       "2026-W39": 625,
       "2026-W40": 242
-    },
-    "linesOfCode": 1478,
-    "monthlyLinesOfCode": {
-      "January": 94,
-      "February": 232,
-      "March": 88,
-      "April": 70,
-      "May": 176,
-      "June": 213,
-      "July": 161,
-      "August": 279,
-      "September": 165,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40192,21 +33113,6 @@ const EMPLOYEES = [
       "2026-W38": 58,
       "2026-W39": 60,
       "2026-W40": 41
-    },
-    "linesOfCode": 55,
-    "monthlyLinesOfCode": {
-      "January": 4,
-      "February": 5,
-      "March": 9,
-      "April": 10,
-      "May": 6,
-      "June": 4,
-      "July": 4,
-      "August": 8,
-      "September": 5,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40277,21 +33183,6 @@ const EMPLOYEES = [
       "2026-W38": 264,
       "2026-W39": 236,
       "2026-W40": 121
-    },
-    "linesOfCode": 1758,
-    "monthlyLinesOfCode": {
-      "January": 148,
-      "February": 166,
-      "March": 222,
-      "April": 171,
-      "May": 151,
-      "June": 246,
-      "July": 397,
-      "August": 156,
-      "September": 101,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40362,21 +33253,6 @@ const EMPLOYEES = [
       "2026-W38": 2654,
       "2026-W39": 2729,
       "2026-W40": 1167
-    },
-    "linesOfCode": 26937,
-    "monthlyLinesOfCode": {
-      "January": 2235,
-      "February": 2686,
-      "March": 1166,
-      "April": 2331,
-      "May": 5776,
-      "June": 5755,
-      "July": 0,
-      "August": 2832,
-      "September": 4156,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40447,21 +33323,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40532,21 +33393,6 @@ const EMPLOYEES = [
       "2026-W38": 48,
       "2026-W39": 48,
       "2026-W40": 25
-    },
-    "linesOfCode": 41,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 3,
-      "March": 5,
-      "April": 7,
-      "May": 7,
-      "June": 3,
-      "July": 5,
-      "August": 4,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40617,21 +33463,6 @@ const EMPLOYEES = [
       "2026-W38": 1418,
       "2026-W39": 1725,
       "2026-W40": 840
-    },
-    "linesOfCode": 8843,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 2389,
-      "June": 0,
-      "July": 1886,
-      "August": 2805,
-      "September": 1763,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40702,21 +33533,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40787,21 +33603,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40872,21 +33673,6 @@ const EMPLOYEES = [
       "2026-W38": 78,
       "2026-W39": 62,
       "2026-W40": 44
-    },
-    "linesOfCode": 251,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 20,
-      "April": 41,
-      "May": 30,
-      "June": 39,
-      "July": 56,
-      "August": 42,
-      "September": 23,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -40957,21 +33743,6 @@ const EMPLOYEES = [
       "2026-W38": 463,
       "2026-W39": 414,
       "2026-W40": 193
-    },
-    "linesOfCode": 849,
-    "monthlyLinesOfCode": {
-      "January": 109,
-      "February": 138,
-      "March": 85,
-      "April": 55,
-      "May": 60,
-      "June": 63,
-      "July": 180,
-      "August": 0,
-      "September": 159,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41042,21 +33813,6 @@ const EMPLOYEES = [
       "2026-W38": 566,
       "2026-W39": 629,
       "2026-W40": 431
-    },
-    "linesOfCode": 270,
-    "monthlyLinesOfCode": {
-      "January": 23,
-      "February": 33,
-      "March": 26,
-      "April": 23,
-      "May": 25,
-      "June": 28,
-      "July": 35,
-      "August": 30,
-      "September": 47,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41127,21 +33883,6 @@ const EMPLOYEES = [
       "2026-W38": 617,
       "2026-W39": 682,
       "2026-W40": 362
-    },
-    "linesOfCode": 1343,
-    "monthlyLinesOfCode": {
-      "January": 79,
-      "February": 30,
-      "March": 92,
-      "April": 115,
-      "May": 174,
-      "June": 236,
-      "July": 272,
-      "August": 91,
-      "September": 254,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41212,21 +33953,6 @@ const EMPLOYEES = [
       "2026-W38": 90,
       "2026-W39": 83,
       "2026-W40": 54
-    },
-    "linesOfCode": 86,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 0,
-      "March": 13,
-      "April": 11,
-      "May": 0,
-      "June": 19,
-      "July": 14,
-      "August": 10,
-      "September": 9,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41297,21 +34023,6 @@ const EMPLOYEES = [
       "2026-W38": 1909,
       "2026-W39": 2178,
       "2026-W40": 1037
-    },
-    "linesOfCode": 17749,
-    "monthlyLinesOfCode": {
-      "January": 1440,
-      "February": 0,
-      "March": 3094,
-      "April": 1987,
-      "May": 1357,
-      "June": 1775,
-      "July": 2397,
-      "August": 2793,
-      "September": 2906,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41382,21 +34093,6 @@ const EMPLOYEES = [
       "2026-W38": 135,
       "2026-W39": 141,
       "2026-W40": 88
-    },
-    "linesOfCode": 119,
-    "monthlyLinesOfCode": {
-      "January": 12,
-      "February": 14,
-      "March": 22,
-      "April": 19,
-      "May": 10,
-      "June": 0,
-      "July": 18,
-      "August": 12,
-      "September": 12,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41467,21 +34163,6 @@ const EMPLOYEES = [
       "2026-W38": 206,
       "2026-W39": 219,
       "2026-W40": 143
-    },
-    "linesOfCode": 125,
-    "monthlyLinesOfCode": {
-      "January": 11,
-      "February": 8,
-      "March": 15,
-      "April": 12,
-      "May": 12,
-      "June": 14,
-      "July": 14,
-      "August": 17,
-      "September": 22,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41552,21 +34233,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41637,21 +34303,6 @@ const EMPLOYEES = [
       "2026-W38": 275,
       "2026-W39": 232,
       "2026-W40": 186
-    },
-    "linesOfCode": 131,
-    "monthlyLinesOfCode": {
-      "January": 10,
-      "February": 0,
-      "March": 14,
-      "April": 17,
-      "May": 16,
-      "June": 8,
-      "July": 27,
-      "August": 21,
-      "September": 18,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41722,21 +34373,6 @@ const EMPLOYEES = [
       "2026-W38": 329,
       "2026-W39": 316,
       "2026-W40": 193
-    },
-    "linesOfCode": 161,
-    "monthlyLinesOfCode": {
-      "January": 24,
-      "February": 10,
-      "March": 23,
-      "April": 10,
-      "May": 21,
-      "June": 15,
-      "July": 10,
-      "August": 15,
-      "September": 33,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41807,21 +34443,6 @@ const EMPLOYEES = [
       "2026-W38": 101,
       "2026-W39": 103,
       "2026-W40": 69
-    },
-    "linesOfCode": 83,
-    "monthlyLinesOfCode": {
-      "January": 5,
-      "February": 3,
-      "March": 14,
-      "April": 9,
-      "May": 15,
-      "June": 15,
-      "July": 3,
-      "August": 12,
-      "September": 7,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41892,21 +34513,6 @@ const EMPLOYEES = [
       "2026-W38": 1253,
       "2026-W39": 1288,
       "2026-W40": 771
-    },
-    "linesOfCode": 11724,
-    "monthlyLinesOfCode": {
-      "January": 1817,
-      "February": 1919,
-      "March": 1283,
-      "April": 837,
-      "May": 0,
-      "June": 1006,
-      "July": 2004,
-      "August": 532,
-      "September": 2326,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -41977,21 +34583,6 @@ const EMPLOYEES = [
       "2026-W38": 166,
       "2026-W39": 187,
       "2026-W40": 97
-    },
-    "linesOfCode": 36,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 12,
-      "July": 0,
-      "August": 11,
-      "September": 13,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42062,21 +34653,6 @@ const EMPLOYEES = [
       "2026-W38": 1223,
       "2026-W39": 944,
       "2026-W40": 555
-    },
-    "linesOfCode": 6729,
-    "monthlyLinesOfCode": {
-      "January": 830,
-      "February": 720,
-      "March": 442,
-      "April": 677,
-      "May": 729,
-      "June": 644,
-      "July": 749,
-      "August": 403,
-      "September": 1535,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42147,21 +34723,6 @@ const EMPLOYEES = [
       "2026-W38": 96,
       "2026-W39": 88,
       "2026-W40": 76
-    },
-    "linesOfCode": 42,
-    "monthlyLinesOfCode": {
-      "January": 3,
-      "February": 4,
-      "March": 3,
-      "April": 6,
-      "May": 4,
-      "June": 2,
-      "July": 4,
-      "August": 6,
-      "September": 10,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42232,21 +34793,6 @@ const EMPLOYEES = [
       "2026-W38": 760,
       "2026-W39": 710,
       "2026-W40": 303
-    },
-    "linesOfCode": 1683,
-    "monthlyLinesOfCode": {
-      "January": 80,
-      "February": 117,
-      "March": 250,
-      "April": 140,
-      "May": 0,
-      "June": 294,
-      "July": 194,
-      "August": 299,
-      "September": 309,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42317,21 +34863,6 @@ const EMPLOYEES = [
       "2026-W38": 0,
       "2026-W39": 0,
       "2026-W40": 0
-    },
-    "linesOfCode": 0,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 0,
-      "August": 0,
-      "September": 0,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42402,21 +34933,6 @@ const EMPLOYEES = [
       "2026-W38": 214,
       "2026-W39": 199,
       "2026-W40": 108
-    },
-    "linesOfCode": 3746,
-    "monthlyLinesOfCode": {
-      "January": 218,
-      "February": 188,
-      "March": 609,
-      "April": 792,
-      "May": 288,
-      "June": 0,
-      "July": 658,
-      "August": 701,
-      "September": 292,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   },
   {
@@ -42487,21 +35003,277 @@ const EMPLOYEES = [
       "2026-W38": 67,
       "2026-W39": 64,
       "2026-W40": 27
-    },
-    "linesOfCode": 16,
-    "monthlyLinesOfCode": {
-      "January": 0,
-      "February": 0,
-      "March": 0,
-      "April": 0,
-      "May": 0,
-      "June": 0,
-      "July": 6,
-      "August": 6,
-      "September": 4,
-      "October": 0,
-      "November": 0,
-      "December": 0
     }
   }
 ]
+
+const CAPACITY = {
+  "source": "bitbucket-commits.xlsx",
+  "parameters": {
+    "tokensPerLine": 50.0,
+    "linesDivisor": 551.0,
+    "secondDivisor": 4.0,
+    "excludeMerges": true,
+    "linesBasis": "Added Lines"
+  },
+  "window": {
+    "start": "2026-01-01",
+    "end": "2026-09-30"
+  },
+  "totals": {
+    "ytd": {
+      "lines": 1210918,
+      "commits": 18098,
+      "engineers": 128
+    },
+    "months": {
+      "January": {
+        "lines": 115222,
+        "commits": 1786,
+        "engineers": 111
+      },
+      "February": {
+        "lines": 110880,
+        "commits": 1663,
+        "engineers": 115
+      },
+      "March": {
+        "lines": 142886,
+        "commits": 2037,
+        "engineers": 120
+      },
+      "April": {
+        "lines": 129255,
+        "commits": 2043,
+        "engineers": 122
+      },
+      "May": {
+        "lines": 129938,
+        "commits": 1992,
+        "engineers": 126
+      },
+      "June": {
+        "lines": 142993,
+        "commits": 2103,
+        "engineers": 128
+      },
+      "July": {
+        "lines": 145978,
+        "commits": 2201,
+        "engineers": 128
+      },
+      "August": {
+        "lines": 145977,
+        "commits": 2103,
+        "engineers": 128
+      },
+      "September": {
+        "lines": 147789,
+        "commits": 2170,
+        "engineers": 128
+      }
+    },
+    "weeks": {
+      "2026-W01": {
+        "lines": 10117,
+        "commits": 152,
+        "engineers": 77
+      },
+      "2026-W02": {
+        "lines": 25206,
+        "commits": 408,
+        "engineers": 104
+      },
+      "2026-W03": {
+        "lines": 24648,
+        "commits": 383,
+        "engineers": 105
+      },
+      "2026-W04": {
+        "lines": 28916,
+        "commits": 445,
+        "engineers": 106
+      },
+      "2026-W05": {
+        "lines": 26335,
+        "commits": 398,
+        "engineers": 106
+      },
+      "2026-W06": {
+        "lines": 28203,
+        "commits": 438,
+        "engineers": 110
+      },
+      "2026-W07": {
+        "lines": 24738,
+        "commits": 390,
+        "engineers": 107
+      },
+      "2026-W08": {
+        "lines": 27915,
+        "commits": 428,
+        "engineers": 108
+      },
+      "2026-W09": {
+        "lines": 30024,
+        "commits": 407,
+        "engineers": 110
+      },
+      "2026-W10": {
+        "lines": 32388,
+        "commits": 451,
+        "engineers": 113
+      },
+      "2026-W11": {
+        "lines": 28273,
+        "commits": 446,
+        "engineers": 109
+      },
+      "2026-W12": {
+        "lines": 33626,
+        "commits": 464,
+        "engineers": 113
+      },
+      "2026-W13": {
+        "lines": 35137,
+        "commits": 461,
+        "engineers": 116
+      },
+      "2026-W14": {
+        "lines": 31423,
+        "commits": 478,
+        "engineers": 116
+      },
+      "2026-W15": {
+        "lines": 25150,
+        "commits": 441,
+        "engineers": 114
+      },
+      "2026-W16": {
+        "lines": 29357,
+        "commits": 461,
+        "engineers": 118
+      },
+      "2026-W17": {
+        "lines": 28826,
+        "commits": 469,
+        "engineers": 118
+      },
+      "2026-W18": {
+        "lines": 32498,
+        "commits": 472,
+        "engineers": 121
+      },
+      "2026-W19": {
+        "lines": 33191,
+        "commits": 482,
+        "engineers": 117
+      },
+      "2026-W20": {
+        "lines": 32920,
+        "commits": 502,
+        "engineers": 117
+      },
+      "2026-W21": {
+        "lines": 29539,
+        "commits": 476,
+        "engineers": 116
+      },
+      "2026-W22": {
+        "lines": 29751,
+        "commits": 469,
+        "engineers": 122
+      },
+      "2026-W23": {
+        "lines": 30363,
+        "commits": 449,
+        "engineers": 123
+      },
+      "2026-W24": {
+        "lines": 33093,
+        "commits": 484,
+        "engineers": 124
+      },
+      "2026-W25": {
+        "lines": 35860,
+        "commits": 497,
+        "engineers": 122
+      },
+      "2026-W26": {
+        "lines": 29349,
+        "commits": 464,
+        "engineers": 122
+      },
+      "2026-W27": {
+        "lines": 32187,
+        "commits": 503,
+        "engineers": 121
+      },
+      "2026-W28": {
+        "lines": 31760,
+        "commits": 470,
+        "engineers": 124
+      },
+      "2026-W29": {
+        "lines": 30399,
+        "commits": 458,
+        "engineers": 122
+      },
+      "2026-W30": {
+        "lines": 33950,
+        "commits": 480,
+        "engineers": 119
+      },
+      "2026-W31": {
+        "lines": 32010,
+        "commits": 499,
+        "engineers": 128
+      },
+      "2026-W32": {
+        "lines": 37355,
+        "commits": 508,
+        "engineers": 122
+      },
+      "2026-W33": {
+        "lines": 35106,
+        "commits": 496,
+        "engineers": 126
+      },
+      "2026-W34": {
+        "lines": 31162,
+        "commits": 502,
+        "engineers": 125
+      },
+      "2026-W35": {
+        "lines": 36053,
+        "commits": 499,
+        "engineers": 125
+      },
+      "2026-W36": {
+        "lines": 34979,
+        "commits": 506,
+        "engineers": 124
+      },
+      "2026-W37": {
+        "lines": 35869,
+        "commits": 464,
+        "engineers": 123
+      },
+      "2026-W38": {
+        "lines": 31168,
+        "commits": 494,
+        "engineers": 125
+      },
+      "2026-W39": {
+        "lines": 30309,
+        "commits": 472,
+        "engineers": 122
+      },
+      "2026-W40": {
+        "lines": 21765,
+        "commits": 332,
+        "engineers": 121
+      }
+    }
+  }
+}

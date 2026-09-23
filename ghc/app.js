@@ -110,7 +110,42 @@
 
   const monthTokens = (e, month) => Number(e.monthlyTokens[month] || 0);
   const isActiveIn = (e, month) => monthTokens(e, month) > 0;
-  const locIn = (e, month) => Number((e.monthlyLinesOfCode || {})[month] || 0);
+
+  /* ------------------------------------------- capacity (Bitbucket commits) */
+
+  // Commit authors are not mapped to Copilot licence holders, so capacity is
+  // company-wide: it follows the selected period but ignores Manager/Market.
+  const CAP = (typeof CAPACITY !== "undefined") ? CAPACITY : null;
+  const CAP_PARAMS = (CAP && CAP.parameters) || {};
+  const EMPTY_CAP = { lines: 0, commits: 0, engineers: 0 };
+
+  function capacityTotals(period) {
+    if (!CAP) return EMPTY_CAP;
+    const t = CAP.totals;
+    if (period.kind === "month") return t.months[period.key] || EMPTY_CAP;
+    if (period.kind === "week") return t.weeks[period.key] || EMPTY_CAP;
+    return t.ytd || EMPTY_CAP;
+  }
+
+  // Tokens company-wide for the period - the lines side is company-wide too.
+  function companyTokens(period) {
+    const p = period.kind === "ytd" ? null : period;
+    return EMPLOYEES.reduce((s, e) => s + (p ? tokensIn(e, p) : Number(e.tokens || 0)), 0);
+  }
+
+  // Total Human FTE = (Total Lines / D1 / D2) - (Total Tokens / tokens-per-line / D1 / D2)
+  function humanFte(period) {
+    const { lines, engineers, commits } = capacityTotals(period);
+    const d = (CAP_PARAMS.linesDivisor || 0) * (CAP_PARAMS.secondDivisor || 0);
+    const perLine = CAP_PARAMS.tokensPerLine || 0;
+    if (!d || !perLine) return { lines, engineers, commits, gross: 0, ai: 0, fte: 0, usable: false };
+    const tokens = companyTokens(period);
+    const gross = lines / d;
+    const ai = tokens / perLine / d;
+    return { lines, engineers, commits, tokens, gross, ai, fte: gross - ai, usable: true };
+  }
+
+  const fmtFte = (n) => n.toLocaleString(undefined, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
   const weekTokens = (e, id) => Number((e.weeklyTokens || {})[id] || 0);
 
   const isoDate = (d) => d.toISOString().slice(0, 10);
@@ -296,9 +331,9 @@
 
     const cur = REPORTED[REPORTED.length - 1];
     const prev = REPORTED.length > 1 ? REPORTED[REPORTED.length - 2] : null;
-    const totalLoc = rows.reduce((s, e) => s + Number(e.linesOfCode || 0), 0);
-    const curLoc = cur ? rows.reduce((s, e) => s + locIn(e, cur), 0) : 0;
-    const prevLoc = prev ? rows.reduce((s, e) => s + locIn(e, prev), 0) : 0;
+    const capNow = humanFte(period);
+    const capBefore = period.kind === "ytd" ? null : comparablePrev(period);
+    const capPrev = capBefore ? humanFte(capBefore) : null;
 
     const focus = focusPeriod(period);
     const before = comparablePrev(focus);
@@ -309,7 +344,9 @@
     const inPeriod = "in " + (scoped ? period.short : "");
 
     const tiles = [
-      { cls: "t1", label: "Capacity Created", value: fmtCompact(totalLoc), delta: pctChange(curLoc, prevLoc), deltaLabel: prev ? "vs " + prev : "" },
+      capPrev && capPrev.fte
+        ? { cls: "t1", label: "Capacity Created", value: fmtFte(capNow.fte), delta: pctChange(capNow.fte, capPrev.fte), deltaLabel: "vs " + capBefore.name }
+        : { cls: "t1", label: "Capacity Created", value: fmtFte(capNow.fte), note: "Total Human FTE" },
       { cls: "t2", label: "Active users / Licensed", value: `${fmt(active)} / ${fmt(licensed)}`, note: scoped ? "active " + inPeriod : "in current selection" },
       before
         ? { cls: "t3", label: "Tokens utilised", value: fmtCompact(tokens), delta: pctChange(tokensFor(focus), tokensFor(before)), deltaLabel: "vs " + before.name }
@@ -442,35 +479,39 @@
 
   /* ---------------------------------------------------- capacity panel */
 
-  function renderCapacity(rows) {
-    const total = rows.reduce((s, e) => s + Number(e.linesOfCode || 0), 0);
-    const active = rows.filter((e) => e.active).length;
-    const tokens = rows.reduce((s, e) => s + Number(e.tokens || 0), 0);
-    const contributors = rows.filter((e) => Number(e.linesOfCode || 0) > 0).length;
+  function renderCapacity(period) {
+    const c = humanFte(period);
+    const before = period.kind === "ytd" ? null : comparablePrev(period);
+    const span = (iso) => {
+      const [y, m, d] = iso.split("-").map(Number);
+      return MONTHS[m - 1].slice(0, 3) + " " + d;
+    };
+    const scope = period.kind === "ytd"
+      ? span(CAP.window.start) + "–" + span(CAP.window.end) + " " + CAP.window.end.slice(0, 4)
+      : period.label;
 
-    const cur = REPORTED[REPORTED.length - 1];
-    const prev = REPORTED.length > 1 ? REPORTED[REPORTED.length - 2] : null;
-    const curLoc = rows.reduce((s, e) => s + locIn(e, cur), 0);
-    const prevLoc = prev ? rows.reduce((s, e) => s + locIn(e, prev), 0) : 0;
-
-    $("capacitySub").textContent =
-      "Lines committed in Bitbucket · " + REPORTED[0].slice(0, 3) + "–" + cur.slice(0, 3) + " " + YEAR;
-    $("capacityFigure").textContent = fmtCompact(total);
-    $("capacityMonth").textContent = fmtCompact(curLoc);
-    $("capacityMonthLabel").textContent = "in " + cur;
-    $("capacityPerUser").textContent = active ? fmtCompact(total / active) : "—";
-    $("capacityPerToken").textContent = tokens ? fmt(total / (tokens / 1000)) : "—";
-    $("capacityContributors").textContent = fmt(contributors);
+    $("capacitySub").textContent = "Bitbucket commits · " + scope + " · company-wide";
+    $("capacityFigure").textContent = c.usable ? fmtFte(c.fte) : "—";
+    $("capacityLines").textContent = fmtCompact(c.lines);
+    $("capacityEngineers").textContent = fmt(c.engineers);
+    $("capacityGross").textContent = fmtFte(c.gross);
+    $("capacityAi").textContent = fmtFte(c.ai);
+    $("capacityNote").textContent = c.lines
+      ? "(lines / " + CAP_PARAMS.linesDivisor + " / " + CAP_PARAMS.secondDivisor + ") minus (tokens / " +
+        CAP_PARAMS.tokensPerLine + " tokens per line / " + CAP_PARAMS.linesDivisor + " / " + CAP_PARAMS.secondDivisor +
+        "). Commit authors are not mapped to licence holders, so Manager and Market filters do not apply."
+      : "No commits recorded in this period.";
 
     const chip = $("capacityDelta");
     clear(chip);
-    chip.hidden = !(prev && prevLoc);
+    const prevCap = before ? humanFte(before) : null;
+    chip.hidden = !(prevCap && prevCap.fte);
     if (!chip.hidden) {
-      const change = ((curLoc - prevLoc) / prevLoc) * 100;
+      const change = ((c.fte - prevCap.fte) / prevCap.fte) * 100;
       const dir = change > 0.5 ? "up" : change < -0.5 ? "down" : "flat";
       chip.className = "delta " + dir;
       chip.appendChild(arrowIcon(dir));
-      chip.appendChild(document.createTextNode(Math.abs(change).toFixed(1) + "% vs " + prev));
+      chip.appendChild(document.createTextNode(Math.abs(change).toFixed(1) + "% vs " + before.name));
     }
   }
 
@@ -486,7 +527,8 @@
       licensed: rows.filter((e) => licensedBy(e, monthEnd(month))).length,
       active: rows.filter((e) => isActiveIn(e, month)).length,
       tokens: rows.reduce((s, e) => s + monthTokens(e, month), 0),
-      loc: rows.reduce((s, e) => s + locIn(e, month), 0),
+      loc: (CAP && CAP.totals.months[month] ? CAP.totals.months[month].lines : 0),
+      engineers: (CAP && CAP.totals.months[month] ? CAP.totals.months[month].engineers : 0),
     }));
 
     $("trendSub").textContent = "Month-on-month utilisation and lines committed · " +
@@ -550,7 +592,7 @@
       return rect;
     });
 
-    addText(left, cap.top - 16, "Capacity created · lines committed", "chart-facet-text", "start");
+    addText(left, cap.top - 16, "Capacity created · lines committed (company-wide)", "chart-facet-text", "start");
     addText(left, bar.top - 16, "Licensed vs active users", "chart-facet-text", "start");
     for (let i = 0; i <= 2; i++) gridline(capY((capMax / 2) * i), fmtCompact((capMax / 2) * i));
     for (let i = 0; i <= 4; i++) gridline(barY((barMax / 4) * i), fmtCompact((barMax / 4) * i));
@@ -605,7 +647,7 @@
         hoverDot.setAttribute("cy", pts[i][1]);
         hoverDot.setAttribute("opacity", "1");
         showTooltip(event, p.month + " " + YEAR, [
-          { color: colCapacity, value: fmt(p.loc), name: "Lines committed" },
+          { color: colCapacity, value: fmt(p.loc), name: "Lines committed (all engineers)" },
           { color: colLicensed, value: fmt(p.licensed), name: "Licensed" },
           { color: colActive, value: fmt(p.active), name: "Active · " + rate + "%" },
           { color: "transparent", value: fmtCompact(p.tokens), name: "Tokens" },
@@ -636,7 +678,7 @@
     const table = el("table", "data-table mini-table");
     const thead = el("thead");
     const hrow = el("tr");
-    ["Month", "Licensed", "Active", "Adoption", "Tokens", "Lines committed", "Lines / 1K tokens"].forEach((h, i) => {
+    ["Month", "Licensed", "Active", "Adoption", "Tokens", "Lines committed", "Engineers"].forEach((h, i) => {
       const th = el("th", null, h);
       if (i > 0) th.style.textAlign = "right";
       hrow.appendChild(th);
@@ -654,7 +696,7 @@
         p.licensed ? Math.round((p.active / p.licensed) * 100) + "%" : "—",
         fmt(p.tokens),
         fmt(p.loc),
-        p.tokens ? fmt(p.loc / (p.tokens / 1000)) : "—",
+        fmt(p.engineers),
       ].forEach((v) => {
         const td = el("td", "num", v);
         td.style.textAlign = "right";
@@ -986,7 +1028,7 @@
 
     renderChips(period);
     renderKpis(rows, period);
-    renderCapacity(base);
+    renderCapacity(period);
     renderHero(base, period);
     renderTrend(base, period);
     renderBarList("marketChart", "marketTable", "marketSub", groupTokens(rows, (e) => e.marketTag), 8, "Tokens", scope);

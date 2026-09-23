@@ -1,0 +1,36 @@
+# syntax=docker/dockerfile:1
+
+# ---------- Build stage ----------
+FROM node:22-alpine AS build
+
+WORKDIR /app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+# Same-origin by default; nginx proxies /api to the API container.
+ARG VITE_APP_API_URL=/api/v1
+ARG VITE_VENDOR_ID=d2ad572f-1bfa-427c-aa64-6b6e92eb9fc7
+ENV VITE_APP_API_URL=${VITE_APP_API_URL}
+ENV VITE_VENDOR_ID=${VITE_VENDOR_ID}
+# ENV VITE_AI_MOCK=true
+
+RUN npm run build
+
+# ---------- Runtime stage ----------
+FROM nginx:1.29-alpine AS runtime
+
+# Where nginx forwards /api requests. Override at run time, e.g. http://api:8000 on a
+# compose network.
+ENV API_UPSTREAM=http://host.docker.internal:8000
+
+COPY nginx.conf /etc/nginx/templates/default.conf.template
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
+  CMD wget -qO- http://127.0.0.1/healthz || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]
