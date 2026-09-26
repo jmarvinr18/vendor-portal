@@ -218,6 +218,94 @@ class ApiService {
     return ApiService.request<T>('DELETE', resource, undefined, config)
   }
 
+  /**
+   * @description POST that reads a `text/event-stream` response
+   *
+   * Calls `onEvent` for every server-sent event as it arrives. Resolves when the stream ends.
+   * The timeout covers the wait for the response only — once the server starts answering, a
+   * long reply is fine; pass `config.signal` to let the caller stop it.
+   */
+  public static async postStream(
+    resource: string,
+    params: unknown,
+    onEvent: (name: string, data: unknown) => void,
+    config: ApiRequestConfig = {},
+  ): Promise<unknown | undefined> {
+    const headers = new Headers(ApiService.headers)
+    headers.set('Content-Type', 'application/json')
+    headers.set('Accept', 'text/event-stream')
+
+    const timeout = AbortSignal.timeout(config.timeoutMs ?? DEFAULT_TIMEOUT_MS)
+    const signal = config.signal ? AbortSignal.any([config.signal, timeout]) : timeout
+
+    let response: Response
+    try {
+      response = await fetch(ApiService.buildUrl(resource, config.params), {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(params),
+        signal,
+        credentials: 'same-origin',
+        redirect: 'error',
+        cache: 'no-store',
+      })
+    } catch (error) {
+      if (config.signal?.aborted) throw error
+      throw new ApiError(
+        0,
+        timeout.aborted
+          ? 'The server took too long to respond. Please try again.'
+          : 'Unable to reach the server. Check your connection and try again.',
+      )
+    }
+
+    if (!response.ok) {
+      const error = await toApiError(response)
+      if (response.status === 401) ApiService.onUnauthorized()
+      throw error
+    }
+    const contentType = response.headers.get('content-type') ?? ''
+    // An endpoint (or a proxy) that answers with the whole body instead of a stream: hand it
+    // back so the caller can use it as a complete response.
+    if (contentType.includes('application/json')) return await response.json()
+    if (!response.body || !contentType.includes('text/event-stream')) {
+      throw new ApiError(response.status, 'Unexpected response from the server.')
+    }
+
+    const reader = response.body.pipeThrough(new TextDecoderStream()).getReader()
+    let buffer = ''
+    try {
+      for (;;) {
+        const { done, value } = await reader.read()
+        if (done) break
+        buffer += value
+        // Events are separated by a blank line; keep the unfinished tail for the next chunk.
+        const blocks = buffer.split('\n\n')
+        buffer = blocks.pop() ?? ''
+        for (const block of blocks) ApiService.emitEvent(block, onEvent)
+      }
+      if (buffer.trim()) ApiService.emitEvent(buffer, onEvent)
+    } finally {
+      reader.cancel().catch(() => {})
+    }
+  }
+
+  private static emitEvent(block: string, onEvent: (name: string, data: unknown) => void) {
+    let name = 'message'
+    const data: string[] = []
+    for (const line of block.split('\n')) {
+      if (line.startsWith('event:')) name = line.slice(6).trim()
+      else if (line.startsWith('data:')) data.push(line.slice(5).replace(/^ /, ''))
+    }
+    if (!data.length) return
+    const raw = data.join('\n')
+    try {
+      onEvent(name, JSON.parse(raw))
+    } catch {
+      onEvent(name, raw)
+    }
+  }
+
   private static buildUrl(resource: string, params?: Query): URL {
     if (/^[a-z][a-z\d+.-]*:/i.test(resource) || resource.startsWith('//')) {
       throw new Error(`API resources must be relative to the API base: ${resource}`)

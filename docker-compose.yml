@@ -1,0 +1,61 @@
+# Local/staging stack for the vendor portal front end.
+#
+#   docker compose up -d --build       # nginx serving the production build on :8080
+#   docker compose --profile dev up    # Vite dev server with hot reload on :5173
+#
+# Values below are interpolated from .env in this directory (already holds
+# VITE_APP_API_URL and VITE_VENDOR_ID), so the defaults here are only fallbacks.
+#
+# The Flask API is a separate repo (../vendor-portal-api) with its own compose file.
+# Start it there first; this stack reaches it over host.docker.internal, so the API only
+# needs to publish its port on the host, which it already does (8000).
+
+name: vendor-portal-web
+
+services:
+  web:
+    build:
+      context: .
+      # Dockerfile.dev pulls node from Docker Hub. The default Dockerfile pulls from the
+      # Sunlife registry and expects an .npmrc in the repo root (git-ignored, so it is not
+      # here): use WEB_DOCKERFILE=Dockerfile on a machine set up for that.
+      dockerfile: ${WEB_DOCKERFILE:-Dockerfile.dev}
+      args:
+        # Baked into the JS bundle at build time, so changing either needs a rebuild.
+        VITE_APP_API_URL: ${VITE_APP_API_URL:-/api/v1}
+        VITE_VENDOR_ID: ${VITE_VENDOR_ID:-}
+    image: vendor-portal-web:latest
+    environment:
+      # Read at container start by the nginx template: where /api/ requests are forwarded.
+      API_UPSTREAM: ${API_UPSTREAM:-http://host.docker.internal:8000}
+    ports:
+      - "${WEB_HOST_PORT:-8080}:80"
+    extra_hosts:
+      # Docker Desktop resolves this name already; the mapping is what adds Linux.
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  # ---- Vite dev server: `docker compose --profile dev up` ----
+  # Serves src/ straight from the working tree; only the API URL differs from `npm run dev`.
+  # If edits do not trigger a reload, add `watch: { usePolling: true }` under `server` in
+  # vite.config.ts -- bind-mounted files on Windows do not always emit inotify events.
+  dev:
+    profiles: ["dev"]
+    image: node:22-alpine
+    working_dir: /app
+    # node_modules lives in the volume below, so it is installed on first start.
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      # Overrides .env, which points the proxy at the host's own localhost.
+      VITE_API_PROXY_TARGET: ${DEV_API_PROXY_TARGET:-http://host.docker.internal:8000}
+    volumes:
+      - .:/app
+      # Keeps the host's Windows-built node_modules out of the Linux container.
+      - dev-node-modules:/app/node_modules
+    ports:
+      - "${DEV_HOST_PORT:-5173}:5173"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+volumes:
+  dev-node-modules:

@@ -1,80 +1,59 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AI_UNAVAILABLE_MESSAGE, useAiChatStore } from '@/stores/aiChat'
-import { errorMessage } from '@/services/ApiService'
-import type { AiAgent, AiSession } from '@/schema'
+import { messageParts, orderedCitations } from '@/utils/aiMessage'
+import type { AiConversation } from '@/schema'
 
 const route = useRoute()
 const router = useRouter()
 const chat = useAiChatStore()
-const {
-  service,
-  agents,
-  sessions,
-  sessionsLoading,
-  current,
-  currentLoading,
-  currentError,
-  draftAgentId,
-  sending,
-  failed,
-  activeAgent,
-  messages,
-} = storeToRefs(chat)
+const { service, conversations, current, messages, sending, streaming, failed } = storeToRefs(chat)
 
 const MAX_LENGTH = 4000
+const STARTER_PROMPTS = [
+  'Where is my latest invoice?',
+  'What documents do I need to submit an invoice?',
+  'Why was one of my invoices rejected?',
+  'When will my approved invoices be paid?',
+]
+
 const draft = ref('')
 const search = ref('')
-const showSessions = ref(false)
+const showConversations = ref(false)
 const editingTitle = ref(false)
 const titleInput = ref('')
-const actionError = ref<string | null>(null)
 const messageList = ref<HTMLElement>()
 const composer = ref<HTMLTextAreaElement>()
 
-const inConversation = computed(() => !!current.value || !!draftAgentId.value)
-const composerDisabled = computed(() => service.value === 'unavailable' || sending.value)
-
-const filteredSessions = computed(() => {
+const filtered = computed(() => {
   const term = search.value.trim().toLowerCase()
-  if (!term) return sessions.value
-  return sessions.value.filter(
-    (s) =>
-      s.title.toLowerCase().includes(term) ||
-      (chat.agentById(s.agentId)?.name.toLowerCase().includes(term) ?? false),
+  if (!term) return conversations.value
+  return conversations.value.filter(
+    (c) =>
+      c.title.toLowerCase().includes(term) ||
+      c.messages.some((m) => m.content.toLowerCase().includes(term)),
   )
 })
 
 // ----- Route ↔ selection -----
 
-function syncFromRoute() {
-  const sessionId = typeof route.params.sessionId === 'string' ? route.params.sessionId : ''
-  const agentId = typeof route.query.agent === 'string' ? route.query.agent : ''
-  actionError.value = null
-  editingTitle.value = false
-  if (sessionId) chat.open(sessionId)
-  else if (agentId && chat.agentById(agentId)) chat.startDraft(agentId)
-  else chat.clearSelection()
-}
+watch(
+  () => route.params.sessionId,
+  (id) => {
+    editingTitle.value = false
+    if (typeof id === 'string' && id) chat.open(id)
+    else chat.startNew()
+  },
+  { immediate: true },
+)
 
-watch(() => [route.params.sessionId, route.query.agent], syncFromRoute)
+onBeforeUnmount(() => chat.stop())
 
-onMounted(async () => {
-  syncFromRoute()
-  await chat.init()
-})
-
-function startChat(agent: AiAgent) {
-  showSessions.value = false
-  router.push({ name: 'ai-assistant', query: { agent: agent.id } })
-  nextTick(() => composer.value?.focus())
-}
-
-function openSession(session: AiSession) {
-  showSessions.value = false
-  router.push({ name: 'ai-assistant', params: { sessionId: session.id } })
+function openConversation(conversation: AiConversation) {
+  showConversations.value = false
+  router.push({ name: 'ai-assistant', params: { sessionId: conversation.id } })
 }
 
 // ----- Messages -----
@@ -87,7 +66,8 @@ function scrollToBottom() {
 }
 
 watch(() => messages.value.length, scrollToBottom)
-watch(sending, scrollToBottom)
+// Keep the newest text in view while the answer is being written.
+watch(() => streaming.value?.content, scrollToBottom)
 
 function autosize() {
   const el = composer.value
@@ -96,14 +76,21 @@ function autosize() {
   el.style.height = `${Math.min(el.scrollHeight, 180)}px`
 }
 
+async function retry() {
+  const id = await chat.retry()
+  // A retry after the conversation was lost starts a new one, with a new id.
+  if (id && id !== route.params.sessionId) {
+    router.replace({ name: 'ai-assistant', params: { sessionId: id } })
+  }
+}
+
 async function send(text = draft.value) {
-  if (!text.trim() || composerDisabled.value) return
+  if (!text.trim() || sending.value) return
   draft.value = ''
   nextTick(autosize)
-  const wasDraft = !current.value
+  const started = !current.value
   const id = await chat.send(text)
-  // A new chat now exists on the server: give it its own URL.
-  if (wasDraft && id) router.replace({ name: 'ai-assistant', params: { sessionId: id } })
+  if (started && id) router.replace({ name: 'ai-assistant', params: { sessionId: id } })
 }
 
 function onComposerKeydown(event: KeyboardEvent) {
@@ -113,44 +100,31 @@ function onComposerKeydown(event: KeyboardEvent) {
   }
 }
 
-// ----- Session actions -----
+// ----- Conversation actions -----
 
 function beginRename() {
   if (!current.value) return
   titleInput.value = current.value.title
   editingTitle.value = true
-  nextTick(() => document.getElementById('sessionTitleInput')?.focus())
+  nextTick(() => document.getElementById('conversationTitle')?.focus())
 }
 
-async function saveRename() {
-  const id = current.value?.id
-  const title = titleInput.value.trim()
+function saveRename() {
+  if (current.value && titleInput.value.trim()) chat.rename(current.value.id, titleInput.value)
   editingTitle.value = false
-  if (!id || !title || title === current.value?.title) return
-  try {
-    await chat.rename(id, title)
-  } catch (error) {
-    actionError.value = errorMessage(error, 'The conversation could not be renamed.')
-  }
 }
 
-async function removeCurrent() {
+function removeCurrent() {
   const id = current.value?.id
-  if (!id || !window.confirm('Delete this conversation? This cannot be undone.')) return
-  try {
-    await chat.remove(id)
-    router.push({ name: 'ai-assistant' })
-  } catch (error) {
-    actionError.value = errorMessage(error, 'The conversation could not be deleted.')
-  }
+  if (!id) return
+  if (!window.confirm('Remove this conversation from this browser?')) return
+  chat.remove(id)
+  router.push({ name: 'ai-assistant' })
 }
-
-// ----- Formatting -----
 
 function timeLabel(iso: string) {
   const date = new Date(iso)
-  const now = new Date()
-  const sameDay = date.toDateString() === now.toDateString()
+  const sameDay = date.toDateString() === new Date().toDateString()
   return sameDay
     ? date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })
     : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
@@ -163,16 +137,16 @@ function timeLabel(iso: string) {
       <div>
         <h1 class="page-title">AI Assistant</h1>
         <p class="section-subtitle mb-0">
-          Ask questions about submitting invoices, their status and payments.
+          Ask about submitting invoices, their status, documents and payments.
         </p>
       </div>
       <div class="d-flex gap-2">
         <button
           type="button"
           class="btn btn-outline-vp d-lg-none"
-          :aria-expanded="showSessions"
-          aria-controls="aiSessions"
-          @click="showSessions = !showSessions"
+          :aria-expanded="showConversations"
+          aria-controls="aiConversations"
+          @click="showConversations = !showConversations"
         >
           <i class="bi bi-chat-left-text me-2"></i>Conversations
         </button>
@@ -190,16 +164,16 @@ function timeLabel(iso: string) {
     <div class="ai-layout">
       <!-- Conversations -->
       <aside
-        id="aiSessions"
+        id="aiConversations"
         class="vp-card ai-sessions p-0"
-        :class="{ 'd-none d-lg-flex': !showSessions }"
+        :class="{ 'd-none d-lg-flex': !showConversations }"
         aria-label="Conversations"
       >
         <div class="p-3 border-bottom">
-          <label for="sessionSearch" class="visually-hidden">Search conversations</label>
+          <label for="conversationSearch" class="visually-hidden">Search conversations</label>
           <div class="search-box">
             <input
-              id="sessionSearch"
+              id="conversationSearch"
               v-model="search"
               type="search"
               class="form-control form-control-sm"
@@ -209,270 +183,219 @@ function timeLabel(iso: string) {
           </div>
         </div>
         <ul class="list-unstyled session-list mb-0">
-          <li v-for="session in filteredSessions" :key="session.id">
+          <li v-for="conversation in filtered" :key="conversation.id">
             <button
               type="button"
               class="session-item"
-              :class="{ active: current?.id === session.id }"
-              :aria-current="current?.id === session.id ? 'true' : undefined"
-              @click="openSession(session)"
+              :class="{ active: current?.id === conversation.id }"
+              :aria-current="current?.id === conversation.id ? 'true' : undefined"
+              @click="openConversation(conversation)"
             >
-              <i
-                class="bi session-icon"
-                :class="chat.agentById(session.agentId)?.icon ?? 'bi-robot'"
-              ></i>
+              <i class="bi bi-chat-left-text session-icon"></i>
               <span class="min-w-0 flex-grow-1">
-                <span class="session-title">{{ session.title }}</span>
-                <span class="session-meta">
-                  {{ chat.agentById(session.agentId)?.name ?? 'Assistant' }}
-                </span>
+                <span class="session-title">{{ conversation.title }}</span>
+                <span class="session-meta"> {{ conversation.messages.length }} messages </span>
               </span>
-              <span class="session-time">{{ timeLabel(session.updatedAt) }}</span>
+              <span class="session-time">{{ timeLabel(conversation.updatedAt) }}</span>
             </button>
           </li>
-          <li v-if="sessionsLoading" class="session-empty">
-            <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading…
-          </li>
-          <li v-else-if="!filteredSessions.length" class="session-empty">
+          <li v-if="!filtered.length" class="session-empty">
             {{ search ? 'No conversations match your search.' : 'No conversations yet.' }}
           </li>
         </ul>
+        <p v-if="conversations.length" class="storage-note">
+          Conversations are listed on this device only.
+        </p>
       </aside>
 
-      <!-- Conversation / agent gallery -->
-      <section class="vp-card ai-main p-0" aria-live="polite">
-        <!-- Agent gallery -->
-        <div v-if="!inConversation && !currentLoading && !currentError" class="p-4 gallery">
-          <h2 class="section-title">Choose an assistant</h2>
-          <p class="section-subtitle mb-4">
-            Each agent specialises in one part of the invoice process.
-          </p>
-          <div class="agent-grid">
-            <article v-for="agent in agents" :key="agent.id" class="agent-card">
-              <div class="d-flex align-items-start gap-3 mb-2">
-                <span class="agent-icon"><i class="bi" :class="agent.icon"></i></span>
-                <div class="min-w-0">
-                  <h3 class="agent-name">{{ agent.name }}</h3>
-                  <span v-if="agent.status === 'preview'" class="badge preview-badge">Preview</span>
-                </div>
+      <!-- Conversation -->
+      <section class="vp-card ai-main p-0">
+        <header class="conversation-header">
+          <span class="assistant-icon"><i class="bi bi-stars"></i></span>
+          <div class="min-w-0 flex-grow-1">
+            <template v-if="editingTitle">
+              <label for="conversationTitle" class="visually-hidden">Conversation title</label>
+              <input
+                id="conversationTitle"
+                v-model="titleInput"
+                class="form-control form-control-sm"
+                maxlength="120"
+                @keydown.enter.prevent="saveRename"
+                @keydown.esc="editingTitle = false"
+                @blur="saveRename"
+              />
+            </template>
+            <template v-else>
+              <div class="conversation-title text-truncate">
+                {{ current?.title ?? 'New conversation' }}
               </div>
-              <p class="agent-description">{{ agent.description }}</p>
-              <button
-                type="button"
-                class="btn btn-outline-vp btn-sm mt-auto"
-                @click="startChat(agent)"
-              >
-                Start Chat
-              </button>
-            </article>
+              <div class="small text-body-secondary">AP Vendor Assistant</div>
+            </template>
           </div>
-        </div>
-
-        <div v-else-if="currentLoading" class="conversation-state" role="status">
-          <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>Loading
-          conversation…
-        </div>
-
-        <div v-else-if="currentError" class="conversation-state">
-          <i class="bi bi-chat-left-dots fs-1 text-body-secondary"></i>
-          <p class="mt-3 mb-3">{{ currentError }}</p>
-          <RouterLink :to="{ name: 'ai-assistant' }" class="btn btn-gold btn-sm">
-            Start a New Chat
-          </RouterLink>
-        </div>
-
-        <!-- Conversation -->
-        <template v-else>
-          <header class="conversation-header">
-            <span class="agent-icon agent-icon-sm">
-              <i class="bi" :class="activeAgent?.icon ?? 'bi-robot'"></i>
-            </span>
-            <div class="min-w-0 flex-grow-1">
-              <template v-if="editingTitle">
-                <label for="sessionTitleInput" class="visually-hidden">Conversation title</label>
-                <input
-                  id="sessionTitleInput"
-                  v-model="titleInput"
-                  class="form-control form-control-sm"
-                  maxlength="120"
-                  @keydown.enter.prevent="saveRename"
-                  @keydown.esc="editingTitle = false"
-                  @blur="saveRename"
-                />
-              </template>
-              <template v-else>
-                <div class="conversation-title text-truncate">
-                  {{ current?.title ?? 'New conversation' }}
-                </div>
-                <div class="small text-body-secondary text-truncate">{{ activeAgent?.name }}</div>
-              </template>
-            </div>
-            <div v-if="current" class="d-flex gap-1">
-              <button
-                type="button"
-                class="btn btn-sm btn-link text-body"
-                title="Rename"
-                aria-label="Rename conversation"
-                @click="beginRename"
-              >
-                <i class="bi bi-pencil"></i>
-              </button>
-              <button
-                type="button"
-                class="btn btn-sm btn-link text-body"
-                title="Delete"
-                aria-label="Delete conversation"
-                @click="removeCurrent"
-              >
-                <i class="bi bi-trash"></i>
-              </button>
-            </div>
-          </header>
-
-          <div v-if="actionError" class="alert alert-danger py-2 small m-3 mb-0">
-            {{ actionError }}
-          </div>
-
-          <div ref="messageList" class="message-list">
-            <!-- Empty conversation: suggested questions -->
-            <div v-if="!messages.length && activeAgent" class="starter">
-              <span class="agent-icon agent-icon-lg"
-                ><i class="bi" :class="activeAgent.icon"></i
-              ></span>
-              <h2 class="section-title mt-3">{{ activeAgent.name }}</h2>
-              <p class="section-subtitle mb-4">{{ activeAgent.description }}</p>
-              <div class="d-flex flex-column gap-2 w-100 starter-prompts">
-                <button
-                  v-for="prompt in activeAgent.starterPrompts"
-                  :key="prompt"
-                  type="button"
-                  class="btn starter-prompt"
-                  :disabled="composerDisabled"
-                  @click="send(prompt)"
-                >
-                  {{ prompt }}
-                </button>
-              </div>
-            </div>
-
-            <div
-              v-for="message in messages"
-              :key="message.id"
-              class="message"
-              :class="message.role === 'user' ? 'message-user' : 'message-assistant'"
+          <div v-if="current" class="d-flex gap-1">
+            <button
+              type="button"
+              class="btn btn-sm btn-link text-body"
+              title="Rename"
+              aria-label="Rename conversation"
+              @click="beginRename"
             >
-              <span v-if="message.role === 'assistant'" class="agent-icon agent-icon-sm">
-                <i class="bi" :class="activeAgent?.icon ?? 'bi-robot'"></i>
-              </span>
-              <div class="message-body">
-                <div class="bubble">{{ message.content }}</div>
-                <div v-if="message.citations?.length" class="citations">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-link text-body"
+              title="Remove"
+              aria-label="Remove conversation"
+              @click="removeCurrent"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </header>
+
+        <div ref="messageList" class="message-list">
+          <!-- Nothing asked yet -->
+          <div v-if="!messages.length" class="starter">
+            <span class="assistant-icon assistant-icon-lg"><i class="bi bi-stars"></i></span>
+            <h2 class="section-title mt-3">How can I help?</h2>
+            <p class="section-subtitle mb-4">
+              I can look up your invoices, explain what AP needs, and help you fix and resubmit
+              rejected invoices.
+            </p>
+            <div class="d-flex flex-column gap-2 w-100 starter-prompts">
+              <button
+                v-for="prompt in STARTER_PROMPTS"
+                :key="prompt"
+                type="button"
+                class="btn starter-prompt"
+                :disabled="sending"
+                @click="send(prompt)"
+              >
+                {{ prompt }}
+              </button>
+            </div>
+          </div>
+
+          <div
+            v-for="message in messages"
+            :key="message.id"
+            class="message"
+            :class="message.role === 'user' ? 'message-user' : 'message-assistant'"
+          >
+            <span v-if="message.role === 'assistant'" class="assistant-icon assistant-icon-sm">
+              <i class="bi bi-stars"></i>
+            </span>
+            <div class="message-body">
+              <div class="bubble">
+                <template
+                  v-for="(part, index) in messageParts(message.content, message.citations)"
+                  :key="index"
+                >
                   <RouterLink
-                    v-for="citation in message.citations.filter((c) => c.type === 'invoice')"
-                    :key="citation.id"
+                    v-if="part.citation && part.citation.type === 'invoice'"
+                    :to="{ name: 'invoice-details', params: { id: part.citation.id } }"
+                    class="inline-citation"
+                    :class="part.kind"
+                    :title="`Open ${part.citation.label}`"
+                    >{{ part.text }}</RouterLink
+                  >
+                  <span
+                    v-else-if="part.citation"
+                    class="inline-citation"
+                    :class="part.kind"
+                    :title="part.citation.label"
+                    >{{ part.text }}</span
+                  >
+                  <template v-else>{{ part.text }}</template> </template
+                ><span v-if="message.id === 'streaming'" class="caret" aria-hidden="true"></span>
+              </div>
+              <div v-if="message.citations?.length" class="citations">
+                <span class="citations-label">Sources</span>
+                <template
+                  v-for="citation in orderedCitations(message.content, message.citations)"
+                  :key="`${citation.type}:${citation.id}`"
+                >
+                  <RouterLink
+                    v-if="citation.type === 'invoice'"
                     :to="{ name: 'invoice-details', params: { id: citation.id } }"
                     class="citation"
                   >
                     <i class="bi bi-receipt me-1"></i>{{ citation.label }}
                   </RouterLink>
-                </div>
-                <div class="message-time">{{ timeLabel(message.createdAt) }}</div>
+                  <span v-else class="citation">
+                    <i
+                      class="bi me-1"
+                      :class="citation.type === 'document' ? 'bi-paperclip' : 'bi-journal-text'"
+                    ></i>
+                    {{ citation.label }}
+                  </span>
+                </template>
               </div>
-            </div>
-
-            <div v-if="sending" class="message message-assistant" role="status">
-              <span class="agent-icon agent-icon-sm">
-                <i class="bi" :class="activeAgent?.icon ?? 'bi-robot'"></i>
-              </span>
-              <div class="bubble typing" aria-label="The assistant is typing">
-                <span></span><span></span><span></span>
+              <div v-if="message.id !== 'streaming'" class="message-time">
+                {{ timeLabel(message.createdAt) }}
               </div>
-            </div>
-
-            <div v-if="failed" class="send-error" role="alert">
-              <i class="bi bi-exclamation-circle me-1"></i>{{ failed.error }}
-              <button
-                v-if="service !== 'unavailable'"
-                type="button"
-                class="btn btn-link btn-sm p-0 ms-2 align-baseline"
-                @click="chat.retry()"
-              >
-                Try again
-              </button>
             </div>
           </div>
 
-          <form class="composer" @submit.prevent="send()">
-            <label for="aiComposer" class="visually-hidden">Message</label>
-            <textarea
-              id="aiComposer"
-              ref="composer"
-              v-model="draft"
-              class="form-control"
-              rows="1"
-              :maxlength="MAX_LENGTH"
-              :disabled="composerDisabled && !sending"
-              :placeholder="
-                service === 'unavailable'
-                  ? 'The AI service is not connected yet'
-                  : `Message ${activeAgent?.name ?? 'the assistant'}…`
-              "
-              @input="autosize"
-              @keydown="onComposerKeydown"
-            ></textarea>
+          <!-- Waiting for the first words of the answer -->
+          <div v-if="sending && !streaming" class="message message-assistant" role="status">
+            <span class="assistant-icon assistant-icon-sm"><i class="bi bi-stars"></i></span>
+            <div class="bubble typing" aria-label="The assistant is thinking">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div v-if="failed" class="send-error" role="alert">
+            <i class="bi bi-exclamation-circle me-1"></i>{{ failed.error }}
             <button
-              type="submit"
-              class="btn btn-gold send-button"
-              :disabled="composerDisabled || !draft.trim()"
-              aria-label="Send message"
+              type="button"
+              class="btn btn-link btn-sm p-0 ms-2 align-baseline"
+              @click="retry"
             >
-              <i class="bi bi-send"></i>
+              Try again
             </button>
-          </form>
-          <p class="disclaimer">
-            AI can make mistakes. Check important details against your invoice records. The
-            assistant can look things up but never submits, edits or comments for you.
-          </p>
-        </template>
-      </section>
-
-      <!-- Agent details -->
-      <aside class="vp-card ai-agent d-none d-xl-block" aria-label="Agent details">
-        <template v-if="activeAgent">
-          <div class="d-flex align-items-center gap-2 mb-3">
-            <span class="agent-icon agent-icon-sm"
-              ><i class="bi" :class="activeAgent.icon"></i
-            ></span>
-            <h2 class="section-title mb-0 fs-6">{{ activeAgent.name }}</h2>
           </div>
-          <h3 class="panel-heading">What it can do</h3>
-          <ul class="panel-list">
-            <li v-for="item in activeAgent.capabilities" :key="item">{{ item }}</li>
-          </ul>
-          <h3 class="panel-heading">What it can see</h3>
-          <ul class="panel-list">
-            <li v-for="item in activeAgent.dataAccess" :key="item">{{ item }}</li>
-          </ul>
-          <hr />
-          <h3 class="panel-heading">Other agents</h3>
-          <ul class="list-unstyled mb-0">
-            <li v-for="agent in agents.filter((a) => a.id !== activeAgent?.id)" :key="agent.id">
-              <button type="button" class="other-agent" @click="startChat(agent)">
-                <i class="bi" :class="agent.icon"></i>{{ agent.name }}
-              </button>
-            </li>
-          </ul>
-        </template>
-        <template v-else>
-          <h2 class="section-title fs-6 mb-3">How it works</h2>
-          <ul class="panel-list">
-            <li>Pick an agent for the task you need help with.</li>
-            <li>Agents only read your own invoices, documents and AP policies.</li>
-            <li>They never submit, edit or comment on invoices for you.</li>
-            <li>Your conversations are listed on the left so you can pick them up later.</li>
-          </ul>
-        </template>
-      </aside>
+        </div>
+
+        <form class="composer" @submit.prevent="send()">
+          <label for="aiComposer" class="visually-hidden">Message</label>
+          <textarea
+            id="aiComposer"
+            ref="composer"
+            v-model="draft"
+            class="form-control"
+            rows="1"
+            :maxlength="MAX_LENGTH"
+            placeholder="Ask about an invoice, a document or a payment…"
+            @input="autosize"
+            @keydown="onComposerKeydown"
+          ></textarea>
+          <button
+            v-if="sending"
+            type="button"
+            class="btn btn-outline-vp send-button"
+            title="Stop"
+            aria-label="Stop answering"
+            @click="chat.stop()"
+          >
+            <i class="bi bi-stop-fill"></i>
+          </button>
+          <button
+            v-else
+            type="submit"
+            class="btn btn-gold send-button"
+            :disabled="!draft.trim()"
+            aria-label="Send message"
+          >
+            <i class="bi bi-send"></i>
+          </button>
+        </form>
+        <p class="disclaimer">
+          AI can make mistakes. Check important details against your invoice records. The assistant
+          can look things up but never submits, edits or comments for you.
+        </p>
+      </section>
     </div>
   </div>
 </template>
@@ -484,12 +407,6 @@ function timeLabel(iso: string) {
   gap: 1.25rem;
   height: calc(100vh - var(--vp-header-height) - 11rem);
   min-height: 520px;
-}
-
-@media (min-width: 1200px) {
-  .ai-layout {
-    grid-template-columns: 280px minmax(0, 1fr) 280px;
-  }
 }
 
 @media (max-width: 991.98px) {
@@ -551,7 +468,7 @@ function timeLabel(iso: string) {
   background: none;
   border: 0;
   border-radius: 0.375rem;
-  padding: 0.625rem 0.625rem;
+  padding: 0.625rem;
   color: var(--vp-text);
 }
 
@@ -564,8 +481,8 @@ function timeLabel(iso: string) {
 }
 
 .session-icon {
-  font-size: 1.125rem;
-  line-height: 1.3;
+  font-size: 1rem;
+  line-height: 1.4;
   color: var(--vp-muted);
 }
 
@@ -586,9 +503,6 @@ function timeLabel(iso: string) {
 
 .session-meta {
   display: block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .session-time {
@@ -602,87 +516,19 @@ function timeLabel(iso: string) {
   color: var(--vp-muted);
 }
 
-/* ----- Main panel ----- */
+.storage-note {
+  border-top: 1px solid var(--vp-border);
+  margin: 0;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.6875rem;
+  color: var(--vp-muted);
+}
+
+/* ----- Conversation ----- */
 .ai-main {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.gallery {
-  overflow-y: auto;
-}
-
-.agent-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-}
-
-.agent-card {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--vp-border);
-  border-radius: 0.5rem;
-  padding: 1.125rem;
-  align-items: flex-start;
-}
-
-.agent-card:hover {
-  border-color: #c9ced6;
-}
-
-.agent-name {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.agent-description {
-  font-size: 0.8125rem;
-  color: var(--vp-muted);
-  flex: 1;
-}
-
-.preview-badge {
-  background: #eceef1;
-  color: var(--vp-muted);
-  font-weight: 600;
-  margin-top: 0.25rem;
-}
-
-.agent-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--vp-gold-soft);
-  display: grid;
-  place-items: center;
-  font-size: 1.125rem;
-  flex-shrink: 0;
-}
-
-.agent-icon-sm {
-  width: 32px;
-  height: 32px;
-  font-size: 0.9375rem;
-}
-
-.agent-icon-lg {
-  width: 56px;
-  height: 56px;
-  font-size: 1.5rem;
-}
-
-.conversation-state {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  text-align: center;
-  color: var(--vp-muted);
 }
 
 .conversation-header {
@@ -695,6 +541,29 @@ function timeLabel(iso: string) {
 
 .conversation-title {
   font-weight: 700;
+}
+
+.assistant-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--vp-gold-soft);
+  display: grid;
+  place-items: center;
+  font-size: 0.9375rem;
+  flex-shrink: 0;
+}
+
+.assistant-icon-sm {
+  width: 28px;
+  height: 28px;
+  font-size: 0.8125rem;
+}
+
+.assistant-icon-lg {
+  width: 56px;
+  height: 56px;
+  font-size: 1.5rem;
 }
 
 .message-list {
@@ -759,6 +628,23 @@ function timeLabel(iso: string) {
   border-top-right-radius: 0.25rem;
 }
 
+/* Blinking cursor at the end of the answer being written. */
+.caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--vp-text);
+  animation: blink-caret 1s step-end infinite;
+}
+
+@keyframes blink-caret {
+  50% {
+    opacity: 0;
+  }
+}
+
 .message-time {
   font-size: 0.6875rem;
   color: var(--vp-muted);
@@ -769,11 +655,55 @@ function timeLabel(iso: string) {
   text-align: right;
 }
 
+/* A citation referenced inside the answer. */
+.inline-citation {
+  color: var(--bs-link-color);
+  text-decoration: none;
+}
+
+.inline-citation.mention {
+  font-weight: 600;
+  border-bottom: 1px dotted currentColor;
+}
+
+a.inline-citation.mention:hover {
+  border-bottom-style: solid;
+}
+
+/* A numbered marker: [1] in the text becomes a small superscript badge. */
+.inline-citation.marker {
+  display: inline-block;
+  min-width: 1.1em;
+  padding: 0 0.25em;
+  margin-left: 0.15em;
+  border-radius: 0.25rem;
+  background: #e4e9f0;
+  color: var(--bs-link-color);
+  font-size: 0.6875em;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  vertical-align: super;
+}
+
+a.inline-citation.marker:hover {
+  background: var(--vp-gold-soft);
+}
+
 .citations {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.375rem;
-  margin-top: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.citations-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--vp-muted);
 }
 
 .citation {
@@ -785,7 +715,7 @@ function timeLabel(iso: string) {
   color: var(--vp-text);
 }
 
-.citation:hover {
+a.citation:hover {
   border-color: var(--vp-gold);
 }
 
@@ -824,7 +754,8 @@ function timeLabel(iso: string) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .typing span {
+  .typing span,
+  .caret {
     animation: none;
   }
 }
@@ -861,47 +792,5 @@ function timeLabel(iso: string) {
   color: var(--vp-muted);
   padding: 0 1.25rem 0.75rem;
   margin: 0;
-}
-
-/* ----- Agent panel ----- */
-.ai-agent {
-  overflow-y: auto;
-}
-
-.panel-heading {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--vp-muted);
-  margin: 1rem 0 0.5rem;
-}
-
-.panel-list {
-  padding-left: 1.125rem;
-  font-size: 0.8125rem;
-  margin-bottom: 0;
-}
-
-.panel-list li {
-  margin-bottom: 0.375rem;
-}
-
-.other-agent {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  background: none;
-  border: 0;
-  text-align: left;
-  font-size: 0.8125rem;
-  padding: 0.375rem 0.25rem;
-  border-radius: 0.25rem;
-  color: var(--vp-text);
-}
-
-.other-agent:hover {
-  background: #f4f5f7;
 }
 </style>
